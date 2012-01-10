@@ -1,0 +1,4 @@
+<?php
+
+define( 'PSU_API_APPID', 'PUTAPIAPPIDHERE' );
+define( 'PSU_API_APPKEY', 'PUTAPIAPPKEYHERE' );
