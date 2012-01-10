@@ -3,10 +3,10 @@
 require_once 'autoload.php';
 PSU::session_start(); // force ssl + start a session
 
-$GLOBALS['BASE_URL'] = '/webapp/update/this/path';
+$GLOBALS['BASE_URL'] = '/webapp/mobile/';
 $GLOBALS['BASE_DIR'] = __DIR__;
 
-$GLOBALS['TITLE'] = 'Update Application Title';
+$GLOBALS['TITLE'] = 'PSU Mobile';
 $GLOBALS['TEMPLATES'] = $GLOBALS['BASE_DIR'] . '/templates';
 
 require_once $GLOBALS['BASE_DIR'] . '/API.php';
