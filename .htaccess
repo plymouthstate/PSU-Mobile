@@ -1,0 +1,8 @@
+php_value auto_prepend_file none
+php_value auto_append_file none
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php/$1 [L,QSA]
+RewriteRule ^$ index.php/ [L,QSA]
