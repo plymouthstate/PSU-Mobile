@@ -1,4 +1,11 @@
-$(document).ready(function() {
+// Bind events to be triggered BEFORE jQuery Mobile loads/executes
+$(document).bind('mobileinit', function() {
+	// Set jQuery mobile settings
+	//$.mobile.touchOverflowEnabled = true;
+});
+
+// Bind events to be triggered on page initialization
+$(document).bind('pageinit', function() {
 	// Detect orientation change
 	// Bind the event to the window
 	$(window).bind('orientationchange', function(event){
@@ -94,10 +101,4 @@ $(document).ready(function() {
 		deviceOS();
 		deviceInfo();
 	})();
-	
-});
-
-$(document).bind('mobileinit', function() {
-	// Set jQuery mobile settings
-	//$.mobile.touchOverflowEnabled = true;
 });
