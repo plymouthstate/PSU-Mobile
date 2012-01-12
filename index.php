@@ -21,41 +21,31 @@ if( file_exists( $GLOBALS['BASE_DIR'] . '/debug.php' ) ) {
 	include $GLOBALS['BASE_DIR'] . '/debug.php';
 }
 
-/*/
-IDMObject::authN();
-
-if( ! IDMObject::authZ('permission', 'mis') ) {
-	die('You do not have access to this application.');
-}
-//*/
 
 /**
  * Routing provided by klein.php (https://github.com/chriso/klein.php)
- * Make some objects available elsewhere.
  */
+
+// Make some objects available elsewhere
 respond( function( $request, $response, $app ) {
-	/*
-	// initialize the template
-	$app->tpl = new PSUTemplate;
-
-	// get the logged in user
-	$app->user = PSUPerson::get( $_SESSION['wp_id'] ); 
-
-	// assign user to template
-	$app->tpl->assign( 'user', $app->user );
-	 */
+	// Initialize the PSU smarty templating
+	$app->tpl = new MobileTemplate;
 });
 
 // Klein catch-all (should be more developed later)
 respond( '[*]', function( $request, $response, $app ) {
-	// Initialize the PSU smarty templating
-	$app->tpl = new MobileTemplate;
-
-	// Display the default template (index)
-	$app->tpl->display( 'index.tpl', false );
+	// Put master response code here
 });
 
-$app_routes = array();
+// Generic request 
+respond( '/', function( $request, $response, $app ) {
+	// Show the index on a generic request
+	$app->tpl->display( 'index.tpl' );
+});
+
+$app_routes = array(
+	'newsfeed',
+);
 
 foreach( $app_routes as $base ) {
 	with( "/{$base}", $GLOBALS['BASE_DIR'] . "/routes/{$base}.php" );
