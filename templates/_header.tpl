@@ -23,6 +23,9 @@
 	<!-- jQuery -->
 
      <!-- PSU Mobile/Custom (Must be in this order) -->
+	<script type="text/javascript" src="/webapp/mobile/js/modernizr.custom.12420.js"></script>
+	<script type="text/javascript" src="/webapp/mobile/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/webapp/mobile/js/jquery.animate-enhanced.min.js"></script>
      <script type="text/javascript" src="/webapp/mobile/js/global-logic.js"></script>
      <!-- PSU Mobile/Custom -->
 
@@ -32,7 +35,6 @@
      <!-- jQuery Mobile -->
 
 	<!-- PSU Mobile/Custom (Must be in this order) -->
-	<script type="text/javascript" src="/webapp/mobile/js/jquery.easing.1.3.js"></script>
      <link rel="stylesheet" href="/webapp/mobile/templates/style.css" />
 	<!-- PSU Mobile/Custom -->
 	<meta charset="utf-8">

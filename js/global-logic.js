@@ -1,3 +1,19 @@
+// Plugin to jQuery
+(function($) {
+	/*
+	// Create a universal animation function that optimizes for the browsers capabilities
+	$.fn.optAnimate = function(props, speed, easing, callback) {
+		// If modernizr reports that the browser supports CSS animations, and the animateWithCss function has correctly been loaded/defined
+		if (Modernizr.cssanimations && typeof($.fn.animateWithCss) == 'function') {
+			return $(this).animateWithCss(props, speed, easing, callback);
+		}
+		else {
+			return $(this).animate(props, speed, easing, callback);
+		}
+	};
+	*/
+})(jQuery);
+
 // Bind events to be triggered BEFORE jQuery Mobile loads/executes
 $(document).bind('mobileinit', function() {
 	// Set jQuery mobile settings
@@ -78,7 +94,7 @@ $(document).bind('pageinit', function() {
 	}
 
 	$('.info-button').click(function() {
-		$('#hidden-info-div').slideToggle(1000, 'easeOutExpo', function() {
+		$('#hidden-info-div').animate({opacity: 'toggle', height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 1000, 'easeOutExpo', function() {
 			// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
 			$(window).trigger('resize');
 			$(this).trigger('updatelayout');
