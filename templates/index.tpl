@@ -9,9 +9,9 @@
 	<!-- Start dashboard -->
 		<nav id="dashboard">
 			<ul id="dashboard-mapps">
-				<li id="mapp-newsfeed"><a href="#">News Feed</a></li>
-				<li id="mapp-campusmap"><a href="#">Campus Map</a></li>
-				<li id="mapp-feedback"><a href="#">Feedback</a></li>
+				<li id="mapp-newsfeed"><a href="newsfeed/">News Feed</a></li>
+				<li id="mapp-campusmap"><a href="campusmap/">Campus Map</a></li>
+				<li id="mapp-feedback"><a href="feedback/">Feedback</a></li>
 			</ul>
 		</nav>
 	<!-- End dashboard -->
