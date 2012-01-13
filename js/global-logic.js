@@ -46,7 +46,11 @@ $(document).bind('pageinit', function() {
 		var middleCount = Math.ceil(elemPerRow / 2);
 
 		// Create the nth-child expression
-		var everyNthChild = elemPerRow + 'n+' + middleCount;
+		var everyNthChild = elemPerRow + String('n+') + middleCount;
+		console.log(elemPerRow);
+		console.log(middleCount);
+		console.log(everyNthChild);
+		console.log(elemPerRow + 'n+' + middleCount);
 
 		// Finally, set every middle-th element to have a class
 		$('nav#dashboard ul#dashboard-mapps li:nth-child(' + everyNthChild +')').addClass('dash-middle-element');
