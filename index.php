@@ -9,7 +9,8 @@ $GLOBALS['BASE_DIR'] = __DIR__;
 $GLOBALS['TITLE'] = 'PSU Mobile';
 $GLOBALS['TEMPLATES'] = $GLOBALS['BASE_DIR'] . '/templates/';
 
-// Require my custom mobile smarty class
+
+// Include my custom mobile smarty class
 require_once $GLOBALS['BASE_DIR'] . '/includes/MobileTemplate.class.php';
 
 require_once $GLOBALS['BASE_DIR'] . '/API.php';
@@ -20,6 +21,30 @@ require_once $GLOBALS['BASE_DIR'] . '/includes/MobileAPI.class.php';
 if( file_exists( $GLOBALS['BASE_DIR'] . '/debug.php' ) ) {
 	include $GLOBALS['BASE_DIR'] . '/debug.php';
 }
+
+// Build an autoloader for my custom Mobile classes
+function mobile_autoloader($class_name) {
+	// Only use this autoloader when the class name STARTS (position 0) with Mobile
+	if ( stripos( $class_name, 'Mobile' ) === 0 ) {
+		// Declare the include directory
+		$inc_directory = $GLOBALS['BASE_DIR'] . '/includes/Mobile/';
+
+		// Strip out the namespace in the class name argument
+		if ( strpos( $class_name, '\\' ) !== false) {
+			$class_name = substr( strrchr( $class_name, '\\' ), 1 );
+		}
+
+		$file = $inc_directory . $class_name . '.php';
+
+		// Include (require_once) the class files
+		if ( file_exists( $file ) ) {
+			require_once $file;
+		}
+	}
+}
+
+// Register that autoloader
+spl_autoload_register('mobile_autoloader');
 
 
 /**
