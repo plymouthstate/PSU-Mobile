@@ -19,7 +19,7 @@ class Mobile {
 		// Aggregate the feeds into one feed for JSON response
 		$agg_feed_data = Newsfeeds::aggregate($feed_data);
 
-		echo json_encode($agg_feed_data);
+		return json_encode($agg_feed_data);
 	} // End newsfeed
 
 	/**
@@ -43,7 +43,7 @@ class Mobile {
 			Feedback::submit_feedback($postData, $responseData);
 		}
 
-		echo json_encode($responseData);
+		return json_encode($responseData);
 	} // End feedback
 
 } // End class Mobile
