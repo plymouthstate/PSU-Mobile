@@ -18,6 +18,14 @@
      <link rel="shortcut icon" href="/webapp/mobile/templates/images/low/appicon.png">
      <!-- Mobile Meta and Graphic Tags -->
 
+	{if iset($pre_jq_js)}
+		<!-- Pre jQuery Javascript from a specific template/page -->
+		{foreach from=$pre_jq_js item="js"}
+			<script type="text/javascript" scr="{$js}"></script>
+		{/foreach}
+		<!-- Pre jQuery Javascript -->
+	{/if}
+
      <!-- jQuery -->
      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<!-- jQuery -->
@@ -28,6 +36,14 @@
 	<script type="text/javascript" src="/webapp/mobile/js/jquery.animate-enhanced.min.js"></script>
      <script type="text/javascript" src="/webapp/mobile/js/global-logic.js"></script>
      <!-- PSU Mobile/Custom -->
+
+	{if iset($pre_jqm_js)}
+		<!-- Pre jQuery Mobile Javascript from a specific template/page -->
+		{foreach from=$pre_jqm_js item="js"}
+			<script type="text/javascript" scr="{$js}"></script>
+		{/foreach}
+		<!-- Pre jQuery Mobile Javascript -->
+	{/if}
 
      <!-- jQuery Mobile -->
      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
