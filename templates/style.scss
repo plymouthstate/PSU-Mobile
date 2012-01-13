@@ -13,8 +13,7 @@ body {
 	background-image: none;
 }
 .ui-content {
-	padding-left: 0px;
-	padding-right: 0px;
+	padding: 0px;
 }
 .ui-btn {
 	-moz-box-shadow: none !important;
@@ -44,9 +43,11 @@ header h1#header-logo span {
 }
 
 /* Inner content styles */
+/* Dashboard */
 nav#dashboard {
 	width: 100%;
 	margin: auto;
+	padding: 15px 0px;
 	overflow: hidden;
 }
 ul#dashboard-mapps {
@@ -87,6 +88,77 @@ ul#dashboard-mapps li a {
 }
 #mapp-feedback a {
 	background-image: url(images/medium/feedback.png);
+}
+
+/* Newsfeed */
+ul#newsfeed {
+	$facebook_color: #d6d6ff;
+	$twitter_color: #d6ffff;
+	$rss_color: #f0f0f0;
+
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	color: #000;
+
+	li.newsfeed-item {
+		padding: 5px;
+		overflow: hidden;
+		list-style: none;
+		border-bottom: 1px solid #ccc;
+
+		div.feed-icon {
+			display: block;
+			float: left;
+			width: 50px;
+			height: 50px;
+			margin-right: 5px;
+			background-size: 50px;
+		}
+		header {
+			overflow: hidden;
+			line-height: 16px;
+
+			h1.feed-title {
+				display: inline;
+				float: left;
+				margin: 0px;
+				font-size: 12px;
+				font-weight: bold;
+			}
+			time {
+				float: right;
+				font-size: 10px;
+				color: #666;
+			}
+		}
+		p {
+			margin: 0px;
+			margin-top: 2px;
+			font-size: 12px;
+		}
+	}
+	li.facebook {
+		background-color: $facebook_color;
+
+		div.feed-icon {
+			background-image: url(images/medium/facebook_icon.png);
+		}
+	}
+	li.twitter {
+		background-color: $twitter_color;
+
+		div.feed-icon {
+			background-image: url(images/medium/twitter_icon.png);
+		}
+	}
+	li.rss {
+		background-color: $rss_color;
+
+		div.feed-icon {
+			background-image: url(images/medium/rss_icon.png);
+		}
+	}
 }
 
 /* Footer */
