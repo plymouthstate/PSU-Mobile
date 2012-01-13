@@ -21,7 +21,7 @@
 	{if isset($pre_jq_js)}
 		<!-- Pre jQuery Javascript from a specific template/page -->
 		{foreach from=$pre_jq_js item="js"}
-			<script type="text/javascript" scr="{$js}"></script>
+			<script type="text/javascript" src="{$js}"></script>
 		{/foreach}
 		<!-- Pre jQuery Javascript -->
 	{/if}
@@ -40,7 +40,7 @@
 	{if isset($pre_jqm_js)}
 		<!-- Pre jQuery Mobile Javascript from a specific template/page -->
 		{foreach from=$pre_jqm_js item="js"}
-			<script type="text/javascript" scr="{$js}"></script>
+			<script type="text/javascript" src="{$js}"></script>
 		{/foreach}
 		<!-- Pre jQuery Mobile Javascript -->
 	{/if}
@@ -49,6 +49,14 @@
      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
      <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
      <!-- jQuery Mobile -->
+
+	{if isset($post_jqm_js)}
+		<!-- Post jQuery Mobile Javascript from a specific template/page -->
+		{foreach from=$post_jqm_js item="js"}
+			<script type="text/javascript" src="{$js}"></script>
+		{/foreach}
+		<!-- Post jQuery Mobile Javascript -->
+	{/if}
 
 	<!-- PSU Mobile/Custom (Must be in this order) -->
      <link rel="stylesheet" href="/webapp/mobile/templates/style.css" />
