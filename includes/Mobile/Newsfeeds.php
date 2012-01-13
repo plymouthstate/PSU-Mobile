@@ -112,12 +112,17 @@ class Newsfeeds {
 		// Now, let's normalize each feed format into something that we care about/can use
 		// Twitter
 		foreach($feed_data['twitter'] as $tweet) {
+			// Set reusable timestamp variable
+			$timestamp = strtotime($tweet['created_at']);
+
 			$agg_feed_data[] = array(
 				'source' => 'Twitter',
 				'title' => $tweet['user']['name'],
 				'userid' => $tweet['user']['id'],
-				'time' => $tweet['created_at'],
-				'timestamp' => strtotime($tweet['created_at']),
+				'rawtime' => $tweet['created_at'],
+				'timestamp' => $timestamp,
+				'datetime' => Utilities::datetime($timestamp),
+				'time_ago' => Utilities::time_ago($timestamp),
 				'url' => 'https://twitter.com/'.$tweet['user']['screen_name'].'/status/'.$tweet['id_str'],
 				'image' => '',
 				'text' => $tweet['text'],
@@ -126,6 +131,10 @@ class Newsfeeds {
 
 		// Facebook
 		foreach($feed_data['facebook']['data'] as $post) {
+			// Set reusable timestamp variable
+			$timestamp = strtotime($post['created_time']);
+
+			// If the RSS message data is empty, but the name/title isn't, just set the message to have the value of the name
 			if (empty($post['message']) && !empty($post['name'])) {
 				$post['message'] = $post['name'];
 			}
@@ -134,8 +143,10 @@ class Newsfeeds {
 				'source' => 'Facebook',
 				'title' => $post['from']['name'],
 				'userid' => $post['from']['id'],
-				'time' => $post['created_time'],
-				'timestamp' => strtotime($post['created_time']),
+				'rawtime' => $post['created_time'],
+				'timestamp' => $timestamp,
+				'datetime' => Utilities::datetime($timestamp),
+				'time_ago' => Utilities::time_ago($timestamp),
 				'url' => $post['actions'][0]['link'],
 				'image' => '',
 				'text' => $post['message'],
@@ -177,8 +188,10 @@ class Newsfeeds {
 					'source' => 'RSS',
 					'title' => $feed_title,
 					'userid' => '',
-					'time' => $item->pubDate(),
+					'rawtime' => $item->pubDate(),
 					'timestamp' => $post_timestamp,
+					'datetime' => Utilities::datetime($post_timestamp),
+					'time_ago' => Utilities::time_ago($post_timestamp),
 					'url' => $item->link(),
 					'image' => '',
 					'text' => $post_text,
