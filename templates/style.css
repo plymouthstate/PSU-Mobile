@@ -135,6 +135,17 @@ ul#newsfeed {
     ul#newsfeed li.rss div.feed-icon {
       background-image: url(images/medium/rss_icon.png); }
 
+/* Campus Map */
+div#content-container {
+  width: 100%;
+  position: absolute;
+  top: 51px;
+  bottom: 0px; }
+
+div#campus-google-map {
+  width: 100%;
+  height: 100%; }
+
 /* Footer */
 a.dashboard-ui-bar-button {
   width: 100%;
