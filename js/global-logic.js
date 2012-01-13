@@ -98,7 +98,7 @@ $(document).bind('pageinit', function() {
 	}
 
 	$('.info-button').click(function() {
-		$('#hidden-info-div').animate({opacity: 'toggle', height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 1000, 'easeOutExpo', function() {
+		$('#hidden-info-div').animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
 			// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
 			$(window).trigger('resize');
 			$(this).trigger('updatelayout');
