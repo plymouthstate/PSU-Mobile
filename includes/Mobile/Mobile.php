@@ -1,6 +1,7 @@
 <?php
 
-namespace Mobile;
+use Mobile\Newsfeeds,
+	Mobile\Feedback;
 
 class Mobile {
 
@@ -9,14 +10,14 @@ class Mobile {
 	 * Grabs different feeds, combines them, and converts them to JSON
 	 * format for easy AJAX parsing
 	 */
-	public function newsfeed() {
+	public static function newsfeed() {
 		// Get the data from each source
-		$feed_data['twitter'] = MobileNewsfeeds::twitter();
-		$feed_data['facebook'] = MobileNewsfeeds::facebook();
-		$feed_data['rss'] = MobileNewsfeeds::rss();
+		$feed_data['twitter'] = Newsfeeds::twitter();
+		$feed_data['facebook'] = Newsfeeds::facebook();
+		$feed_data['rss'] = Newsfeeds::rss();
 
 		// Aggregate the feeds into one feed for JSON response
-		$agg_feed_data = MobileNewsfeeds::aggregate($feed_data);
+		$agg_feed_data = Newsfeeds::aggregate($feed_data);
 
 		echo json_encode($agg_feed_data);
 	} // End newsfeed
@@ -28,7 +29,7 @@ class Mobile {
 	 * Mails the ITS Helpdesk
 	 * And then responds with JSON
 	 */
-	public function feedback() {
+	public static function feedback() {
 		// Localize and decode POST data
 		$postData = json_decode(stripslashes($_POST['postData']), true);
 		$responseData = array();
@@ -37,9 +38,9 @@ class Mobile {
 		$responseData = array();
 
 		// If data is valid
-		if(MobileFeedback::validate_data($postData, $responseData)) {
+		if(Feedback::validate_data($postData, $responseData)) {
 			// Submit the feedback
-			MobileFeedback::submit_feedback($postData, $responseData);
+			Feedback::submit_feedback($postData, $responseData);
 		}
 
 		echo json_encode($responseData);
