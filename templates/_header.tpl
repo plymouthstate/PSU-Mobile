@@ -26,16 +26,13 @@
 		<!-- Pre jQuery Javascript -->
 	{/if}
 
+	<!-- Google Maps API -->
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<!-- Google Maps API -->
+
      <!-- jQuery -->
      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<!-- jQuery -->
-
-     <!-- PSU Mobile/Custom (Must be in this order) -->
-	<script type="text/javascript" src="/webapp/mobile/js/modernizr.custom.12420.js"></script>
-	<script type="text/javascript" src="/webapp/mobile/js/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="/webapp/mobile/js/jquery.animate-enhanced.min.js"></script>
-     <script type="text/javascript" src="/webapp/mobile/js/global-logic.js"></script>
-     <!-- PSU Mobile/Custom -->
 
 	{if isset($pre_jqm_js)}
 		<!-- Pre jQuery Mobile Javascript from a specific template/page -->
@@ -49,6 +46,14 @@
      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
      <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
      <!-- jQuery Mobile -->
+
+     <!-- PSU Mobile/Custom -->
+	<script type="text/javascript" src="/webapp/mobile/js/modernizr.custom.12420.js"></script>
+	<script type="text/javascript" src="/webapp/mobile/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/webapp/mobile/js/jquery.animate-enhanced.min.js"></script>
+	<script type="text/javascript" src="/webapp/mobile/js/jquery.ui.map.full.min.js"></script>
+     <script type="text/javascript" src="/webapp/mobile/js/global-logic.js"></script>
+     <!-- PSU Mobile/Custom -->
 
 	{if isset($post_jqm_js)}
 		<!-- Post jQuery Mobile Javascript from a specific template/page -->
