@@ -42,28 +42,24 @@ header h1#header-logo span {
 
 /* Inner content styles */
 /* Dashboard */
-nav#dashboard {
+#page-dashboard nav#dashboard {
   width: 100%;
   margin: auto;
   padding: 15px 0px;
   overflow: hidden; }
-
-ul#dashboard-mapps {
+#page-dashboard ul#dashboard-mapps {
   margin: 0px;
   padding: 0px 1px;
   overflow: hidden;
   text-align: center; }
-
-ul#dashboard-mapps li {
+#page-dashboard ul#dashboard-mapps li {
   display: block;
   float: left;
   overflow: hidden;
   width: 33%; }
-
-ul#dashboard-mapps li.dash-middle-element {
+#page-dashboard ul#dashboard-mapps li.dash-middle-element {
   width: 34%; }
-
-ul#dashboard-mapps li a {
+#page-dashboard ul#dashboard-mapps li a {
   display: block;
   width: 80px;
   margin: 0px auto;
@@ -77,74 +73,70 @@ ul#dashboard-mapps li a {
   text-decoration: none;
   color: #fff;
   text-shadow: none; }
-
-#mapp-newsfeed a {
+#page-dashboard #mapp-newsfeed a {
   background-image: url(images/medium/news.png); }
-
-#mapp-campusmap a {
+#page-dashboard #mapp-campusmap a {
   background-image: url(images/medium/map.png); }
-
-#mapp-feedback a {
+#page-dashboard #mapp-feedback a {
   background-image: url(images/medium/feedback.png); }
 
 /* Newsfeed */
-ul#newsfeed {
+#page-newsfeed ul#newsfeed {
   padding: 0px;
   margin: 0px;
   list-style: none;
   color: #000; }
-  ul#newsfeed li.newsfeed-item {
+  #page-newsfeed ul#newsfeed li.newsfeed-item {
     padding: 5px;
     overflow: hidden;
     list-style: none;
     border-bottom: 1px solid #ccc; }
-    ul#newsfeed li.newsfeed-item div.feed-icon {
+    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon {
       display: block;
       float: left;
       width: 50px;
       height: 50px;
       margin-right: 5px;
       background-size: 50px; }
-    ul#newsfeed li.newsfeed-item header {
+    #page-newsfeed ul#newsfeed li.newsfeed-item header {
       overflow: hidden;
       line-height: 16px; }
-      ul#newsfeed li.newsfeed-item header h1.feed-title {
+      #page-newsfeed ul#newsfeed li.newsfeed-item header h1.feed-title {
         display: inline;
         float: left;
         margin: 0px;
         font-size: 12px;
         font-weight: bold; }
-      ul#newsfeed li.newsfeed-item header time {
+      #page-newsfeed ul#newsfeed li.newsfeed-item header time {
         float: right;
         font-size: 10px;
         color: #666; }
-    ul#newsfeed li.newsfeed-item p {
+    #page-newsfeed ul#newsfeed li.newsfeed-item p {
       margin: 0px;
       margin-top: 2px;
       font-size: 12px; }
-  ul#newsfeed li.facebook {
+  #page-newsfeed ul#newsfeed li.facebook {
     background-color: #d6d6ff; }
-    ul#newsfeed li.facebook div.feed-icon {
+    #page-newsfeed ul#newsfeed li.facebook div.feed-icon {
       background-image: url(images/medium/facebook_icon.png); }
-  ul#newsfeed li.twitter {
+  #page-newsfeed ul#newsfeed li.twitter {
     background-color: #d6ffff; }
-    ul#newsfeed li.twitter div.feed-icon {
+    #page-newsfeed ul#newsfeed li.twitter div.feed-icon {
       background-image: url(images/medium/twitter_icon.png); }
-  ul#newsfeed li.rss {
+  #page-newsfeed ul#newsfeed li.rss {
     background-color: #f0f0f0; }
-    ul#newsfeed li.rss div.feed-icon {
+    #page-newsfeed ul#newsfeed li.rss div.feed-icon {
       background-image: url(images/medium/rss_icon.png); }
 
 /* Campus Map */
-div#content-container {
+#page-campusmap div#content-container {
   width: 100%;
   position: absolute;
   top: 51px;
   bottom: 0px; }
-
-div#campus-google-map {
-  width: 100%;
-  height: 100%; }
+  #page-campusmap div#content-container div#campus-google-map {
+    width: 100%;
+    height: 100%; }
 
 /* Footer */
 a.dashboard-ui-bar-button {

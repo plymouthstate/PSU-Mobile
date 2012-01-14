@@ -44,132 +44,137 @@ header h1#header-logo span {
 
 /* Inner content styles */
 /* Dashboard */
-nav#dashboard {
-	width: 100%;
-	margin: auto;
-	padding: 15px 0px;
-	overflow: hidden;
-}
-ul#dashboard-mapps {
-	margin: 0px;
-	padding: 0px 1px;
-	overflow: hidden;
-	text-align: center;
-}
-ul#dashboard-mapps li {
-	display: block;
-	float: left;
-	overflow: hidden;
-	width: 33%;
-}
-ul#dashboard-mapps li.dash-middle-element {
-	width: 34%;
-}
-ul#dashboard-mapps li a {
-	display: block;
-	width: 80px;
-	margin: 0px auto;
-	margin-bottom: 16px;
-	padding-top: 80px;
-	background-repeat: no-repeat;
-	background-position: 50% 0%;
-	background-size: 72px;
-	font-size: 13px;
-	font-weight: normal;
-	text-decoration: none;
-	color: #fff;
-	text-shadow: none;
-}
-#mapp-newsfeed a {
-	background-image: url(images/medium/news.png);
-}
-#mapp-campusmap a {
-	background-image: url(images/medium/map.png);
-}
-#mapp-feedback a {
-	background-image: url(images/medium/feedback.png);
+#page-dashboard {
+	nav#dashboard {
+		width: 100%;
+		margin: auto;
+		padding: 15px 0px;
+		overflow: hidden;
+	}
+	ul#dashboard-mapps {
+		margin: 0px;
+		padding: 0px 1px;
+		overflow: hidden;
+		text-align: center;
+	}
+	ul#dashboard-mapps li {
+		display: block;
+		float: left;
+		overflow: hidden;
+		width: 33%;
+	}
+	ul#dashboard-mapps li.dash-middle-element {
+		width: 34%;
+	}
+	ul#dashboard-mapps li a {
+		display: block;
+		width: 80px;
+		margin: 0px auto;
+		margin-bottom: 16px;
+		padding-top: 80px;
+		background-repeat: no-repeat;
+		background-position: 50% 0%;
+		background-size: 72px;
+		font-size: 13px;
+		font-weight: normal;
+		text-decoration: none;
+		color: #fff;
+		text-shadow: none;
+	}
+	#mapp-newsfeed a {
+		background-image: url(images/medium/news.png);
+	}
+	#mapp-campusmap a {
+		background-image: url(images/medium/map.png);
+	}
+	#mapp-feedback a {
+		background-image: url(images/medium/feedback.png);
+	}
 }
 
 /* Newsfeed */
-ul#newsfeed {
-	$facebook_color: #d6d6ff;
-	$twitter_color: #d6ffff;
-	$rss_color: #f0f0f0;
+#page-newsfeed {
+	ul#newsfeed {
+		$facebook_color: #d6d6ff;
+		$twitter_color: #d6ffff;
+		$rss_color: #f0f0f0;
 
-	padding: 0px;
-	margin: 0px;
-	list-style: none;
-	color: #000;
-
-	li.newsfeed-item {
-		padding: 5px;
-		overflow: hidden;
+		padding: 0px;
+		margin: 0px;
 		list-style: none;
-		border-bottom: 1px solid #ccc;
+		color: #000;
 
-		div.feed-icon {
-			display: block;
-			float: left;
-			width: 50px;
-			height: 50px;
-			margin-right: 5px;
-			background-size: 50px;
-		}
-		header {
+		li.newsfeed-item {
+			padding: 5px;
 			overflow: hidden;
-			line-height: 16px;
+			list-style: none;
+			border-bottom: 1px solid #ccc;
 
-			h1.feed-title {
-				display: inline;
+			div.feed-icon {
+				display: block;
 				float: left;
+				width: 50px;
+				height: 50px;
+				margin-right: 5px;
+				background-size: 50px;
+			}
+			header {
+				overflow: hidden;
+				line-height: 16px;
+
+				h1.feed-title {
+					display: inline;
+					float: left;
+					margin: 0px;
+					font-size: 12px;
+					font-weight: bold;
+				}
+				time {
+					float: right;
+					font-size: 10px;
+					color: #666;
+				}
+			}
+			p {
 				margin: 0px;
+				margin-top: 2px;
 				font-size: 12px;
-				font-weight: bold;
-			}
-			time {
-				float: right;
-				font-size: 10px;
-				color: #666;
 			}
 		}
-		p {
-			margin: 0px;
-			margin-top: 2px;
-			font-size: 12px;
-		}
-	}
-	li.facebook {
-		background-color: $facebook_color;
+		li.facebook {
+			background-color: $facebook_color;
 
-		div.feed-icon {
-			background-image: url(images/medium/facebook_icon.png);
+			div.feed-icon {
+				background-image: url(images/medium/facebook_icon.png);
+			}
 		}
-	}
-	li.twitter {
-		background-color: $twitter_color;
+		li.twitter {
+			background-color: $twitter_color;
 
-		div.feed-icon {
-			background-image: url(images/medium/twitter_icon.png);
+			div.feed-icon {
+				background-image: url(images/medium/twitter_icon.png);
+			}
 		}
-	}
-	li.rss {
-		background-color: $rss_color;
+		li.rss {
+			background-color: $rss_color;
 
-		div.feed-icon {
-			background-image: url(images/medium/rss_icon.png);
+			div.feed-icon {
+				background-image: url(images/medium/rss_icon.png);
+			}
 		}
 	}
 }
 /* Campus Map */
-div#content-container {
+#page-campusmap div#content-container {
 	width: 100%;
 	position: absolute;
 	top: 51px;
 	bottom: 0px;
-}
-div#campus-google-map {
-	width: 100%;
-	height: 100%;
+
+	div#campus-google-map {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 /* Footer */
