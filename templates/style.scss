@@ -62,6 +62,32 @@ header.ui-header {
 		top: 12px;
 		box-shadow: none;
 	}
+
+	/* Images depending on screen density */
+	/* Extra high - 2 times */
+	@media screen and (-webkit-device-pixel-ratio: 2) {
+		h1#header-logo {
+			background-image: url(images/xhigh/psu_logo.png);
+		}
+	}
+	/* High - 1.5 times */
+	@media screen and (-webkit-device-pixel-ratio: 1.5) {
+		h1#header-logo {
+			background-image: url(images/high/psu_logo.png);
+		}
+	}
+	/* Medium/Normal - 1.0 times */
+	@media screen and (-webkit-device-pixel-ratio: 1.0) {
+		h1#header-logo {
+			background-image: url(images/medium/psu_logo.png);
+		}
+	}
+	/* Low - 0.75 times */
+	@media screen and (-webkit-device-pixel-ratio: 0.75) {
+		h1#header-logo {
+			background-image: url(images/low/psu_logo.png);
+		}
+	}
 }
 
 /* Inner content styles */
@@ -111,6 +137,74 @@ header.ui-header {
 			}
 			li#mapp-feedback a {
 				background-image: url(images/medium/feedback.png);
+			}
+
+			/* Styles based on orientation change */
+			@media screen and (orientation:portrait) {
+				li {
+					width: 33%;
+				}
+				li.dash-middle-element {
+					width: 34%;
+				}
+			}
+			@media screen and (orientation:landscape) {
+				li {
+					width: 20%;
+				}
+				li.dash-middle-element {
+					width: 20%;
+				}
+			}
+
+			/* Images depending on screen density */
+			/* Extra high - 2 times */
+			@media screen and (-webkit-device-pixel-ratio: 2) {
+				li#mapp-newsfeed a {
+					background-image: url(images/xhigh/news.png);
+				}
+				li#mapp-campusmap a {
+					background-image: url(images/xhigh/map.png);
+				}
+				li#mapp-feedback a {
+					background-image: url(images/xhigh/feedback.png);
+				}
+			}
+			/* High - 1.5 times */
+			@media screen and (-webkit-device-pixel-ratio: 1.5) {
+				li#mapp-newsfeed a {
+					background-image: url(images/high/news.png);
+				}
+				li#mapp-campusmap a {
+					background-image: url(images/high/map.png);
+				}
+				li#mapp-feedback a {
+					background-image: url(images/high/feedback.png);
+				}
+			}
+			/* Medium/Normal - 1.0 times */
+			@media screen and (-webkit-device-pixel-ratio: 1.0) {
+				li#mapp-newsfeed a {
+					background-image: url(images/medium/news.png);
+				}
+				li#mapp-campusmap a {
+					background-image: url(images/medium/map.png);
+				}
+				li#mapp-feedback a {
+					background-image: url(images/medium/feedback.png);
+				}
+			}
+			/* Low - 0.75 times */
+			@media screen and (-webkit-device-pixel-ratio: 0.75) {
+				li#mapp-newsfeed a {
+					background-image: url(images/low/news.png);
+				}
+				li#mapp-campusmap a {
+					background-image: url(images/low/map.png);
+				}
+				li#mapp-feedback a {
+					background-image: url(images/low/feedback.png);
+				}
 			}
 		}
 	}
@@ -228,6 +322,44 @@ a.dashboard-ui-bar-button.info-button-close {
 	background-image: url(images/medium/ic_menu_arrow_down.png);
 }
 
+/* Images depending on screen density */
+/* Extra high - 2 times */
+@media screen and (-webkit-device-pixel-ratio: 2) {
+	a.dashboard-ui-bar-button.info-button-open {
+		background-image: url(images/xhigh/ic_menu_arrow_up.png);
+	}
+	a.dashboard-ui-bar-button.info-button-close {
+		background-image: url(images/xhigh/ic_menu_arrow_down.png);
+	}
+}
+/* High - 1.5 times */
+@media screen and (-webkit-device-pixel-ratio: 1.5) {
+	a.dashboard-ui-bar-button.info-button-open {
+		background-image: url(images/high/ic_menu_arrow_up.png);
+	}
+	a.dashboard-ui-bar-button.info-button-close {
+		background-image: url(images/high/ic_menu_arrow_down.png);
+	}
+}
+/* Medium/Normal - 1.0 times */
+@media screen and (-webkit-device-pixel-ratio: 1.0) {
+	a.dashboard-ui-bar-button.info-button-open {
+		background-image: url(images/medium/ic_menu_arrow_up.png);
+	}
+	a.dashboard-ui-bar-button.info-button-close {
+		background-image: url(images/medium/ic_menu_arrow_down.png);
+	}
+}
+/* Low - 0.75 times */
+@media screen and (-webkit-device-pixel-ratio: 0.75) {
+	a.dashboard-ui-bar-button.info-button-open {
+		background-image: url(images/low/ic_menu_arrow_up.png);
+	}
+	a.dashboard-ui-bar-button.info-button-close {
+		background-image: url(images/low/ic_menu_arrow_down.png);
+	}
+}
+
 /* Slide Up Info */
 div#hidden-info-div {
 	display: none;
@@ -245,106 +377,4 @@ html.android header h1#header-logo {
 	margin-left: 4px;
 }
 
-/* Styles based on orientation change */
-@media screen and (orientation:portrait) {
-	ul#dashboard-mapps li {
-		width: 33%;
-	}
-	ul#dashboard-mapps li.dash-middle-element {
-		width: 33%;
-	}
-}
-@media screen and (orientation:landscape) {
-	ul#dashboard-mapps li {
-		width: 20%;
-	}
-	ul#dashboard-mapps li.dash-middle-element {
-		width: 20%;
-	}
-}
 
-/* Images depending on screen density */
-/* Extra high - 2 times */
-@media screen and (-webkit-device-pixel-ratio: 2) {
-	header h1#header-logo {
-		background-image: url(images/xhigh/psu_logo.png);
-	}
-	li#mapp-newsfeed a {
-		background-image: url(images/xhigh/news.png);
-	}
-	li#mapp-campusmap a {
-		background-image: url(images/xhigh/map.png);
-	}
-	li#mapp-feedback a {
-		background-image: url(images/xhigh/feedback.png);
-	}
-	a.dashboard-ui-bar-button.info-button-open {
-		background-image: url(images/xhigh/ic_menu_arrow_up.png);
-	}
-	a.dashboard-ui-bar-button.info-button-close {
-		background-image: url(images/xhigh/ic_menu_arrow_down.png);
-	}
-}
-/* High - 1.5 times */
-@media screen and (-webkit-device-pixel-ratio: 1.5) {
-	header h1#header-logo {
-		background-image: url(images/high/psu_logo.png);
-	}
-	li#mapp-newsfeed a {
-		background-image: url(images/high/news.png);
-	}
-	li#mapp-campusmap a {
-		background-image: url(images/high/map.png);
-	}
-	li#mapp-feedback a {
-		background-image: url(images/high/feedback.png);
-	}
-	a.dashboard-ui-bar-button.info-button-open {
-		background-image: url(images/high/ic_menu_arrow_up.png);
-	}
-	a.dashboard-ui-bar-button.info-button-close {
-		background-image: url(images/high/ic_menu_arrow_down.png);
-	}
-}
-/* Medium/Normal - 1.0 times */
-@media screen and (-webkit-device-pixel-ratio: 1.0) {
-	header h1#header-logo {
-		background-image: url(images/medium/psu_logo.png);
-	}
-	li#mapp-newsfeed a {
-		background-image: url(images/medium/news.png);
-	}
-	li#mapp-campusmap a {
-		background-image: url(images/medium/map.png);
-	}
-	li#mapp-feedback a {
-		background-image: url(images/medium/feedback.png);
-	}
-	a.dashboard-ui-bar-button.info-button-open {
-		background-image: url(images/medium/ic_menu_arrow_up.png);
-	}
-	a.dashboard-ui-bar-button.info-button-close {
-		background-image: url(images/medium/ic_menu_arrow_down.png);
-	}
-}
-/* Low - 0.75 times */
-@media screen and (-webkit-device-pixel-ratio: 0.75) {
-	header h1#header-logo {
-		background-image: url(images/low/psu_logo.png);
-	}
-	li#mapp-newsfeed a {
-		background-image: url(images/low/news.png);
-	}
-	li#mapp-campusmap a {
-		background-image: url(images/low/map.png);
-	}
-	li#mapp-feedback a {
-		background-image: url(images/low/feedback.png);
-	}
-	a.dashboard-ui-bar-button.info-button-open {
-		background-image: url(images/low/ic_menu_arrow_up.png);
-	}
-	a.dashboard-ui-bar-button.info-button-close {
-		background-image: url(images/low/ic_menu_arrow_down.png);
-	}
-}
