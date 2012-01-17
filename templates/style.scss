@@ -295,6 +295,40 @@ header.ui-header {
 	}
 }
 
+/* Feedback Form */
+#page-feedback {
+	fieldset {
+		padding-top: 4px;
+
+		label, div.input-container {
+			margin: 4px 8px;
+		}
+	}
+	input, textarea, select {
+		width: 96%;
+		border: 1px solid $psu_color;
+	}
+	label {
+		font-size: 16px;
+		font-weight: normal;
+		color: #045340;
+	}
+	textarea {
+		height: 72px;
+	}
+	.ui-btn {
+		margin: 0px;
+		box-shadow: none;
+
+		input {
+			margin: auto;
+		}
+	}
+	.ui-select .ui-btn-text {
+		text-align: left;
+	}
+}
+
 /* Footer */
 footer.ui-footer {
 	height: $ui_bar_height;

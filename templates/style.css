@@ -209,6 +209,28 @@ header.ui-header {
     width: 100%;
     height: 100%; }
 
+/* Feedback Form */
+#page-feedback fieldset {
+  padding-top: 4px; }
+  #page-feedback fieldset label, #page-feedback fieldset div.input-container {
+    margin: 4px 8px; }
+#page-feedback input, #page-feedback textarea, #page-feedback select {
+  width: 96%;
+  border: 1px solid #013d2e; }
+#page-feedback label {
+  font-size: 16px;
+  font-weight: normal;
+  color: #045340; }
+#page-feedback textarea {
+  height: 72px; }
+#page-feedback .ui-btn {
+  margin: 0px;
+  box-shadow: none; }
+  #page-feedback .ui-btn input {
+    margin: auto; }
+#page-feedback .ui-select .ui-btn-text {
+  text-align: left; }
+
 /* Footer */
 footer.ui-footer {
   height: 52px;
