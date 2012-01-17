@@ -1,7 +1,8 @@
 {include file='_header.tpl' pre_jq_js=$pre_jq_js post_jq_js=$post_jq_js}
 <!-- Begin jQuery Mobile Page -->
-<div data-role="page" id="page-campusmap" data-add-back-btn="true">
+<div data-role="page" id="page-campusmap">
 	{jqm_header position="fixed"}
+		<a href="/webapp/mobile/" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
           <h1 id="header-logo"><span>PSU Mobile</span></h1>
      {/jqm_header}
 
