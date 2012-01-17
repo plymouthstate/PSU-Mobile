@@ -44,6 +44,7 @@
 
      <!-- jQuery Mobile -->
      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+     <link rel="stylesheet" href="/webapp/mobile/templates/psu-mobile-jqm-theme.min.css" />
      <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
      <!-- jQuery Mobile -->
 
