@@ -44,6 +44,19 @@
 
 })(jQuery);
 
+// Bind events to be triggered BEFORE EVERY page creation
+$(document).live('pagebeforecreate', function() {
+	// Function to find all jQuery Mobile back buttons and add an attribute to it
+	function modifyBackButtons() {
+		$('a[data-rel=back]').attr('data-direction', 'reverse');
+	}
+
+	// Functions to run on page-load
+	(function() {
+		modifyBackButtons();
+	})();
+});
+
 // Bind generic events to be triggered on EVERY page initialization
 $(document).live('pageinit', function() {
 	// Function to change the class of the HTML tag based on the orientation of the device
