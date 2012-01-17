@@ -180,8 +180,18 @@ class Newsfeeds {
 					continue;
 				}
 
-				// Clean the posts text
-				$post_text = htmlspecialchars_decode(html_entity_decode(strip_tags($item->title())));
+				// Quick function to clean the posts text
+				$clean_the_post = function($post) {
+					// Run some cleaners on the string
+					$post = htmlspecialchars_decode($post);
+					$post = html_entity_decode($post);
+					$post = strip_tags($post);
+					$post = Utilities::html_all_entities($post);
+					$post = str_replace('&#12287;', '\'', $post);
+
+					return $post;
+				};
+				$post_text = $clean_the_post($item->title());
 
 				// Add the posts data to the normalized array
 				$agg_feed_data[] = array(
