@@ -1,6 +1,6 @@
 {include file='_header.tpl'}
 <!-- Begin jQuery Mobile Page -->
-<div data-role="page" id="page-newsfeed">
+<div data-role="page" id="page-newsfeed" data-add-back-btn="true">
 	{jqm_header position="fixed"}
           <h1 id="header-logo"><span>PSU Mobile</span></h1>
      {/jqm_header}
