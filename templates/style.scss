@@ -62,6 +62,10 @@ header.ui-header {
 		top: 12px;
 		box-shadow: none;
 	}
+	.ui-btn[data-rel=back] span.ui-icon {
+		background-image: url(images/icons-18-white.png);
+		box-shadow: none;
+	}
 
 	/* Images depending on screen density */
 	/* Extra high - 2 times */

@@ -51,9 +51,8 @@ $(document).live('pagebeforecreate', function() {
 		// Back buttons jQuery object
 		var $backBtns = $('a[data-rel=back]');
 
-		// Add attribute and HTML
+		// Add attribute
 		$backBtns.attr('data-direction', 'reverse');
-		$backBtns.html('<div class="ios-back-arrow-point"></div>');
 	}
 
 	// Functions to run on page-load
@@ -75,10 +74,20 @@ $(document).live('pageinit', function() {
 		changeOrientationClass(event.orientation);
 	});
 
+	// Function to find all jQuery Mobile back buttons and add an attribute to it
+	function modifyBackButtons() {
+		// Back buttons jQuery object
+		var $backBtns = $('a[data-rel=back]');
+
+		// Add HTML
+		$backBtns.append('<span class="ui-icon ui-icon-arrow-l ui-icon-shadow"></span>');
+	}
+
 	// Functions to run on page-load
 	(function() {
 		$(window).trigger('orientationchange');
 		$().deviceOS();
+		modifyBackButtons();
 	})();
 });
 

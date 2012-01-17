@@ -52,6 +52,9 @@ header.ui-header {
     line-height: normal;
     top: 12px;
     box-shadow: none; }
+  header.ui-header .ui-btn[data-rel=back] span.ui-icon {
+    background-image: url(images/icons-18-white.png);
+    box-shadow: none; }
   @media screen and (-webkit-device-pixel-ratio: 2) {
     header.ui-header h1#header-logo {
       background-image: url(images/xhigh/psu_logo.png); } }
