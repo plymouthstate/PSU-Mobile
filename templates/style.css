@@ -187,15 +187,15 @@ header.ui-header {
       margin-top: 2px;
       font-size: 12px; }
   #page-newsfeed ul#newsfeed li.facebook {
-    background-color: #d6d6ff; }
+    background-color: #eaeaff; }
     #page-newsfeed ul#newsfeed li.facebook div.feed-icon {
       background-image: url(images/medium/facebook_icon.png); }
   #page-newsfeed ul#newsfeed li.twitter {
-    background-color: #d6ffff; }
+    background-color: #eaffff; }
     #page-newsfeed ul#newsfeed li.twitter div.feed-icon {
       background-image: url(images/medium/twitter_icon.png); }
   #page-newsfeed ul#newsfeed li.rss {
-    background-color: #f0f0f0; }
+    background-color: #eaeaea; }
     #page-newsfeed ul#newsfeed li.rss div.feed-icon {
       background-image: url(images/medium/rss_icon.png); }
 
