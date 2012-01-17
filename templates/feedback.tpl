@@ -8,6 +8,30 @@
 
 	{jqm_content}
 		<!-- Feedback form here -->
+		<form action="#" method="post">
+			<fieldset>
+				<label for="feedback-email">Your Email Address</label>
+				<input type="email" name="email" id="feedback-email" />
+			</fieldset>
+			<fieldset>
+				<label for="feedback-title">Subject/Title</label>
+				<input type="text" name="title" id="feedback-title" />
+			</fieldset>
+			<fieldset>
+				<label for="feedback-message">Feedback</label>
+				<textarea name="message" id="feedback-message"></textarea>
+			</fieldset>
+			<fieldset>
+				<label for="feedback-feeling">How does it make you feel?</label>
+				<select name="feeling" id="feedback-feeling" data-theme="a">
+					<option>Happy</option>
+					<option>Silly</option>
+					<option>Indifferent</option>
+					<option>Sad</option>
+				</select>
+			</fieldset>
+			<input type="submit" value="Submit Feedback" />
+		</form>
 	{/jqm_content}
 
 </div>
