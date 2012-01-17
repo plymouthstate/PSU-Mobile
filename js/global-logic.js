@@ -44,12 +44,6 @@
 
 })(jQuery);
 
-// Bind events to be triggered BEFORE jQuery Mobile loads/executes
-$(document).bind('mobileinit', function() {
-	// Set jQuery mobile settings
-	//$.mobile.touchOverflowEnabled = true;
-});
-
 // Bind generic events to be triggered on EVERY page initialization
 $(document).live('pageinit', function() {
 	// Function to change the class of the HTML tag based on the orientation of the device
@@ -118,6 +112,9 @@ $('#page-dashboard').live('pageinit', function() {
 			// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
 			$(window).trigger('resize');
 			$(this).trigger('updatelayout');
+		});
+		$('footer').animate({ opacity: 'toggle'}, 1200, 'easeInExpo', function() {
+			// Do something on callback
 		});
 	});
 

@@ -42,6 +42,10 @@
 		<!-- Pre jQuery Mobile Javascript -->
 	{/if}
 
+	<!-- jQuery Mobile Configuration -->
+	<script type="text/javascript" src="/webapp/mobile/js/jquery.mobile.config.js"></script>
+	<!-- jQuery Mobile Configuration -->
+
      <!-- jQuery Mobile -->
      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
      <link rel="stylesheet" href="/webapp/mobile/templates/psu-mobile-jqm-theme.min.css" />
