@@ -71,6 +71,7 @@ respond( '/', function( $request, $response, $app ) {
 $app_routes = array(
 	'newsfeed',
 	'campusmap',
+	'feedback',
 );
 
 foreach( $app_routes as $base ) {
