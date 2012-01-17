@@ -48,7 +48,12 @@
 $(document).live('pagebeforecreate', function() {
 	// Function to find all jQuery Mobile back buttons and add an attribute to it
 	function modifyBackButtons() {
-		$('a[data-rel=back]').attr('data-direction', 'reverse');
+		// Back buttons jQuery object
+		var $backBtns = $('a[data-rel=back]');
+
+		// Add attribute and HTML
+		$backBtns.attr('data-direction', 'reverse');
+		$backBtns.html('<div class="ios-back-arrow-point"></div>');
 	}
 
 	// Functions to run on page-load
@@ -79,6 +84,9 @@ $(document).live('pageinit', function() {
 
 // Bind generic events to be triggered on the DASHBOARD page initialization
 $('#page-dashboard').live('pageinit', function() {
+	// Set variables for the dashboard
+	var currentElemPerRow = '';
+	
 	// Detect and mark the "middle" elements of the dashboard
 	function detectMiddleElements() {
 		// Grab the width of the entire dashboard
@@ -90,8 +98,12 @@ $('#page-dashboard').live('pageinit', function() {
 		// Find the number of elements per row
 		var elemPerRow = Math.floor(dashWidth / elemWidth);
 
+		// Remove the current element per row class, so there aren't more than one class
+		$('nav#dashboard').removeClass(currentElemPerRow + '-per-row');
+
 		// Set the number of elements per row as a css class on the dashboard tag
 		$('nav#dashboard').addClass(elemPerRow + '-per-row');
+		currentElemPerRow = elemPerRow;
 
 		// Calculate the middle-th element
 		var middleCount = Math.ceil(elemPerRow / 2);
@@ -104,6 +116,7 @@ $('#page-dashboard').live('pageinit', function() {
 		console.log(elemPerRow + 'n+' + middleCount);
 
 		// Finally, set every middle-th element to have a class
+		$('nav#dashboard ul#dashboard-mapps li').removeClass('dash-middle-element');
 		$('nav#dashboard ul#dashboard-mapps li:nth-child(' + everyNthChild +')').addClass('dash-middle-element');
 	}
 
