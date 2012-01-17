@@ -23,7 +23,7 @@
 
 	<div id="hidden-info-div">
 		<div class="ui-bar-a">
-			<a href="#" class="dashboard-ui-bar-button info-button info-button-close" data-role="button" data-iconpos="notext"></a>
+			<a href="#" id="hidden-info-button" class="dashboard-ui-bar-button info-button info-button-close" data-role="button" data-iconpos="notext"></a>
 		</div>
 		<ul id="mobile-info"></ul>
 	</div>
