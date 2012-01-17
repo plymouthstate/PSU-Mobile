@@ -1,3 +1,12 @@
+/* CSS Variables for SASS */
+$psu_color: #013D2E;
+$facebook_color: #d6d6ff;
+$twitter_color: #d6ffff;
+$rss_color: #f0f0f0;
+
+$ui_bar_height: 52px;
+
+
 /* jQuery Mobile style overrides */
 /*
 body {
@@ -5,7 +14,7 @@ body {
 }
 .ui-bar-a {
 	background: none;
-	background-color: #013d2e;
+	background-color: $psu_color;
 	background-image: none;
 }
 .ui-body-c {
@@ -29,22 +38,29 @@ body {
 }
 
 /* Header */
-header {
+header.ui-header {
 	overflow: hidden;
+	height: $ui_bar_height;
+	line-height: $ui_bar_height;
 
 	h1#header-logo {
 		width: 124px;
 		height: 35px;
 		margin: 5px auto;
-		padding: 2px;
+		padding: 3px;
 		background-image: url(images/medium/psu_logo.png);
 		background-repeat: no-repeat;
-		background-position: 50% 0%;
+		background-position: 50% 50%;
 		background-size: 124px;
 
 		span {
 			display: none;
 		}
+	}
+	.ui-btn {
+		line-height: normal;
+		top: 12px;
+		box-shadow: none;
 	}
 }
 
@@ -103,10 +119,6 @@ header {
 /* Newsfeed */
 #page-newsfeed {
 	ul#newsfeed {
-		$facebook_color: #d6d6ff;
-		$twitter_color: #d6ffff;
-		$rss_color: #f0f0f0;
-
 		padding: 0px;
 		margin: 0px;
 		list-style: none;
@@ -186,13 +198,17 @@ header {
 }
 
 /* Footer */
+footer.ui-footer {
+	height: $ui_bar_height;
+	line-height: $ui_bar_height;
+}
 a.dashboard-ui-bar-button {
 	width: 100%;
 	height: 48px;
 	padding: 0px;
 	background-color: transparent;
 	background-repeat: no-repeat;
-	background-position: 50% 0%;
+	background-position: 50% 50%;
 	background-size: 48px;
 	border: 0px;
 
