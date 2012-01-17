@@ -133,22 +133,20 @@ $('#page-dashboard').live('pageinit', function() {
 	})();
 });
 
-// Bind generic events to be triggered on the CAMPUS MAP page initialization
+// Bind events to be triggered on the CAMPUS MAP page initialization
 $('#page-campusmap').live('pageinit', function() {
 	// Create a Google Map
-	var yourStartLatLng = new google.maps.LatLng(43.758976, -71.688709);
+	var startingCenterPoint = new google.maps.LatLng(43.758976, -71.688709);
 	var zoomLevel = 15;
-	var gmapObject = {'center': yourStartLatLng, 'zoom': zoomLevel};
+	var gmapObject = {'center': startingCenterPoint, 'zoom': zoomLevel};
 
-	// Refresh it on show
-	$('#page-campusmap').live("pageshow", function() {
-		// Create the map
-		$('div#campus-google-map').gmap('refresh');
-	});
-
-	// Fire on page-create
-	$('#page-campusmap').live("pagecreate", function() {
-		// Create the map
-		$('div#campus-google-map').gmap( gmapObject );
-	});
+	// Create the map
+	$('div#campus-google-map').gmap( gmapObject );
+});
+// Bind events to be triggered on the CAMPUS MAP page showing
+$('#page-campusmap').live("pageshow", function() {
+	// Refresh/repaint
+	$(window).trigger('resize');
+	$(this).trigger('updatelayout');
+	$('div#campus-google-map').gmap('refresh');
 });
