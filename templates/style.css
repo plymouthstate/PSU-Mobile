@@ -215,7 +215,18 @@ header.ui-header {
   #page-feedback fieldset label, #page-feedback fieldset div.input-container {
     margin: 4px 8px; }
 #page-feedback input, #page-feedback textarea, #page-feedback select {
-  width: 96%;
+  width: 100%;
+  /* Use CSS3 box-sizing to correctly set a full width on these elements */
+  box-sizing: border-box;
+  /* css3 rec */
+  -moz-box-sizing: border-box;
+  /* ff2 */
+  -ms-box-sizing: border-box;
+  /* ie8 */
+  -webkit-box-sizing: border-box;
+  /* safari3 */
+  -khtml-box-sizing: border-box;
+  /* konqueror */
   border: 1px solid #013d2e; }
 #page-feedback label {
   font-size: 16px;
