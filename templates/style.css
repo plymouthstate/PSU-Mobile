@@ -42,10 +42,12 @@ header.ui-header {
     height: 35px;
     margin: 5px auto;
     padding: 3px;
+    line-height: 35px;
     background-image: url(images/medium/psu_logo.png);
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-size: 124px; }
+    background-size: 124px;
+    font-size: 18px; }
     header.ui-header h1#header-logo span {
       display: none; }
   header.ui-header .ui-btn {
@@ -310,6 +312,27 @@ div#hidden-info-div {
   background: #fff; }
 
 /* Styles based on the device's OS */
+html.android header .ui-btn[data-rel=back] {
+  display: none; }
 html.android header h1#header-logo {
   float: left;
-  margin-left: 4px; }
+  margin-left: 4px;
+  text-align: left; }
+
+html.android .m-app header h1#header-logo {
+  width: auto;
+  background: none; }
+  html.android .m-app header h1#header-logo span {
+    display: inline; }
+
+html.android .m-app header h1#header-logo.back-button {
+  padding-left: 20px;
+  cursor: pointer; }
+  html.android .m-app header h1#header-logo.back-button span.back-image {
+    width: 18px;
+    height: 35px;
+    float: left;
+    margin-left: -20px;
+    background-image: url(images/icons-18-white.png);
+    background-repeat: no-repeat;
+    background-position: -144px 50%; }
