@@ -3,7 +3,7 @@
 <div data-role="page" id="page-feedback">
 	{jqm_header position="fixed"}
 		<a href="/webapp/mobile/" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
-          <h1 id="header-logo"><span>PSU Mobile</span></h1>
+          <h1 id="header-logo"><span>Feedback</span></h1>
      {/jqm_header}
 
 	{jqm_content}
