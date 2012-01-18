@@ -62,7 +62,7 @@ $(document).live('pagebeforecreate', function() {
 });
 
 // Bind generic events to be triggered on EVERY page initialization
-$(document).live('pageinit', function() {
+$(document).live('pagecreate', function() {
 	// Function to change the class of the HTML tag based on the orientation of the device
 	function changeOrientationClass(orientation) {
 		// Add the orientation as a CSS class to the HTML tag
@@ -88,6 +88,33 @@ $(document).live('pageinit', function() {
 		$(window).trigger('orientationchange');
 		$().deviceOS();
 		modifyBackButtons();
+	})();
+});
+
+// Bind generic events to be triggered on EVERY m-app initialization
+$('.m-app').live('pageinit', function() {
+	// Function to add both an html element and a click listener to all android headers
+	function convertAndroidHeaders() {
+		// Header jQuery object
+		var $header = $("html.android h1#header-logo");
+
+		// Grab the url of the hard-coded back button
+		var backUrl = $('a[data-rel=back]').attr('href');
+
+		// Add a class and an html span element
+		$header.addClass('back-button');
+		$header.prepend('<span class="back-image"></span>');
+
+		// Make the header clickable
+		$header.click(function() {
+			// Use jQuery Mobile's page change function to animate with transitions and load with Ajax
+			$.mobile.changePage(backUrl, {reverse: true});
+		});
+	}
+
+	// Functions to run on page-load
+	(function() {
+		convertAndroidHeaders();
 	})();
 });
 
@@ -138,6 +165,7 @@ $('#page-dashboard').live('pageinit', function() {
 		// Display it by adding it to the mobile-info span
 		$('#mobile-info').append('<li>Device Platform: ' + devicePlatform + '</li>');
 		$('#mobile-info').append('<li>Display Density: ' + displayDensity + '</li>');
+		$('#mobile-info').append('<li>User Agent: ' + navigator.userAgent + '</li>');
 
 	}
 
