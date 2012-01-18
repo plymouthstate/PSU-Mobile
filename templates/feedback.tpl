@@ -1,6 +1,6 @@
 {include file='_header.tpl'}
 <!-- Begin jQuery Mobile Page -->
-<div data-role="page" id="page-feedback">
+<div data-role="page" id="page-feedback" class="m-app">
 	{jqm_header position="fixed"}
 		<a href="/webapp/mobile/" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
           <h1 id="header-logo"><span>Feedback</span></h1>
