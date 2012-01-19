@@ -9,7 +9,7 @@ class Feedback {
 	 * @param array &$postData An array containing the data that was posted with the form
 	 * @param array &$responseData A blank array that will, upon completion, contain the data for the JSON response
 	 */
-	public static function validate_data(&$postData, &$responseData) {
+	public static function validate_data(&$postData, &$responseData, $ajax) {
 		// Settings
 		$salt = 'q3;hlsd0izsdf9qij345';
 
@@ -24,7 +24,7 @@ class Feedback {
 		);
 
 		// Clean/Filter the data
-		$postData['emailAddress'] = filter_var($postData['emailAddress'], FILTER_SANITIZE_EMAIL);
+		$postData['email'] = filter_var($postData['email'], FILTER_SANITIZE_EMAIL);
 		$postData['title'] = filter_var($postData['title'], FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
 		$postData['message'] = filter_var($postData['message'], FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
 		$postData['feeling'] = filter_var($postData['feeling'], FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
@@ -46,20 +46,23 @@ class Feedback {
 		}
 
 		// Validate the email address
-		if (!filter_var($postData['emailAddress'], FILTER_VALIDATE_EMAIL)) {
+		if (!filter_var($postData['email'], FILTER_VALIDATE_EMAIL)) {
 			$responseData['error'] = true;
 			$responseData['response']['title'] = 'Form Validation Error';
 			$responseData['response']['message'] = 'Please enter a valid email address';
 		}
 
-		// For security, we've sent a timestamp and an MD5 hash
-		// Let's take the email address, timestamp, and a shared-salt, and get a MD5 hash from them and compare
-		// If they don't check out, we know it wasn't the app :)
-		$hash = md5($postData['emailAddress'].$postData['timestamp'].$salt);
-		if ($hash != $postData['hash']) {
-			$responseData['error'] = true;
-			$responseData['response']['title'] = 'Security Error';
-			$responseData['response']['message'] = 'Unauthorized request detected';
+		// If done over AJAX, we need to add a layer of security
+		if ($ajax) {
+			// For security, we've sent a timestamp and an MD5 hash
+			// Let's take the email address, timestamp, and a shared-salt, and get a MD5 hash from them and compare
+			// If they don't check out, we know it wasn't the app :)
+			$hash = md5($postData['email'].$postData['timestamp'].$salt);
+			if ($hash != $postData['hash']) {
+				$responseData['error'] = true;
+				$responseData['response']['title'] = 'Security Error';
+				$responseData['response']['message'] = 'Unauthorized request detected';
+			}
 		}
 
 		return ! $responseData['error'];
@@ -83,16 +86,14 @@ class Feedback {
 		$mail_message = 'Feedback:'."\r\n".$postData['message']."\r\n\r\n"
 					.'How does it make you feel?:'."\r\n".$postData['feeling']."\r\n\r\n"
 					.'Hidden Technical Info:'."\r\n".print_r($postData['hiddenInfo'], true);
-		$mail_headers = 'From: '.$postData['emailAddress']."\r\n".'Reply-To: '.$postData['emailAddress'];
+		$mail_headers = 'From: '.$postData['email']."\r\n".'Reply-To: '.$postData['email'];
 
 		// Mail the recipient
-		if (PSU::mail($mail_to, $mail_subject, $mail_message, $mail_headers)) {
+		if (\PSU::mail($mail_to, $mail_subject, $mail_message, $mail_headers)) {
 			$responseData['success'] = true;
 			$responseData['error'] = false;
 			$responseData['response']['title'] = 'Feedback Sent Successfully!';
 			$responseData['response']['message'] = 'Your feedback was submitted! Thank you!';
-
-			return true;
 		}
 		else {
 			$responseData['error'] = true;
@@ -100,7 +101,7 @@ class Feedback {
 			$responseData['response']['message'] = 'There was a processing error. Please try again later.';
 		}
 
-		return false;
+		return $responseData;
 	} // End submit_feedback
 
 } // End class Feedback
