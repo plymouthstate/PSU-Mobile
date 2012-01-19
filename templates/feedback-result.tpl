@@ -21,7 +21,7 @@
 					<h1>{$response.response.title}</h1>
 				</header>
 				<p>{$response.response.message}</p>
-				<a href="{$PHP.BASE_URL}" data-role="button" {if !$response.success}data-rel="back"{/if}>Ok</a>
+				<a href="{$PHP.BASE_URL}/" data-role="button" data-direction="reverse" {if !$response.success}data-rel="back"{/if}>Ok</a>
 			</div>
 		</div>
 	{/jqm_content}
