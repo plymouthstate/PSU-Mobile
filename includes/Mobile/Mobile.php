@@ -41,8 +41,14 @@ class Mobile {
 	 * @param $ajax_format (boolean)	Whether the function should treat its data and response as an Ajax request and format it accordingly. 
 	 */
 	public static function feedback($post_data, $ajax_format = false) {
-		// Decode POST data
-		$form_data = json_decode(stripslashes($post_data), true);
+		// If called with Ajax, make sure to properly decode the JSON
+		if ($ajax_format) {
+			// Decode POST data
+			$form_data = json_decode(stripslashes($post_data), true);
+		}
+		else {
+			$form_data = $post_data;
+		}
 
 		// Initialize the response data
 		$response_data = array();
