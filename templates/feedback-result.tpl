@@ -15,11 +15,14 @@
 
 	{jqm_content}
 		<!-- Feedback results here -->
-		<div class="whole-page form-response {$response_class}">
-			<header>
-				<h1>{$response.response.title}</h1>
-			</header>
-			<p>{$response.response.message}</p>
+		<div class="vertically-centered">
+			<div class="form-response {$response_class} ui-corner-all ui-shadow">
+				<header>
+					<h1>{$response.response.title}</h1>
+				</header>
+				<p>{$response.response.message}</p>
+				<a href="{$PHP.BASE_URL}" data-role="button" {if !$response.success}data-rel="back"{/if}>Ok</a>
+			</div>
 		</div>
 	{/jqm_content}
 

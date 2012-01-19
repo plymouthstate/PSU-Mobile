@@ -23,9 +23,14 @@ body {
 	border: none;
 }
 */
-/* jQuery Global Styles */
+/* jQuery Mobile Global Styles */
 .ui-content {
   padding: 0px; }
+
+/* Global Styles */
+.vertically-centered {
+  position: absolute;
+  width: 100%; }
 
 /* Header */
 header.ui-header {
@@ -70,88 +75,147 @@ header.ui-header {
     header.ui-header h1#header-logo {
       background-image: url(images/low/psu_logo.png); } }
 
+/* Footer */
+footer.ui-footer {
+  height: 52px;
+  line-height: 52px; }
+
 /* Inner content styles */
 /* Dashboard */
-#page-dashboard nav#dashboard {
-  width: 100%;
-  margin: auto;
-  padding: 15px 0px;
-  overflow: hidden; }
-  #page-dashboard nav#dashboard ul#dashboard-mapps {
-    margin: 0px;
-    padding: 0px 1px;
-    overflow: hidden;
-    text-align: center;
-    /* Styles based on orientation change */
-    /* Images depending on screen density */
-    /* Extra high - 2 times */
-    /* High - 1.5 times */
-    /* Medium/Normal - 1.0 times */
-    /* Low - 0.75 times */ }
-    #page-dashboard nav#dashboard ul#dashboard-mapps li {
-      display: block;
-      float: left;
+#page-dashboard {
+  /* Slide Up Info */
+  /* Images depending on screen density */
+  /* Extra high - 2 times */
+  /* High - 1.5 times */
+  /* Medium/Normal - 1.0 times */
+  /* Low - 0.75 times */ }
+  #page-dashboard nav#dashboard {
+    width: 100%;
+    margin: auto;
+    padding: 15px 0px;
+    overflow: hidden; }
+    #page-dashboard nav#dashboard ul#dashboard-mapps {
+      margin: 0px;
+      padding: 0px 1px;
       overflow: hidden;
-      width: 33%; }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li a {
+      text-align: center;
+      /* Styles based on orientation change */
+      /* Images depending on screen density */
+      /* Extra high - 2 times */
+      /* High - 1.5 times */
+      /* Medium/Normal - 1.0 times */
+      /* Low - 0.75 times */ }
+      #page-dashboard nav#dashboard ul#dashboard-mapps li {
         display: block;
-        width: 80px;
-        margin: 0px auto;
-        margin-bottom: 16px;
-        padding-top: 80px;
-        background-repeat: no-repeat;
-        background-position: 50% 0%;
-        background-size: 72px;
-        font-size: 13px;
-        font-weight: normal;
-        text-decoration: none;
-        color: #000; }
-    #page-dashboard nav#dashboard ul#dashboard-mapps li.dash-middle-element {
-      width: 34%; }
-    #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
-      background-image: url(images/medium/news.png); }
-    #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
-      background-image: url(images/medium/map.png); }
-    #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
-      background-image: url(images/medium/feedback.png); }
-    @media screen and (orientation:portrait) {
-      #page-dashboard nav#dashboard ul#dashboard-mapps li {
+        float: left;
+        overflow: hidden;
         width: 33%; }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li a {
+          display: block;
+          width: 80px;
+          margin: 0px auto;
+          margin-bottom: 16px;
+          padding-top: 80px;
+          background-repeat: no-repeat;
+          background-position: 50% 0%;
+          background-size: 72px;
+          font-size: 13px;
+          font-weight: normal;
+          text-decoration: none;
+          color: #000; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li.dash-middle-element {
-        width: 34%; } }
-    @media screen and (orientation:landscape) {
-      #page-dashboard nav#dashboard ul#dashboard-mapps li {
-        width: 20%; }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li.dash-middle-element {
-        width: 20%; } }
-    @media screen and (-webkit-device-pixel-ratio: 2) {
-      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
-        background-image: url(images/xhigh/news.png); }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
-        background-image: url(images/xhigh/map.png); }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
-        background-image: url(images/xhigh/feedback.png); } }
-    @media screen and (-webkit-device-pixel-ratio: 1.5) {
-      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
-        background-image: url(images/high/news.png); }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
-        background-image: url(images/high/map.png); }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
-        background-image: url(images/high/feedback.png); } }
-    @media screen and (-webkit-device-pixel-ratio: 1.0) {
+        width: 34%; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
         background-image: url(images/medium/news.png); }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
         background-image: url(images/medium/map.png); }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
-        background-image: url(images/medium/feedback.png); } }
-    @media screen and (-webkit-device-pixel-ratio: 0.75) {
-      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
-        background-image: url(images/low/news.png); }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
-        background-image: url(images/low/map.png); }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
-        background-image: url(images/low/feedback.png); } }
+        background-image: url(images/medium/feedback.png); }
+      @media screen and (orientation:portrait) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li {
+          width: 33%; }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li.dash-middle-element {
+          width: 34%; } }
+      @media screen and (orientation:landscape) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li {
+          width: 20%; }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li.dash-middle-element {
+          width: 20%; } }
+      @media screen and (-webkit-device-pixel-ratio: 2) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
+          background-image: url(images/xhigh/news.png); }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
+          background-image: url(images/xhigh/map.png); }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
+          background-image: url(images/xhigh/feedback.png); } }
+      @media screen and (-webkit-device-pixel-ratio: 1.5) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
+          background-image: url(images/high/news.png); }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
+          background-image: url(images/high/map.png); }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
+          background-image: url(images/high/feedback.png); } }
+      @media screen and (-webkit-device-pixel-ratio: 1.0) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
+          background-image: url(images/medium/news.png); }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
+          background-image: url(images/medium/map.png); }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
+          background-image: url(images/medium/feedback.png); } }
+      @media screen and (-webkit-device-pixel-ratio: 0.75) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
+          background-image: url(images/low/news.png); }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
+          background-image: url(images/low/map.png); }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
+          background-image: url(images/low/feedback.png); } }
+  #page-dashboard a.dashboard-ui-bar-button {
+    width: 100%;
+    height: 48px;
+    padding: 0px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 48px;
+    border: 0px; }
+    #page-dashboard a.dashboard-ui-bar-button span {
+      border: 0px none; }
+  #page-dashboard div#hidden-info-div {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0px;
+    z-index: 10000;
+    background: #fff; }
+  #page-dashboard a#footer-info-button, #page-dashboard a#hidden-info-button {
+    display: block;
+    margin: 2px auto;
+    box-shadow: none; }
+  #page-dashboard a.dashboard-ui-bar-button.info-button-open {
+    background-image: url(images/medium/ic_menu_arrow_up.png); }
+  #page-dashboard a.dashboard-ui-bar-button.info-button-close {
+    background-image: url(images/medium/ic_menu_arrow_down.png); }
+  @media screen and (-webkit-device-pixel-ratio: 2) {
+    #page-dashboard a.dashboard-ui-bar-button.info-button-open {
+      background-image: url(images/xhigh/ic_menu_arrow_up.png); }
+    #page-dashboard a.dashboard-ui-bar-button.info-button-close {
+      background-image: url(images/xhigh/ic_menu_arrow_down.png); } }
+  @media screen and (-webkit-device-pixel-ratio: 1.5) {
+    #page-dashboard a.dashboard-ui-bar-button.info-button-open {
+      background-image: url(images/high/ic_menu_arrow_up.png); }
+    #page-dashboard a.dashboard-ui-bar-button.info-button-close {
+      background-image: url(images/high/ic_menu_arrow_down.png); } }
+  @media screen and (-webkit-device-pixel-ratio: 1.0) {
+    #page-dashboard a.dashboard-ui-bar-button.info-button-open {
+      background-image: url(images/medium/ic_menu_arrow_up.png); }
+    #page-dashboard a.dashboard-ui-bar-button.info-button-close {
+      background-image: url(images/medium/ic_menu_arrow_down.png); } }
+  @media screen and (-webkit-device-pixel-ratio: 0.75) {
+    #page-dashboard a.dashboard-ui-bar-button.info-button-open {
+      background-image: url(images/low/ic_menu_arrow_up.png); }
+    #page-dashboard a.dashboard-ui-bar-button.info-button-close {
+      background-image: url(images/low/ic_menu_arrow_down.png); } }
 
 /* Newsfeed */
 #page-newsfeed ul#newsfeed {
@@ -244,72 +308,22 @@ header.ui-header {
 #page-feedback .ui-select .ui-btn-text {
   text-align: left; }
 
-/* Footer */
-footer.ui-footer {
-  height: 52px;
-  line-height: 52px; }
-
-a.dashboard-ui-bar-button {
-  width: 100%;
-  height: 48px;
-  padding: 0px;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: 48px;
-  border: 0px; }
-  a.dashboard-ui-bar-button span {
-    border: 0px none; }
-
-a#footer-info-button, a#hidden-info-button {
-  display: block;
-  margin: 2px auto;
-  box-shadow: none; }
-
-a.dashboard-ui-bar-button.info-button-open {
-  background-image: url(images/medium/ic_menu_arrow_up.png); }
-
-a.dashboard-ui-bar-button.info-button-close {
-  background-image: url(images/medium/ic_menu_arrow_down.png); }
-
-/* Images depending on screen density */
-/* Extra high - 2 times */
-@media screen and (-webkit-device-pixel-ratio: 2) {
-  a.dashboard-ui-bar-button.info-button-open {
-    background-image: url(images/xhigh/ic_menu_arrow_up.png); }
-
-  a.dashboard-ui-bar-button.info-button-close {
-    background-image: url(images/xhigh/ic_menu_arrow_down.png); } }
-/* High - 1.5 times */
-@media screen and (-webkit-device-pixel-ratio: 1.5) {
-  a.dashboard-ui-bar-button.info-button-open {
-    background-image: url(images/high/ic_menu_arrow_up.png); }
-
-  a.dashboard-ui-bar-button.info-button-close {
-    background-image: url(images/high/ic_menu_arrow_down.png); } }
-/* Medium/Normal - 1.0 times */
-@media screen and (-webkit-device-pixel-ratio: 1.0) {
-  a.dashboard-ui-bar-button.info-button-open {
-    background-image: url(images/medium/ic_menu_arrow_up.png); }
-
-  a.dashboard-ui-bar-button.info-button-close {
-    background-image: url(images/medium/ic_menu_arrow_down.png); } }
-/* Low - 0.75 times */
-@media screen and (-webkit-device-pixel-ratio: 0.75) {
-  a.dashboard-ui-bar-button.info-button-open {
-    background-image: url(images/low/ic_menu_arrow_up.png); }
-
-  a.dashboard-ui-bar-button.info-button-close {
-    background-image: url(images/low/ic_menu_arrow_down.png); } }
-/* Slide Up Info */
-div#hidden-info-div {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  bottom: 0px;
-  z-index: 10000;
-  background: #fff; }
+/* Feedback form results */
+#page-feedback-results div.form-response {
+  margin: 15px;
+  padding: 10px;
+  text-align: center; }
+  #page-feedback-results div.form-response header h1 {
+    margin: 0px auto;
+    margin-bottom: 20px; }
+  #page-feedback-results div.form-response p {
+    margin: 0px auto; }
+  #page-feedback-results div.form-response a[data-rel=back] {
+    margin-top: 25px; }
+#page-feedback-results div.error {
+  background-color: #ffe6e6; }
+#page-feedback-results div.success {
+  background-color: #e6ffe6; }
 
 /* Styles based on the device's OS */
 html.android header .ui-btn[data-rel=back] {

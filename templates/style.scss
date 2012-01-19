@@ -1,5 +1,7 @@
 /* CSS Variables for SASS */
 $psu_color: #013D2E;
+$error_bg_color: #ffe6e6;
+$success_bg_color: #e6ffe6;
 $facebook_color: #eaeaff;
 $twitter_color: #eaffff;
 $rss_color: #eaeaea;
@@ -32,9 +34,15 @@ body {
 }
 */
 
-/* jQuery Global Styles */
+/* jQuery Mobile Global Styles */
 .ui-content {
 	padding: 0px;
+}
+
+/* Global Styles */
+.vertically-centered {
+	position: absolute;
+	width: 100%;
 }
 
 /* Header */
@@ -94,6 +102,12 @@ header.ui-header {
 			background-image: url(images/low/psu_logo.png);
 		}
 	}
+}
+
+/* Footer */
+footer.ui-footer {
+	height: $ui_bar_height;
+	line-height: $ui_bar_height;
 }
 
 /* Inner content styles */
@@ -214,6 +228,80 @@ header.ui-header {
 			}
 		}
 	}
+	a.dashboard-ui-bar-button {
+		width: 100%;
+		height: 48px;
+		padding: 0px;
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: 48px;
+		border: 0px;
+
+		span {
+			border: 0px none;
+		}
+	}
+	/* Slide Up Info */
+	div#hidden-info-div {
+		display: none;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		bottom: 0px;
+		z-index: 10000;
+		background: #fff;
+	}
+
+	a#footer-info-button, a#hidden-info-button {
+		display: block;
+		margin: 2px auto;
+		box-shadow: none;
+	}
+	a.dashboard-ui-bar-button.info-button-open {
+		background-image: url(images/medium/ic_menu_arrow_up.png);
+	}
+	a.dashboard-ui-bar-button.info-button-close {
+		background-image: url(images/medium/ic_menu_arrow_down.png);
+	}
+
+	/* Images depending on screen density */
+	/* Extra high - 2 times */
+	@media screen and (-webkit-device-pixel-ratio: 2) {
+		a.dashboard-ui-bar-button.info-button-open {
+			background-image: url(images/xhigh/ic_menu_arrow_up.png);
+		}
+		a.dashboard-ui-bar-button.info-button-close {
+			background-image: url(images/xhigh/ic_menu_arrow_down.png);
+		}
+	}
+	/* High - 1.5 times */
+	@media screen and (-webkit-device-pixel-ratio: 1.5) {
+		a.dashboard-ui-bar-button.info-button-open {
+			background-image: url(images/high/ic_menu_arrow_up.png);
+		}
+		a.dashboard-ui-bar-button.info-button-close {
+			background-image: url(images/high/ic_menu_arrow_down.png);
+		}
+	}
+	/* Medium/Normal - 1.0 times */
+	@media screen and (-webkit-device-pixel-ratio: 1.0) {
+		a.dashboard-ui-bar-button.info-button-open {
+			background-image: url(images/medium/ic_menu_arrow_up.png);
+		}
+		a.dashboard-ui-bar-button.info-button-close {
+			background-image: url(images/medium/ic_menu_arrow_down.png);
+		}
+	}
+	/* Low - 0.75 times */
+	@media screen and (-webkit-device-pixel-ratio: 0.75) {
+		a.dashboard-ui-bar-button.info-button-open {
+			background-image: url(images/low/ic_menu_arrow_up.png);
+		}
+		a.dashboard-ui-bar-button.info-button-close {
+			background-image: url(images/low/ic_menu_arrow_down.png);
+		}
+	}
 }
 
 /* Newsfeed */
@@ -284,6 +372,7 @@ header.ui-header {
 		}
 	}
 }
+
 /* Campus Map */
 #page-campusmap div#content-container {
 	width: 100%;
@@ -339,84 +428,32 @@ header.ui-header {
 	}
 }
 
-/* Footer */
-footer.ui-footer {
-	height: $ui_bar_height;
-	line-height: $ui_bar_height;
-}
-a.dashboard-ui-bar-button {
-	width: 100%;
-	height: 48px;
-	padding: 0px;
-	background-color: transparent;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: 48px;
-	border: 0px;
+/* Feedback form results */
+#page-feedback-results {
+	div.form-response {
+		margin: 15px;
+		padding: 10px;
+		text-align: center;
 
-	span {
-		border: 0px none;
+		header {
+			h1 {
+				margin: 0px auto;
+				margin-bottom: 20px;
+			}
+		}
+		p {
+			margin: 0px auto;
+		}
+		a[data-rel=back] {
+			margin-top: 25px;
+		}
 	}
-}
-a#footer-info-button, a#hidden-info-button {
-	display: block;
-	margin: 2px auto;
-	box-shadow: none;
-}
-a.dashboard-ui-bar-button.info-button-open {
-	background-image: url(images/medium/ic_menu_arrow_up.png);
-}
-a.dashboard-ui-bar-button.info-button-close {
-	background-image: url(images/medium/ic_menu_arrow_down.png);
-}
-
-/* Images depending on screen density */
-/* Extra high - 2 times */
-@media screen and (-webkit-device-pixel-ratio: 2) {
-	a.dashboard-ui-bar-button.info-button-open {
-		background-image: url(images/xhigh/ic_menu_arrow_up.png);
+	div.error {
+		background-color: $error_bg_color;
 	}
-	a.dashboard-ui-bar-button.info-button-close {
-		background-image: url(images/xhigh/ic_menu_arrow_down.png);
+	div.success {
+		background-color: $success_bg_color;
 	}
-}
-/* High - 1.5 times */
-@media screen and (-webkit-device-pixel-ratio: 1.5) {
-	a.dashboard-ui-bar-button.info-button-open {
-		background-image: url(images/high/ic_menu_arrow_up.png);
-	}
-	a.dashboard-ui-bar-button.info-button-close {
-		background-image: url(images/high/ic_menu_arrow_down.png);
-	}
-}
-/* Medium/Normal - 1.0 times */
-@media screen and (-webkit-device-pixel-ratio: 1.0) {
-	a.dashboard-ui-bar-button.info-button-open {
-		background-image: url(images/medium/ic_menu_arrow_up.png);
-	}
-	a.dashboard-ui-bar-button.info-button-close {
-		background-image: url(images/medium/ic_menu_arrow_down.png);
-	}
-}
-/* Low - 0.75 times */
-@media screen and (-webkit-device-pixel-ratio: 0.75) {
-	a.dashboard-ui-bar-button.info-button-open {
-		background-image: url(images/low/ic_menu_arrow_up.png);
-	}
-	a.dashboard-ui-bar-button.info-button-close {
-		background-image: url(images/low/ic_menu_arrow_down.png);
-	}
-}
-
-/* Slide Up Info */
-div#hidden-info-div {
-	display: none;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	bottom: 0px;
-	z-index: 10000;
-	background: #fff;
 }
 
 /* Styles based on the device's OS */

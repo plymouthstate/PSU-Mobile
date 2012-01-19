@@ -61,7 +61,7 @@ $(document).live('pagebeforecreate', function() {
 	})();
 });
 
-// Bind generic events to be triggered on EVERY page initialization
+// Bind generic events to be triggered on EVERY page creation
 $(document).live('pagecreate', function() {
 	// Function to change the class of the HTML tag based on the orientation of the device
 	function changeOrientationClass(orientation) {
@@ -88,6 +88,47 @@ $(document).live('pagecreate', function() {
 		$(window).trigger('orientationchange');
 		$().deviceOS();
 		modifyBackButtons();
+	})();
+});
+
+// Bind generic events to be triggered BEFORE EVERY page show
+$(document).live('pagebeforeshow', function() {
+	// Function to hide all the vertically centered divs, so they don't POP into place
+	function hidePreModifiedDivs() {
+		// Iterate over each div
+		$('.vertically-centered').hide();
+	}
+
+	// Functions to run on page-load
+	(function() {
+		hidePreModifiedDivs();
+	})();
+});
+
+// Bind generic events to be triggered on EVERY page show
+$(document).live('pageshow', function() {
+	// Function to vertically center all divs marked with the "vertically-centered" class
+	function verticallyCenterDivs() {
+		// Grab the divs
+		var $divs = $('.vertically-centered');
+
+		// Iterate over each div
+		$divs.each(function() {
+			// Grab their height
+			var divHeight = $(this).innerHeight();
+
+			// Center them vertically
+			$(this).css('top', '50%');
+			$(this).css('margin-top', -(Math.floor(divHeight / 2)));
+		});
+
+		// Show all of them (un-hide them)
+		$divs.fadeIn('slow');
+	}
+
+	// Functions to run on page-load
+	(function() {
+		verticallyCenterDivs();
 	})();
 });
 
