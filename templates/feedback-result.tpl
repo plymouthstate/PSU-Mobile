@@ -1,3 +1,10 @@
+{* Set a response class based on the response *}
+{if $response.success}
+	{assign var='response_class' value='success'}
+{elseif $response.error}
+	{assign var='response_class' value='error'}
+{/if}
+
 {include file='_header.tpl'}
 <!-- Begin jQuery Mobile Page -->
 <div data-role="page" id="page-feedback-results" class="m-app">
@@ -8,11 +15,12 @@
 
 	{jqm_content}
 		<!-- Feedback results here -->
-		{php}
-
-		$var = $this->get_template_vars('response'); var_dump($var);
-
-		{/php}
+		<div class="whole-page form-response {$response_class}">
+			<header>
+				<h1>{$response.response.title}</h1>
+			</header>
+			<p>{$response.response.message}</p>
+		</div>
 	{/jqm_content}
 
 </div>
