@@ -9,14 +9,14 @@
 	{jqm_content}
 		<ul id="newsfeed">
 		{foreach from="$feed_data" item="item"}
-			<li class="newsfeed-item {$item->source|lower}">
+			<li class="newsfeed-item {$item.source|lower}">
 				<div class="feed-icon"></div>
 				<header>
 					{* Truncate the title to a maximum of 28 characters. *}
-					<h1 class="feed-title">{$item->title|truncate:28}</h1>
-					<time datetime="{$item->datetime}">{$item->time_ago}ago</time>
+					<h1 class="feed-title">{$item.title|truncate:28}</h1>
+					<time datetime="{$item.datetime}">{$item.time_ago}ago</time>
 				</header>
-				<p>{$item->text}</p>
+				<p>{$item.text}</p>
 			</li>
 		{/foreach}
 		</ul>
