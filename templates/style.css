@@ -315,7 +315,8 @@ footer.ui-footer {
   text-align: center; }
   #page-feedback-results div.form-response header h1 {
     margin: 0px auto;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    font-size: 26px; }
   #page-feedback-results div.form-response p {
     margin: 0px auto; }
   #page-feedback-results div.form-response a[data-role=button] {
