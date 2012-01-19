@@ -2,13 +2,13 @@
 <!-- Begin jQuery Mobile Page -->
 <div data-role="page" id="page-feedback" class="m-app">
 	{jqm_header position="fixed"}
-		<a href="/webapp/mobile/" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
+		<a href="{$PHP.BASE_URL}" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
           <h1 id="header-logo"><span>Feedback</span></h1>
      {/jqm_header}
 
 	{jqm_content}
 		<!-- Feedback form here -->
-		<form action="#" method="post">
+		<form action="submit" method="post">
 			<fieldset>
 				<label for="feedback-email">Your Email Address</label>
 				<div class="input-container">
