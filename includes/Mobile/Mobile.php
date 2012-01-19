@@ -9,8 +9,10 @@ class Mobile {
 	 * Newsfeed aggregator.
 	 * Grabs different feeds, combines them, and converts them to JSON
 	 * format for easy AJAX parsing
+	 *
+	 * @param $ajax_format (boolean)	Whether the function should treat its data and response as an Ajax request and format it accordingly. 
 	 */
-	public static function newsfeed() {
+	public static function newsfeed($ajax_format = false) {
 		// Get the data from each source
 		$feed_data['twitter'] = Newsfeeds::twitter();
 		$feed_data['facebook'] = Newsfeeds::facebook();
@@ -19,7 +21,13 @@ class Mobile {
 		// Aggregate the feeds into one feed for JSON response
 		$agg_feed_data = Newsfeeds::aggregate($feed_data);
 
-		return json_encode($agg_feed_data);
+		// If called with Ajax, make sure to respond in JSON format
+		if ($ajax_format) {
+			return json_encode($agg_feed_data);
+		}
+
+		return $agg_feed_data;
+
 	} // End newsfeed
 
 	/**
@@ -28,22 +36,30 @@ class Mobile {
 	 * Validates it like a form
 	 * Mails the ITS Helpdesk
 	 * And then responds with JSON
+	 *
+	 * @param $post_data (array)		An array holding the contents of the data posted by the feedback form
+	 * @param $ajax_format (boolean)	Whether the function should treat its data and response as an Ajax request and format it accordingly. 
 	 */
-	public static function feedback() {
-		// Localize and decode POST data
-		$postData = json_decode(stripslashes($_POST['postData']), true);
-		$responseData = array();
+	public static function feedback($post_data, $ajax_format = false) {
+		// Decode POST data
+		$form_data = json_decode(stripslashes($post_data), true);
 
 		// Initialize the response data
-		$responseData = array();
+		$response_data = array();
 
 		// If data is valid
-		if(Feedback::validate_data($postData, $responseData)) {
+		if(Feedback::validate_data($form_data, $response_data)) {
 			// Submit the feedback
-			Feedback::submit_feedback($postData, $responseData);
+			Feedback::submit_feedback($form_data, $response_data);
 		}
 
-		return json_encode($responseData);
+		// If called with Ajax, make sure to respond in JSON format
+		if ($ajax_format) {
+			return json_encode($response_data);
+		}
+
+		return $response_data;
+
 	} // End feedback
 
 } // End class Mobile
