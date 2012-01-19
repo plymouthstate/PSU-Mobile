@@ -318,7 +318,7 @@ footer.ui-footer {
     margin-bottom: 20px; }
   #page-feedback-results div.form-response p {
     margin: 0px auto; }
-  #page-feedback-results div.form-response a[data-rel=back] {
+  #page-feedback-results div.form-response a[data-role=button] {
     margin-top: 25px; }
 #page-feedback-results div.error {
   background-color: #ffe6e6; }
