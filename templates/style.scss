@@ -251,6 +251,79 @@ footer.ui-footer {
 		bottom: 0px;
 		z-index: 10000;
 		background: #fff;
+
+		div.info-panel {
+			margin: 10px auto;
+			text-align: center;
+			letter-spacing: 1px;
+
+			.big-color-logo {
+				width: 160px;
+				height: 45px;
+				margin: 15px auto;
+				background-image: url(images/medium/psu_logo_large_color.png);
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				background-size: 160px 45px;
+			}
+			h1.app-title {
+				margin: 5px 0px;
+				font-size: 20px;
+			}
+			h2, h3, h4, h5 {
+				font-weight: normal;
+			}
+			h2.app-version {
+				margin: 4px 0px;
+				font-size: 17px;
+			}
+			h3.app-build {
+				margin: 4px 0px;
+				font-size: 9px;
+				letter-spacing: 0px;
+				color: #999;
+			}
+			h4.copyright {
+				margin: 5px 0px;
+				margin-top: 15px;
+				font-size: 10px;
+
+				a, a:link {
+					text-decoration: none;
+					color: #300;
+				}
+			}
+			h5.app-frameworks {
+				margin: 5px 0px;
+				font-size: 10px;
+			}
+
+			/* Images depending on screen density */
+			/* Extra high - 2 times */
+			@media screen and (-webkit-device-pixel-ratio: 2) {
+				.big-color-logo {
+					background-image: url(images/xhigh/psu_logo_large_color.png);
+				}
+			}
+			/* High - 1.5 times */
+			@media screen and (-webkit-device-pixel-ratio: 1.5) {
+				.big-color-logo {
+					background-image: url(images/high/psu_logo_large_color.png);
+				}
+			}
+			/* Medium/Normal - 1.0 times */
+			@media screen and (-webkit-device-pixel-ratio: 1.0) {
+				.big-color-logo {
+					background-image: url(images/medium/psu_logo_large_color.png);
+				}
+			}
+			/* Low - 0.75 times */
+			@media screen and (-webkit-device-pixel-ratio: 0.75) {
+				.big-color-logo {
+					background-image: url(images/low/psu_logo_large_color.png);
+				}
+			}
+		}
 	}
 
 	a#footer-info-button, a#hidden-info-button {

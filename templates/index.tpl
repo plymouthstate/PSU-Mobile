@@ -25,7 +25,14 @@
 		<div class="ui-bar-a">
 			<a href="#" id="hidden-info-button" class="dashboard-ui-bar-button info-button info-button-close" data-role="button" data-iconpos="notext"></a>
 		</div>
-		<ul id="mobile-info"></ul>
+		<div class="info-panel">
+			<div class="big-color-logo"></div>
+			<h1 class="app-title">PSU Mobile</h1>
+			<h2 class="app-version">Version {$PHP.APP_VERSION}</h2>
+			<h3 class="app-build">Build {$PHP.APP_BUILD_NAME} {$PHP.APP_BUILD_TYPE}</h3>
+			<h4 class="copyright">Copyright &copy; {$smarty.now|date_format:"%Y"} by <a href="http://plymouth.edu/" target="_blank">Plymouth State University</a></h4>
+			<h5 class="app-frameworks">Proudly built with jQuery Mobile <span></span></h5>
+		</div>
 	</div>
 </div>
 <!-- End jQuery Mobile Page -->

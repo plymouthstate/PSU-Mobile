@@ -188,6 +188,58 @@ footer.ui-footer {
     bottom: 0px;
     z-index: 10000;
     background: #fff; }
+    #page-dashboard div#hidden-info-div div.info-panel {
+      margin: 10px auto;
+      text-align: center;
+      letter-spacing: 1px;
+      /* Images depending on screen density */
+      /* Extra high - 2 times */
+      /* High - 1.5 times */
+      /* Medium/Normal - 1.0 times */
+      /* Low - 0.75 times */ }
+      #page-dashboard div#hidden-info-div div.info-panel .big-color-logo {
+        width: 160px;
+        height: 45px;
+        margin: 15px auto;
+        background-image: url(images/medium/psu_logo_large_color.png);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 160px 45px; }
+      #page-dashboard div#hidden-info-div div.info-panel h1.app-title {
+        margin: 5px 0px;
+        font-size: 20px; }
+      #page-dashboard div#hidden-info-div div.info-panel h2, #page-dashboard div#hidden-info-div div.info-panel h3, #page-dashboard div#hidden-info-div div.info-panel h4, #page-dashboard div#hidden-info-div div.info-panel h5 {
+        font-weight: normal; }
+      #page-dashboard div#hidden-info-div div.info-panel h2.app-version {
+        margin: 4px 0px;
+        font-size: 17px; }
+      #page-dashboard div#hidden-info-div div.info-panel h3.app-build {
+        margin: 4px 0px;
+        font-size: 9px;
+        letter-spacing: 0px;
+        color: #999; }
+      #page-dashboard div#hidden-info-div div.info-panel h4.copyright {
+        margin: 5px 0px;
+        margin-top: 15px;
+        font-size: 10px; }
+        #page-dashboard div#hidden-info-div div.info-panel h4.copyright a, #page-dashboard div#hidden-info-div div.info-panel h4.copyright a:link {
+          text-decoration: none;
+          color: #300; }
+      #page-dashboard div#hidden-info-div div.info-panel h5.app-frameworks {
+        margin: 5px 0px;
+        font-size: 10px; }
+      @media screen and (-webkit-device-pixel-ratio: 2) {
+        #page-dashboard div#hidden-info-div div.info-panel .big-color-logo {
+          background-image: url(images/xhigh/psu_logo_large_color.png); } }
+      @media screen and (-webkit-device-pixel-ratio: 1.5) {
+        #page-dashboard div#hidden-info-div div.info-panel .big-color-logo {
+          background-image: url(images/high/psu_logo_large_color.png); } }
+      @media screen and (-webkit-device-pixel-ratio: 1.0) {
+        #page-dashboard div#hidden-info-div div.info-panel .big-color-logo {
+          background-image: url(images/medium/psu_logo_large_color.png); } }
+      @media screen and (-webkit-device-pixel-ratio: 0.75) {
+        #page-dashboard div#hidden-info-div div.info-panel .big-color-logo {
+          background-image: url(images/low/psu_logo_large_color.png); } }
   #page-dashboard a#footer-info-button, #page-dashboard a#hidden-info-button {
     display: block;
     margin: 2px auto;
