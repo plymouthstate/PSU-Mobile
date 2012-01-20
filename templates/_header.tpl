@@ -3,6 +3,12 @@
 <head> 
      <title>{$title|default:"jQuery Mobile Test"}</title> 
 
+	<!-- Web App Info -->
+	<meta name="app-version" content="{$PHP.APP_VERSION}">
+	<meta name="app-build-name" content="{$PHP.APP_BUILD_NAME}">
+	<meta name="app-build-type" content="{$PHP.APP_BUILD_TYPE}">
+	<!-- Web App Info -->
+
      <!-- Mobile Meta and Graphic Tags -->
 	<meta name="HandheldFriendly" content="True">
      <meta name="MobileOptimized" content="320">
