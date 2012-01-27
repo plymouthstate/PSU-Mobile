@@ -3,7 +3,7 @@
 require_once 'autoload.php';
 PSU::session_start(); // force ssl + start a session
 
-$GLOBALS['BASE_URL'] = '/webapp/mobile';
+$GLOBALS['BASE_URL'] = '/webapp/psu-mobile';
 $GLOBALS['BASE_DIR'] = __DIR__;
 
 $GLOBALS['TITLE'] = 'PSU Mobile';
