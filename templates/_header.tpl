@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html> 
 <head> 
-     <title>{$title|default:"jQuery Mobile Test"}</title> 
+     <title>{$title|default:"PSU Mobile"}</title> 
 
 	<!-- Web App Info -->
 	<meta name="app-version" content="{$PHP.APP_VERSION}">
