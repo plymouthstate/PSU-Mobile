@@ -14,7 +14,7 @@ class Newsfeeds {
 	);
 	private static $news_settings = array(
 		'twitter' => array(
-			'feed_url' => 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=',
+			'feed_url' => 'https://api.twitter.com/1/statuses/user_timeline.json?screen_name=',
 			'username' => 'plymouthstate',
 		),
 		'facebook' => array(
@@ -44,6 +44,9 @@ class Newsfeeds {
 	 * Method to grab JSON data from a Twitter feed and return it as an array
 	 */
 	public static function twitter() {
+		// Set up the feed_data array
+		$feed_data = array();
+
 		// Setup the parameters for limiting the returned data
 		$url_params = '&count='.self::$sort_settings['limit_posts_per_source'];
 
@@ -51,17 +54,29 @@ class Newsfeeds {
 		// Set the url
 		$twitter_url = self::$news_settings['twitter']['feed_url'].self::$news_settings['twitter']['username'].$url_params;
 
-		// Get the JSON data with a CURL request to the url
-		$feed_data = \PSU::curl($twitter_url, \PSU::FILE_GET_CONTENTS);
+		// PSU::curl throws an exception if the document doesn't return a perfect 200 error
+		try {
+			// Get the JSON data with a CURL request to the url
+			$feed_data = \PSU::curl($twitter_url, \PSU::FILE_GET_CONTENTS);
 
-		// Return the JSON decoded as an array
-		return json_decode($feed_data, true);
+			// Return the JSON decoded as an array
+			return json_decode($feed_data, true);
+		}
+		catch (\PSUToolsException $e) {
+			// For now, lets just grab the exception and put it into the session
+			$_SESSION['errors'][] = $e->getMessage();
+		}
+
+		return $feed_data;
 	} // End twitter
 
 	/**
 	 * Method to grab JSON data from a Facebook feed and return it as an array
 	 */
 	public static function facebook() {
+		// Set up the feed_data array
+		$feed_data = array();
+
 		// Setup the parameters for limiting the returned data
 		$url_params = '&limit='.self::$sort_settings['limit_posts_per_source'];
 
@@ -69,11 +84,20 @@ class Newsfeeds {
 		// Set the url
 		$facebook_url = self::$news_settings['facebook']['feed_url'].self::$news_settings['facebook']['username'].'/'.self::$news_settings['facebook']['request'].'?access_token='.self::$news_settings['facebook']['access_token'].$url_params;
 
-		// Get the JSON data with a CURL request to the url
-		$feed_data = \PSU::curl($facebook_url, \PSU::FILE_GET_CONTENTS);
+		// PSU::curl throws an exception if the document doesn't return a perfect 200 error
+		try {
+			// Get the JSON data with a CURL request to the url
+			$feed_data = \PSU::curl($facebook_url, \PSU::FILE_GET_CONTENTS);
 
-		// Return the JSON decoded as an array
-		return json_decode($feed_data, true);
+			// Return the JSON decoded as an array
+			return json_decode($feed_data, true);
+		}
+		catch (\PSUToolsException $e) {
+			// For now, lets just grab the exception and put it into the session
+			$_SESSION['errors'][] = $e->getMessage();
+		}
+
+		return $feed_data;
 	} // End facebook
 
 	/**
@@ -84,12 +108,22 @@ class Newsfeeds {
 		$feed_data = array();
 		$feedCount = 0;
 		foreach (self::$news_settings['rss_feeds']['feed_urls'] as $feed) {
+			// \PSU\Feed::import can throw many exceptions due to the Zend underpinnings. We don't need to handle them individually, so let's just catch them all
+			// Possible exceptions seen so far:
+			// Zend_Feed_Exception
+			// Zend_Http_Client_Exception
+			// Zend_Http_Client_Adapter_Exception
 			try {
 				// Get the feed data
 				$feed_data[$feedCount] = \PSU\Feed::import($feed);
 			}
-			catch (Zend_Feed_Exception $e) {
+			catch (\Exception $e) {
 				//echo "Exception caught importing feed: {$e->getMessage()}\n";
+
+				// For now, lets just grab the exception and put it into the session
+				$_SESSION['errors'][] = $e->getMessage();
+
+				// Skip this iteration in the loop
 				continue;
 			}
 
