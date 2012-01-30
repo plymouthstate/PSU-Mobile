@@ -35,6 +35,9 @@ body {
 */
 
 /* jQuery Mobile Global Styles */
+header.ui-header, footer.ui-footer {
+	border: 0px none;
+}
 .ui-content {
 	padding: 0px;
 }
