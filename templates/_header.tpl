@@ -1,6 +1,8 @@
-<!DOCTYPE html>
-<html> 
+<!doctype html>
+<html class="no-js" lang="en">
 <head> 
+	<meta charset="utf-8">
+
      <title>{$title|default:"PSU Mobile"}</title> 
 
 	<!-- Web App Info -->
@@ -13,9 +15,9 @@
 	<meta name="HandheldFriendly" content="True">
      <meta name="MobileOptimized" content="320">
 
-     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 
-     <meta name="apple-mobile-web-app-capable" content="yes" />
+     <meta name="apple-mobile-web-app-capable" content="yes">
      <meta name="apple-mobile-web-app-status-bar-style" content="black">
      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{$PHP.BASE_URL}/templates/images/xhigh/appicon.png">
      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{$PHP.BASE_URL}/templates/images/high/appicon.png">
@@ -53,8 +55,8 @@
 	<!-- jQuery Mobile Configuration -->
 
      <!-- jQuery Mobile -->
-     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-     <link rel="stylesheet" href="{$PHP.BASE_URL}/templates/psu-mobile-jqm-theme.min.css" />
+     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css">
+     <link rel="stylesheet" href="{$PHP.BASE_URL}/templates/psu-mobile-jqm-theme.min.css">
      <script type="text/javascript" src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
      <!-- jQuery Mobile -->
 
@@ -75,7 +77,7 @@
 	{/if}
 
 	<!-- PSU Mobile/Custom (Must be in this order) -->
-     <link rel="stylesheet" href="{$PHP.BASE_URL}/templates/style.css" />
+     <link rel="stylesheet" href="{$PHP.BASE_URL}/templates/style.css">
 	<!-- PSU Mobile/Custom -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
