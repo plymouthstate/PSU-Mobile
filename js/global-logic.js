@@ -45,7 +45,7 @@
 })(jQuery);
 
 // Bind events to be triggered BEFORE EVERY page creation
-$(document).live('pagebeforecreate', function() {
+$(document).on('pagebeforecreate', function() {
 	// Function to find all jQuery Mobile back buttons and add an attribute to it
 	function modifyBackButtons() {
 		// Back buttons jQuery object
@@ -62,7 +62,7 @@ $(document).live('pagebeforecreate', function() {
 });
 
 // Bind generic events to be triggered on EVERY page creation
-$(document).live('pagecreate', function() {
+$(document).on('pagecreate', function() {
 	// Function to change the class of the HTML tag based on the orientation of the device
 	function changeOrientationClass(orientation) {
 		// Add the orientation as a CSS class to the HTML tag
@@ -70,7 +70,7 @@ $(document).live('pagecreate', function() {
 	}
 
 	// Functions to run on orientation change
-	$(window).bind('orientationchange', function(event){
+	$(window).on('orientationchange', function(event){
 		changeOrientationClass(event.orientation);
 	});
 
@@ -92,7 +92,7 @@ $(document).live('pagecreate', function() {
 });
 
 // Bind generic events to be triggered BEFORE EVERY page show
-$(document).live('pagebeforeshow', function() {
+$(document).on('pagebeforeshow', function() {
 	// Function to hide all the vertically centered divs, so they don't POP into place
 	function hidePreModifiedDivs() {
 		// Iterate over each div
@@ -106,7 +106,7 @@ $(document).live('pagebeforeshow', function() {
 });
 
 // Bind generic events to be triggered on EVERY page show
-$(document).live('pageshow', function() {
+$(document).on('pageshow', function() {
 	// Function to vertically center all divs marked with the "vertically-centered" class
 	function verticallyCenterDivs() {
 		// Grab the divs
@@ -133,7 +133,7 @@ $(document).live('pageshow', function() {
 });
 
 // Bind generic events to be triggered on EVERY m-app initialization
-$('.m-app').live('pageinit', function() {
+$('.m-app').on('pageinit', function() {
 	// Function to add both an html element and a click listener to all android headers
 	function convertAndroidHeaders() {
 		// Header jQuery object
@@ -160,7 +160,7 @@ $('.m-app').live('pageinit', function() {
 });
 
 // Bind generic events to be triggered on the DASHBOARD page initialization
-$('#page-dashboard').live('pageinit', function() {
+$('#page-dashboard').on('pageinit', function() {
 	// Set variables for the dashboard
 	var currentElemPerRow = '';
 	
@@ -211,7 +211,7 @@ $('#page-dashboard').live('pageinit', function() {
 	}
 
 	// Make the info button footer clickable
-	$('.info-button').click(function() {
+	$('.info-button').on('click', function() {
 		$('#hidden-info-div').animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
 			// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
 			$(window).trigger('resize');
@@ -223,7 +223,7 @@ $('#page-dashboard').live('pageinit', function() {
 	});
 
 	// Functions to run on orientation change
-	$(window).bind('orientationchange', function(event){
+	$(window).on('orientationchange', function(event){
 		detectMiddleElements();
 	});
 
@@ -234,20 +234,34 @@ $('#page-dashboard').live('pageinit', function() {
 	})();
 });
 
+// NOTE: For some reason or another, I HAVE to use LIVE on these events. I can't use the new, steezy 'on' function
 // Bind events to be triggered on the CAMPUS MAP page initialization
 $('#page-campusmap').live('pageinit', function() {
-	// Create a Google Map
-	var startingCenterPoint = new google.maps.LatLng(43.758976, -71.688709);
-	var zoomLevel = 15;
-	var gmapObject = {'center': startingCenterPoint, 'zoom': zoomLevel};
+	// We might not have the Google Maps API loaded yet, so let's try
+	try {
+		// Create a Google Map
+		var startingCenterPoint = new google.maps.LatLng(43.758976, -71.688709);
+		var zoomLevel = 15;
+		var gmapObject = {'center': startingCenterPoint, 'zoom': zoomLevel};
 
-	// Create the map
-	$('div#campus-google-map').gmap( gmapObject );
+		// Create the map
+		$('div#campus-google-map').gmap( gmapObject );
+	}
+	catch (e) {
+		console.log('Couldn\'t load the Google Map. Died with: ' + e);
+	}
 });
 // Bind events to be triggered on the CAMPUS MAP page showing
 $('#page-campusmap').live("pageshow", function() {
 	// Refresh/repaint
 	$(window).trigger('resize');
 	$(this).trigger('updatelayout');
-	$('div#campus-google-map').gmap('refresh');
+
+	// We might not have the Google Maps API loaded yet, so let's try
+	try {
+		$('div#campus-google-map').gmap('refresh');
+	}
+	catch (e) {
+		console.log('Couldn\'t load the Google Map. Died with: ' + e);
+	}
 });

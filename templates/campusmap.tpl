@@ -1,4 +1,4 @@
-{include file='_header.tpl' pre_jq_js=$pre_jq_js post_jq_js=$post_jq_js}
+{include file='_header.tpl'}
 <!-- Begin jQuery Mobile Page -->
 <div data-role="page" id="page-campusmap" class="m-app">
 	{jqm_header position="fixed"}
@@ -12,6 +12,11 @@
 		<!-- Campus Map -->
 	{/jqm_content}
 
+	<!-- Begin Page Specific JS -->
+
+	<script type="text/javascript" src="{$PHP.BASE_URL}/js/jquery.ui.map.full.min.js"></script>
+
+	<!-- End Page Specific JS -->
 </div>
 <!-- End jQuery Mobile Page -->
 {include file='_footer.tpl'}
