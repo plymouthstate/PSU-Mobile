@@ -296,9 +296,18 @@ footer.ui-footer {
 					color: #300;
 				}
 			}
-			h5.app-frameworks {
+			ul.app-frameworks {
 				margin: 5px 0px;
+				padding: 0px;
+				list-style: none;
 				font-size: 10px;
+
+				li {
+					display: block;
+				}
+				li#phonegap {
+					display: none;
+				}
 			}
 
 			/* Images depending on screen density */

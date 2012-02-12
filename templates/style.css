@@ -228,9 +228,15 @@ footer.ui-footer {
         #page-dashboard div#hidden-info-div div.info-panel h4.copyright a, #page-dashboard div#hidden-info-div div.info-panel h4.copyright a:link {
           text-decoration: none;
           color: #300; }
-      #page-dashboard div#hidden-info-div div.info-panel h5.app-frameworks {
+      #page-dashboard div#hidden-info-div div.info-panel ul.app-frameworks {
         margin: 5px 0px;
+        padding: 0px;
+        list-style: none;
         font-size: 10px; }
+        #page-dashboard div#hidden-info-div div.info-panel ul.app-frameworks li {
+          display: block; }
+        #page-dashboard div#hidden-info-div div.info-panel ul.app-frameworks li#phonegap {
+          display: none; }
       @media screen and (-webkit-device-pixel-ratio: 2) {
         #page-dashboard div#hidden-info-div div.info-panel .big-color-logo {
           background-image: url(images/xhigh/psu_logo_large_color.png); } }

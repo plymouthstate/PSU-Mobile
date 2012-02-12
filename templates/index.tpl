@@ -31,7 +31,10 @@
 			<h2 class="app-version">Version {$PHP.APP_VERSION}</h2>
 			<h3 class="app-build">Build {$PHP.APP_BUILD_NAME} {$PHP.APP_BUILD_TYPE}</h3>
 			<h4 class="copyright">Copyright &copy; {$smarty.now|date_format:"%Y"} by <a href="http://plymouth.edu/" target="_blank">Plymouth State University</a></h4>
-			<h5 class="app-frameworks">Proudly built with jQuery Mobile <span></span></h5>
+			<ul class="app-frameworks">
+				<li id="jquery-mobile">Proudly built with jQuery Mobile <span></span></li>
+				<li id="phonegap">Native API provided by PhoneGap <span></span></li>
+			</ul>
 		</div>
 	</div>
 </div>
