@@ -14,7 +14,7 @@
 
 	<!-- Begin Page Specific JS -->
 
-	<script type="text/javascript" src="{$PHP.BASE_URL}/js/jquery.ui.map.full.min.js"></script>
+	<script src="{$PHP.BASE_URL}/js/jquery.ui.map.full.min.js"></script>
 
 	<!-- End Page Specific JS -->
 </div>

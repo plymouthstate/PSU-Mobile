@@ -35,22 +35,48 @@
 	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/style.css">
 	<!-- PSU Mobile/Custom -->
 
+	<!-- Necessary Global Tools -->
+	<!-- Load these first. We need to use them for device detection and for other script loads -->
+	<script src="{$PHP.BASE_URL}/js/global-tools.js"></script>
+	<!-- Necessary Global Tools -->
+
 	<!-- jQuery -->
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<!-- jQuery -->
 
 	<!-- jQuery Mobile Configuration -->
-	<script type="text/javascript" src="{$PHP.BASE_URL}/js/jquery.mobile.config.js"></script>
+	<script src="{$PHP.BASE_URL}/js/jquery.mobile.config.js"></script>
 	<!-- jQuery Mobile Configuration -->
 
 	<!-- jQuery Mobile -->
-	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 	<!-- jQuery Mobile -->
 
 	<!-- Google Maps API -->
 	<!-- Must be loaded in the HEAD, as it uses a document.write to load an external script -->
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	<!-- Google Maps API -->
+
+	{* If the phonegap session variable is set, include the PhoneGap javascript *}
+	{if isset($smarty.session.phonegap)}
+		<!-- Load the PhoneGap JavaScript files -->
+		<script>
+			var scriptName = 'phonegap.js';
+
+			// Use a try, in case the GlobalTools didn't load correctly
+			try {
+				if (GlobalTools.deviceOS() != 'other') {
+					scriptName = 'js/phonegap-' + '{$smarty.session.phonegap}' + '_' + GlobalTools.deviceOS() + '.js';
+				}
+			}
+			catch (e) {
+				console.log(e);
+			}
+
+			// Actually write the script tag and load the JS
+			document.write('<script src="' + scriptName + '"><\/script>');
+		</script>
+	{/if}
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
 

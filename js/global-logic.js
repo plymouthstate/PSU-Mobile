@@ -1,49 +1,3 @@
-// Plugin to jQuery
-(function($) {
-	/*
-	// Create a universal animation function that optimizes for the browsers capabilities
-	$.fn.optAnimate = function(props, speed, easing, callback) {
-		// If modernizr reports that the browser supports CSS animations, and the animateWithCss function has correctly been loaded/defined
-		if (Modernizr.cssanimations && typeof($.fn.animateWithCss) == 'function') {
-			return $(this).animateWithCss(props, speed, easing, callback);
-		}
-		else {
-			return $(this).animate(props, speed, easing, callback);
-		}
-	};
-	*/
-
-	// Get the device's OS and add it as a class to the HTML tag
-	// To be used for OS-specific styling (trying to stay more true to the native styling)
-	$.fn.deviceOS = function() {
-		var deviceOS = '';
-
-		// Get the data
-		var devicePlatform = navigator.userAgent.match(/Android/i)
-			|| navigator.userAgent.match(/iPod/i)
-			|| navigator.userAgent.match(/iPad/i)
-			|| navigator.userAgent.match(/iPhone/i)
-			|| navigator.userAgent.match(/webOS/i)
-			|| 'Other';
-
-		if (devicePlatform == 'iPod' || devicePlatform == 'iPad' || devicePlatform == 'iPhone') {
-			deviceOS = 'ios';
-		}
-		else if (devicePlatform == 'Android') {
-			deviceOS = 'android';
-		}
-		else {
-			deviceOS = devicePlatform.toLowerCase();
-		}
-
-		// Add the deviceOS as a CSS class to the HTML tag
-		$('html').addClass(deviceOS);
-
-		return deviceOS;
-	};
-
-})(jQuery);
-
 // Bind events to be triggered BEFORE EVERY page creation
 $(document).on('pagebeforecreate', function() {
 	// Function to find all jQuery Mobile back buttons and add an attribute to it
@@ -86,7 +40,7 @@ $(document).on('pagecreate', function() {
 	// Functions to run on page-load
 	(function() {
 		$(window).trigger('orientationchange');
-		$().deviceOS();
+		GlobalTools.deviceOS();
 		modifyBackButtons();
 	})();
 });
@@ -200,7 +154,7 @@ $('#page-dashboard').on('pageinit', function() {
 	// Detect device and meta info and display it on the page
 	function deviceInfo() {
 		// Get the data
-		var devicePlatform = $().deviceOS();
+		var devicePlatform = GlobalTools.deviceOS();
 		var displayDensity = window.devicePixelRatio;
 
 		// Display it by adding it to the mobile-info span
