@@ -27,7 +27,7 @@
 	<!-- Mobile Meta and Graphic Tags -->
 
 	<!-- jQuery Mobile Styles -->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css">
+	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.0.1/jquery.mobile-1.0.1.min.css">
 	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/psu-mobile-jqm-theme.min.css">
 	<!-- jQuery Mobile Styles -->
 
@@ -41,7 +41,7 @@
 	<!-- Necessary Global Tools -->
 
 	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<!-- jQuery -->
 
 	<!-- jQuery Mobile Configuration -->
@@ -49,12 +49,12 @@
 	<!-- jQuery Mobile Configuration -->
 
 	<!-- jQuery Mobile -->
-	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 	<!-- jQuery Mobile -->
 
 	<!-- Google Maps API -->
 	<!-- Must be loaded in the HEAD, as it uses a document.write to load an external script -->
-	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="//maps.google.com/maps/api/js?sensor=true"></script>
 	<!-- Google Maps API -->
 
 	{* If the phonegap session variable is set, include the PhoneGap javascript *}
