@@ -19,6 +19,9 @@ $(document).on('pagebeforecreate', function() {
 $(document).on('pagecreate', function() {
 	// Function to change the class of the HTML tag based on the orientation of the device
 	function changeOrientationClass(orientation) {
+		// Remove the old orientation classes
+		$('html').removeClass('landscape').removeClass('portrait');
+
 		// Add the orientation as a CSS class to the HTML tag
 		$('html').addClass(orientation);
 	}
@@ -87,7 +90,7 @@ $(document).on('pageshow', function() {
 });
 
 // Bind generic events to be triggered on EVERY m-app initialization
-$('.m-app').on('pageinit', function() {
+$(document).on('pageinit', '.m-app', function() {
 	// Function to add both an html element and a click listener to all android headers
 	function convertAndroidHeaders() {
 		// Header jQuery object
@@ -101,7 +104,7 @@ $('.m-app').on('pageinit', function() {
 		$header.prepend('<span class="back-image"></span>');
 
 		// Make the header clickable
-		$header.on('vclick', function() {
+		$(document).on('vclick', $header.selector, function() {
 			// Use jQuery Mobile's page change function to animate with transitions and load with Ajax, even if they weren't already there (that's why we're not using history.back)
 			$.mobile.changePage(backUrl, {reverse: true});
 		});
@@ -114,7 +117,7 @@ $('.m-app').on('pageinit', function() {
 });
 
 // Bind generic events to be triggered on the DASHBOARD page initialization
-$('#page-dashboard').on('pageinit', function() {
+$(document).on('pageinit', '#page-dashboard', function() {
 	// Set variables for the dashboard
 	var currentElemPerRow = '';
 	
@@ -165,7 +168,7 @@ $('#page-dashboard').on('pageinit', function() {
 	}
 
 	// Make the info button footer clickable
-	$('.info-button').on('vclick', function(event) {
+	$(document).on('vclick', '.info-button', function(event) {
 		$('#hidden-info-div').stop().animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
 			// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
 			$(window).trigger('resize');
@@ -190,7 +193,7 @@ $('#page-dashboard').on('pageinit', function() {
 
 // NOTE: For some reason or another, I HAVE to use LIVE on these events. I can't use the new, steezy 'on' function
 // Bind events to be triggered on the CAMPUS MAP page initialization
-$('#page-campusmap').live('pageinit', function() {
+$(document).on('pageinit', '#page-campusmap', function() {
 	// We might not have the Google Maps API loaded yet, so let's try
 	try {
 		// Create a Google Map
@@ -206,7 +209,7 @@ $('#page-campusmap').live('pageinit', function() {
 	}
 });
 // Bind events to be triggered on the CAMPUS MAP page showing
-$('#page-campusmap').live("pageshow", function() {
+$(document).on('pageshow', '#page-campusmap', function() {
 	// Refresh/repaint
 	$(window).trigger('resize');
 	$(this).trigger('updatelayout');
