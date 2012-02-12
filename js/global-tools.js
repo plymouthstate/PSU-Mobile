@@ -26,7 +26,7 @@ GlobalTools.deviceOS = function () {
 	}
 
 	// Add the deviceOS as a CSS class to the HTML tag
-	document.documentElement.className += deviceOS;
+	document.documentElement.className += ' ' + deviceOS;
 
 	return deviceOS;
 };
