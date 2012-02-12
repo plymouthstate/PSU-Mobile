@@ -101,8 +101,8 @@ $('.m-app').on('pageinit', function() {
 		$header.prepend('<span class="back-image"></span>');
 
 		// Make the header clickable
-		$header.click(function() {
-			// Use jQuery Mobile's page change function to animate with transitions and load with Ajax
+		$header.on('vclick', function() {
+			// Use jQuery Mobile's page change function to animate with transitions and load with Ajax, even if they weren't already there (that's why we're not using history.back)
 			$.mobile.changePage(backUrl, {reverse: true});
 		});
 	}
@@ -165,8 +165,8 @@ $('#page-dashboard').on('pageinit', function() {
 	}
 
 	// Make the info button footer clickable
-	$('.info-button').on('click', function() {
-		$('#hidden-info-div').animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
+	$('.info-button').on('vclick', function(event) {
+		$('#hidden-info-div').stop().animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
 			// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
 			$(window).trigger('resize');
 			$(this).trigger('updatelayout');
