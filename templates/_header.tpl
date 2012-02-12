@@ -66,7 +66,7 @@
 			// Use a try, in case the GlobalTools didn't load correctly
 			try {
 				if (GlobalTools.deviceOS() != 'other') {
-					scriptName = 'js/phonegap-' + '{$smarty.session.phonegap}' + '_' + GlobalTools.deviceOS() + '.js';
+					scriptName = '{$PHP.BASE_URL}/js/phonegap-' + '{$smarty.session.phonegap}' + '_' + GlobalTools.deviceOS() + '.js';
 				}
 			}
 			catch (e) {
