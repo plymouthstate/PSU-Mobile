@@ -70,7 +70,7 @@ respond( '[*]', function( $request, $response, $app ) {
 respond( '/', function( $request, $response, $app ) {
 	// Grab a couple of the request parameters
 	$response->session('phonegap', $request->param('phonegap'));
-	$response->session('client-app-version', $request->param('client-app-version'));
+	$response->session('client-app', $request->param('client-app'));
 
 	// Filter all of the NULL session variables
 	$_SESSION = array_filter( $_SESSION );
