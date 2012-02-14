@@ -18,12 +18,12 @@
 	{/jqm_content}
 
 	{jqm_footer position="fixed"}
-		<a href="#" id="footer-info-button" class="dashboard-ui-bar-button info-button info-button-open" data-role="button" data-iconpos="notext"></a>
+		<a id="footer-info-button" class="dashboard-ui-bar-button info-button info-button-open" data-role="button" data-iconpos="notext"></a>
 	{/jqm_footer}
 
 	<div id="hidden-info-div">
 		<div class="ui-bar-a">
-			<a href="#" id="hidden-info-button" class="dashboard-ui-bar-button info-button info-button-close" data-role="button" data-iconpos="notext"></a>
+			<a id="hidden-info-button" class="dashboard-ui-bar-button info-button info-button-close" data-role="button" data-iconpos="notext"></a>
 		</div>
 		<div class="info-panel">
 			<div class="big-color-logo"></div>
