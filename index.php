@@ -17,38 +17,14 @@ $GLOBALS['APP_BUILD_TYPE'] = 'beta-dev';
 // Include my custom mobile smarty class
 require_once $GLOBALS['BASE_DIR'] . '/includes/MobileTemplate.class.php';
 
-require_once $GLOBALS['BASE_DIR'] . '/API.php';
 require_once 'klein/klein.php';
-
-require_once $GLOBALS['BASE_DIR'] . '/includes/MobileAPI.class.php';
 
 if( file_exists( $GLOBALS['BASE_DIR'] . '/debug.php' ) ) {
 	include $GLOBALS['BASE_DIR'] . '/debug.php';
 }
 
-// Build an autoloader for my custom Mobile classes
-function mobile_autoloader($class_name) {
-	// Only use this autoloader when the class name STARTS (position 0) with Mobile
-	if ( stripos( $class_name, 'Mobile' ) === 0 ) {
-		// Declare the include directory
-		$inc_directory = $GLOBALS['BASE_DIR'] . '/includes/Mobile/';
-
-		// Strip out the namespace in the class name argument
-		if ( strpos( $class_name, '\\' ) !== false) {
-			$class_name = substr( strrchr( $class_name, '\\' ), 1 );
-		}
-
-		$file = $inc_directory . $class_name . '.php';
-
-		// Include (require_once) the class files
-		if ( file_exists( $file ) ) {
-			require_once $file;
-		}
-	}
-}
-
-// Register that autoloader
-spl_autoload_register('mobile_autoloader');
+// Register my directory into the autoloader
+includes_psu_register( 'Mobile', $GLOBALS['BASE_DIR'] . '/includes' );
 
 
 /**
@@ -59,11 +35,6 @@ spl_autoload_register('mobile_autoloader');
 respond( function( $request, $response, $app ) {
 	// Initialize the PSU smarty templating
 	$app->tpl = new MobileTemplate;
-});
-
-// Klein catch-all (should be more developed later)
-respond( '[*]', function( $request, $response, $app ) {
-	// Put master response code here
 });
 
 // Generic request 
