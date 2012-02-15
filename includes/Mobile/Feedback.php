@@ -9,7 +9,7 @@ class Feedback {
 	 * @param array &$postData An array containing the data that was posted with the form
 	 * @param array &$responseData A blank array that will, upon completion, contain the data for the JSON response
 	 */
-	public static function validate_data(&$postData, &$responseData, $ajax) {
+	public static function validate(&$postData, &$responseData, $ajax) {
 		// Settings
 		$salt = 'q3;hlsd0izsdf9qij345';
 
@@ -73,7 +73,7 @@ class Feedback {
 	 * @param array &$postData An array containing the data that has been validated
 	 * @param array &$responseData An array containing the data for the JSON response
 	 */
-	public static function submit_feedback(&$postData, &$responseData) {
+	public static function submit(&$postData, &$responseData) {
 		// Email settings
 		$email_settings = array(
 			'email_recip_address' => 'helpdesk@plymouth.edu',

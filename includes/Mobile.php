@@ -54,9 +54,9 @@ class Mobile {
 		$response_data = array();
 
 		// If data is valid
-		if(Feedback::validate_data($form_data, $response_data, $ajax_format)) {
+		if(Feedback::validate($form_data, $response_data, $ajax_format)) {
 			// Submit the feedback
-			$response_data = Feedback::submit_feedback($form_data, $response_data);
+			$response_data = Feedback::submit($form_data, $response_data);
 		}
 
 		// If called with Ajax, make sure to respond in JSON format
