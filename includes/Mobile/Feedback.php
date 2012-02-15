@@ -77,16 +77,20 @@ class Feedback {
 		// Email settings
 		$email_settings = array(
 			'email_recip_address' => 'helpdesk@plymouth.edu',
+			'email_recip_address' => 'rican7@gmail.com',
 			'subject_prefix' => 'PSU Mobile Feedback'
 		);
 
 		// Create headers
 		$mail_to = $email_settings['email_recip_address'];
 		$mail_subject = $email_settings['subject_prefix'].' - '.$postData['title'];
-		$mail_message = 'Feedback:'."\r\n".$postData['message']."\r\n\r\n"
-					.'How does it make you feel?:'."\r\n".$postData['feeling']."\r\n\r\n"
-					.'Hidden Technical Info:'."\r\n".print_r($postData['hiddenInfo'], true);
 		$mail_headers = 'From: '.$postData['email']."\r\n".'Reply-To: '.$postData['email'];
+
+		// Grab the message from a template
+		$tpl = new \MobileTemplate;
+		$tpl->assign( 'message', $postData['message'] );
+		$tpl->assign( 'feeling', $postData['feeling'] );
+		$mail_message = $tpl->fetch( 'feedback-email.tpl' );
 
 		// Mail the recipient
 		if (\PSU::mail($mail_to, $mail_subject, $mail_message, $mail_headers)) {
