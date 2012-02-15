@@ -6,9 +6,6 @@
  *
  */
 
-// Required parent class
-require_once('autoload.php');
-
 /*
  * A templating class providing Smarty calls and some custom functionality
  */
