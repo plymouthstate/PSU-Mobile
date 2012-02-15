@@ -43,8 +43,13 @@ respond( '/', function( $request, $response, $app ) {
 	$response->session('phonegap', $request->param('phonegap'));
 	$response->session('client-app-version', $request->param('client-app-version'));
 
-	// Filter all of the NULL session variables
-	$_SESSION = array_filter( $_SESSION );
+	// Remove the variables if they're null
+	if (is_null($_SESSION['phonegap'])) {
+		unset($_SESSION['phonegap']);
+	}
+	if (is_null($_SESSION['client-app-version'])) {
+		unset($_SESSION['client-app-version']);
+	}
 
 	// Show the index on a generic request
 	$app->tpl->display( 'index.tpl' );
