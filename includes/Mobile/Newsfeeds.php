@@ -155,7 +155,7 @@ class Newsfeeds {
 				'userid' => $tweet['user']['id'],
 				'rawtime' => $tweet['created_at'],
 				'timestamp' => $timestamp,
-				'datetime' => Utilities::datetime($timestamp),
+				'datetime' => \PSU::html5_datetime($timestamp),
 				'time_ago' => \PSU::date_diff($timestamp, time(), 'simple'),
 				'url' => 'https://twitter.com/'.$tweet['user']['screen_name'].'/status/'.$tweet['id_str'],
 				'image' => '',
@@ -179,7 +179,7 @@ class Newsfeeds {
 				'userid' => $post['from']['id'],
 				'rawtime' => $post['created_time'],
 				'timestamp' => $timestamp,
-				'datetime' => Utilities::datetime($timestamp),
+				'datetime' => \PSU::html5_datetime($timestamp),
 				'time_ago' => \PSU::date_diff($timestamp, time(), 'simple'),
 				'url' => $post['actions'][0]['link'],
 				'image' => '',
@@ -220,7 +220,7 @@ class Newsfeeds {
 					$post = htmlspecialchars_decode($post);
 					$post = html_entity_decode($post);
 					$post = strip_tags($post);
-					$post = Utilities::html_all_entities($post);
+					$post = \PSU::html_all_entities($post);
 					$post = str_replace('&#12287;', '\'', $post);
 
 					return $post;
@@ -234,7 +234,7 @@ class Newsfeeds {
 					'userid' => '',
 					'rawtime' => $item->pubDate(),
 					'timestamp' => $post_timestamp,
-					'datetime' => Utilities::datetime($post_timestamp),
+					'datetime' => \PSU::html5_datetime($post_timestamp),
 					'time_ago' => \PSU::date_diff($post_timestamp, time(), 'simple'),
 					'url' => $item->link(),
 					'image' => '',
