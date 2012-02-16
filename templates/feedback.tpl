@@ -1,5 +1,5 @@
 {include file='_header.tpl'}
-<!-- Begin jQuery Mobile Page -->
+{* Begin jQuery Mobile Page *}
 <div data-role="page" id="page-feedback" class="m-app">
 	{jqm_header position="fixed"}
 		<a href="{$PHP.BASE_URL}/" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
@@ -7,7 +7,7 @@
      {/jqm_header}
 
 	{jqm_content}
-		<!-- Feedback form here -->
+		{* Feedback form here *}
 		<form action="submit" method="post">
 			<fieldset>
 				<label for="feedback-email">Your Email Address</label>
@@ -47,5 +47,5 @@
 	{/jqm_content}
 
 </div>
-<!-- End jQuery Mobile Page -->
+{* End jQuery Mobile Page *}
 {include file='_footer.tpl'}

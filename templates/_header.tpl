@@ -5,13 +5,13 @@
 
      <title>{$title|default:"PSU Mobile"}</title> 
 
-	<!-- Web App Info -->
+	{* Web App Info *}
 	<meta name="app-version" content="{$PHP.APP_VERSION}">
 	<meta name="app-build-name" content="{$PHP.APP_BUILD_NAME}">
 	<meta name="app-build-type" content="{$PHP.APP_BUILD_TYPE}">
-	<!-- Web App Info -->
+	{* Web App Info *}
 
-	<!-- Mobile Meta and Graphic Tags -->
+	{* Mobile Meta and Graphic Tags *}
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
 
@@ -24,42 +24,42 @@
 	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{$PHP.BASE_URL}/templates/images/medium/appicon.png">
 	<link rel="apple-touch-icon-precomposed" href="{$PHP.BASE_URL}/templates/images/xhigh/appicon.png">
 	<link rel="shortcut icon" href="{$PHP.BASE_URL}/templates/images/low/appicon.png">
-	<!-- Mobile Meta and Graphic Tags -->
+	{* Mobile Meta and Graphic Tags *}
 
-	<!-- jQuery Mobile Styles -->
+	{* jQuery Mobile Styles *}
 	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.0.1/jquery.mobile-1.0.1.min.css">
 	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/psu-mobile-jqm-theme.min.css">
-	<!-- jQuery Mobile Styles -->
+	{* jQuery Mobile Styles *}
 
-	<!-- PSU Mobile/Custom (Must be in this order) -->
+	{* PSU Mobile/Custom (Must be in this order) *}
 	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/style.css">
-	<!-- PSU Mobile/Custom -->
+	{* PSU Mobile/Custom *}
 
-	<!-- Necessary Global Tools -->
-	<!-- Load these first. We need to use them for device detection and for other script loads -->
+	{* Necessary Global Tools *}
+	{* Load these first. We need to use them for device detection and for other script loads *}
 	<script src="{$PHP.BASE_URL}/js/global-tools.js"></script>
-	<!-- Necessary Global Tools -->
+	{* Necessary Global Tools *}
 
-	<!-- jQuery -->
+	{* jQuery *}
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<!-- jQuery -->
+	{* jQuery *}
 
-	<!-- jQuery Mobile Configuration -->
+	{* jQuery Mobile Configuration *}
 	<script src="{$PHP.BASE_URL}/js/jquery.mobile.config.js"></script>
-	<!-- jQuery Mobile Configuration -->
+	{* jQuery Mobile Configuration *}
 
-	<!-- jQuery Mobile -->
+	{* jQuery Mobile *}
 	<script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
-	<!-- jQuery Mobile -->
+	{* jQuery Mobile *}
 
-	<!-- Google Maps API -->
-	<!-- Must be loaded in the HEAD, as it uses a document.write to load an external script -->
+	{* Google Maps API *}
+	{* Must be loaded in the HEAD, as it uses a document.write to load an external script *}
 	<script src="//maps.google.com/maps/api/js?sensor=true"></script>
-	<!-- Google Maps API -->
+	{* Google Maps API *}
 
 	{* If the phonegap session variable is set, include the PhoneGap javascript *}
 	{if isset($smarty.session.phonegap)}
-		<!-- Load the PhoneGap JavaScript files -->
+		{* Load the PhoneGap JavaScript files *}
 		<script>
 			var scriptName = 'phonegap.js';
 

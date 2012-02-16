@@ -1,12 +1,12 @@
 {include file='_header.tpl'}
-<!-- Begin jQuery Mobile Page -->
+{* Begin jQuery Mobile Page *}
 <div data-role="page" id="page-dashboard">
 	{jqm_header position="fixed"}
           <h1 id="header-logo"><span>PSU Mobile</span></h1>
      {/jqm_header}
 
 	{jqm_content}
-	<!-- Start dashboard -->
+	{* Start dashboard *}
 		<nav id="dashboard">
 			<ul id="dashboard-mapps">
 				<li id="mapp-newsfeed"><a href="newsfeed/">News Feed</a></li>
@@ -14,7 +14,7 @@
 				<li id="mapp-feedback"><a href="feedback/">Feedback</a></li>
 			</ul>
 		</nav>
-	<!-- End dashboard -->
+	{* End dashboard *}
 	{/jqm_content}
 
 	{jqm_footer position="fixed"}
@@ -38,5 +38,5 @@
 		</div>
 	</div>
 </div>
-<!-- End jQuery Mobile Page -->
+{* End jQuery Mobile Page *}
 {include file='_footer.tpl'}
