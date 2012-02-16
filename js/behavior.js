@@ -113,20 +113,23 @@ $(document).on('pageinit', '#page-dashboard', function() {
 	
 	// Detect and mark the "middle" elements of the dashboard
 	function detectMiddleElements() {
+		// Store the dashboard jQuery object
+		var $dashboardNav = $('nav#dashboard');
+
 		// Grab the width of the entire dashboard
-		var dashWidth = parseInt($('nav#dashboard').width());
+		var dashWidth = parseInt($dashboardNav.width());
 
 		// Grab the percentage width of the first element
-		var elemWidth = parseInt($('nav#dashboard ul#dashboard-mapps li').width());
+		var elemWidth = parseInt($dashboardNav.find('ul#dashboard-mapps li').width());
 
 		// Find the number of elements per row
 		var elemPerRow = Math.floor(dashWidth / elemWidth);
 
 		// Remove the current element per row class, so there aren't more than one class
-		$('nav#dashboard').removeClass(currentElemPerRow + '-per-row');
+		$dashboardNav.removeClass(currentElemPerRow + '-per-row');
 
 		// Set the number of elements per row as a css class on the dashboard tag
-		$('nav#dashboard').addClass(elemPerRow + '-per-row');
+		$dashboardNav.addClass(elemPerRow + '-per-row');
 		currentElemPerRow = elemPerRow;
 
 		// Calculate the middle-th element
@@ -140,21 +143,8 @@ $(document).on('pageinit', '#page-dashboard', function() {
 		console.log(elemPerRow + 'n+' + middleCount);
 
 		// Finally, set every middle-th element to have a class
-		$('nav#dashboard ul#dashboard-mapps li').removeClass('dash-middle-element');
-		$('nav#dashboard ul#dashboard-mapps li:nth-child(' + everyNthChild +')').addClass('dash-middle-element');
-	}
-
-	// Detect device and meta info and display it on the page
-	function deviceInfo() {
-		// Get the data
-		var devicePlatform = GlobalTools.deviceOS();
-		var displayDensity = window.devicePixelRatio;
-
-		// Display it by adding it to the mobile-info span
-		$('#mobile-info').append('<li>Device Platform: ' + devicePlatform + '</li>');
-		$('#mobile-info').append('<li>Display Density: ' + displayDensity + '</li>');
-		$('#mobile-info').append('<li>User Agent: ' + navigator.userAgent + '</li>');
-
+		$dashboardNav.find('ul#dashboard-mapps li').removeClass('dash-middle-element');
+		$dashboardNav.find('ul#dashboard-mapps li:nth-child(' + everyNthChild +')').addClass('dash-middle-element');
 	}
 
 	// Make the info button footer clickable
@@ -176,7 +166,6 @@ $(document).on('pageinit', '#page-dashboard', function() {
 
 	// Functions to run immediately
 	detectMiddleElements();
-	deviceInfo();
 });
 
 // NOTE: For some reason or another, I HAVE to use LIVE on these events. I can't use the new, steezy 'on' function
