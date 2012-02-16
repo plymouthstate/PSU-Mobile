@@ -9,10 +9,8 @@ $(document).on('pagebeforecreate', function() {
 		$backBtns.attr('data-direction', 'reverse');
 	}
 
-	// Functions to run on page-load
-	(function() {
-		modifyBackButtons();
-	})();
+	// Functions to run immediately
+	modifyBackButtons();
 });
 
 // Bind generic events to be triggered on EVERY page creation
@@ -40,12 +38,10 @@ $(document).on('pagecreate', function() {
 		$backBtns.append('<span class="ui-icon ui-icon-arrow-l ui-icon-shadow"></span>');
 	}
 
-	// Functions to run on page-load
-	(function() {
-		$(window).trigger('orientationchange');
-		GlobalTools.deviceOS();
-		modifyBackButtons();
-	})();
+	// Functions to run immediately
+	$(window).trigger('orientationchange');
+	GlobalTools.deviceOS();
+	modifyBackButtons();
 });
 
 // Bind generic events to be triggered BEFORE EVERY page show
@@ -56,10 +52,8 @@ $(document).on('pagebeforeshow', function() {
 		$('.vertically-centered').hide();
 	}
 
-	// Functions to run on page-load
-	(function() {
-		hidePreModifiedDivs();
-	})();
+	// Functions to run immediately
+	hidePreModifiedDivs();
 });
 
 // Bind generic events to be triggered on EVERY page show
@@ -83,10 +77,8 @@ $(document).on('pageshow', function() {
 		$divs.fadeIn('slow');
 	}
 
-	// Functions to run on page-load
-	(function() {
-		verticallyCenterDivs();
-	})();
+	// Functions to run immediately
+	verticallyCenterDivs();
 });
 
 // Bind generic events to be triggered on EVERY m-app initialization
@@ -110,10 +102,8 @@ $(document).on('pageinit', '.m-app', function() {
 		});
 	}
 
-	// Functions to run on page-load
-	(function() {
-		convertAndroidHeaders();
-	})();
+	// Functions to run immediately
+	convertAndroidHeaders();
 });
 
 // Bind generic events to be triggered on the DASHBOARD page initialization
@@ -184,11 +174,9 @@ $(document).on('pageinit', '#page-dashboard', function() {
 		detectMiddleElements();
 	});
 
-	// Functions to run on page-load
-	(function() {
-		detectMiddleElements();
-		deviceInfo();
-	})();
+	// Functions to run immediately
+	detectMiddleElements();
+	deviceInfo();
 });
 
 // NOTE: For some reason or another, I HAVE to use LIVE on these events. I can't use the new, steezy 'on' function
