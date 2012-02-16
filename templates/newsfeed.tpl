@@ -14,7 +14,7 @@
 				<header>
 					{* Truncate the title to a maximum of 28 characters. *}
 					<h1 class="feed-title">{$item.title|truncate:28}</h1>
-					<time datetime="{$item.datetime}">{$item.time_ago}ago</time>
+					<time datetime="{$item.datetime}">{$item.time_ago} ago</time>
 				</header>
 				<p>{$item.text}</p>
 			</li>
