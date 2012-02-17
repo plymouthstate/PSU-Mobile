@@ -11,7 +11,7 @@ $GLOBALS['TEMPLATES'] = $GLOBALS['BASE_DIR'] . '/templates/';
 
 $GLOBALS['APP_VERSION'] = '0.4.1';
 $GLOBALS['APP_BUILD_NAME'] = 'jqm-html5';
-$GLOBALS['APP_BUILD_TYPE'] = 'beta-dev';
+$GLOBALS['APP_BUILD_TYPE'] = 'beta-prod';
 
 
 // Include my custom mobile smarty class
