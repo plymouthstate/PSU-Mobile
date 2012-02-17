@@ -1,8 +1,6 @@
 {* Begin jQuery Mobile Page *}
-<div data-role="page" id="page-dashboard">
-	{jqm_header position="fixed"}
-          <h1 id="header-logo"><span>PSU Mobile</span></h1>
-     {/jqm_header}
+{jqm_page id="dashboard"}
+	{jqm_header}{/jqm_header}
 
 	{jqm_content}
 	{* Start dashboard *}
@@ -16,7 +14,7 @@
 	{* End dashboard *}
 	{/jqm_content}
 
-	{jqm_footer position="fixed"}
+	{jqm_footer}
 		<a id="footer-info-button" class="dashboard-ui-bar-button info-button info-button-open" data-role="button" data-iconpos="notext"></a>
 	{/jqm_footer}
 
@@ -36,5 +34,5 @@
 			</ul>
 		</div>
 	</div>
-</div>
+{/jqm_page}
 {* End jQuery Mobile Page *}

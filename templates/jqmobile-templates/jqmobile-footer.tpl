@@ -1,7 +1,9 @@
 {if !$jqm_footer.position}
-	{assign var='jqm_footer.position' value='fixed'}
+	{assign var='position' value='fixed'}
+{else}
+	{assign var='position' value=$jqm_footer.position}
 {/if}
 
-<footer data-role="footer" data-position="{$jqm_footer.position}">
+<footer data-role="footer" data-position="{$position}">
 	{$jqm_footer.content}
 </footer>

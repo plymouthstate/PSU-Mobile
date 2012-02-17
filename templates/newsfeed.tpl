@@ -1,9 +1,6 @@
 {* Begin jQuery Mobile Page *}
-<div data-role="page" id="page-newsfeed" class="m-app">
-	{jqm_header position="fixed"}
-		<a href="{$PHP.BASE_URL}/" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
-          <h1 id="header-logo"><span>News Feed</span></h1>
-     {/jqm_header}
+{jqm_page id="newsfeed" class="m-app"}
+	{jqm_header title="News Feed" back_button="true"}{/jqm_header}
 
 	{jqm_content}
 		<ul id="newsfeed">
@@ -21,5 +18,5 @@
 		</ul>
 	{/jqm_content}
 
-</div>
+{/jqm_page}
 {* End jQuery Mobile Page *}

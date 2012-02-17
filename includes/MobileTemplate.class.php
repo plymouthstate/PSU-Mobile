@@ -24,6 +24,7 @@ class MobileTemplate extends PSUSmarty {
 
 		// register any custom functions
 		$this->register_block('box', array($this, 'psu_box'));
+          $this->register_block('jqm_page', array($this, 'jqmobile_page'));
           $this->register_block('jqm_header', array($this, 'jqmobile_header'));
           $this->register_block('jqm_content', array($this, 'jqmobile_content'));
           $this->register_block('jqm_footer', array($this, 'jqmobile_footer'));
@@ -48,6 +49,15 @@ class MobileTemplate extends PSUSmarty {
 
 		return $nav;
 	} // end nav
+
+	// Creates a jQuery Mobile content
+	function jqmobile_page($params, $content, &$smarty, &$repeat) {
+		$params['content'] = $content;
+
+		$this->assign('jqm_page', $params);
+		
+		return $this->fetch('jqmobile-templates/jqmobile-page.tpl');
+	} // end jqmobile-content
 
 	// Creates a jQuery Mobile header
 	function jqmobile_header($params, $content, &$smarty, &$repeat) {

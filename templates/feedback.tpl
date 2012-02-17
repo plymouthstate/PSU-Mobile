@@ -1,9 +1,6 @@
 {* Begin jQuery Mobile Page *}
-<div data-role="page" id="page-feedback" class="m-app">
-	{jqm_header position="fixed"}
-		<a href="{$PHP.BASE_URL}/" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
-          <h1 id="header-logo"><span>Feedback</span></h1>
-     {/jqm_header}
+{jqm_page id="feedback" class="m-app"}
+	{jqm_header title="Feedback" back_button="true"}{/jqm_header}
 
 	{jqm_content}
 		{* Feedback form here *}
@@ -45,5 +42,5 @@
 		</form>
 	{/jqm_content}
 
-</div>
+{/jqm_page}
 {* End jQuery Mobile Page *}

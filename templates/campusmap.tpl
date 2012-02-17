@@ -1,9 +1,6 @@
 {* Begin jQuery Mobile Page *}
-<div data-role="page" id="page-campusmap" class="m-app">
-	{jqm_header position="fixed"}
-		<a href="{$PHP.BASE_URL}/" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
-          <h1 id="header-logo"><span>Campus Map</span></h1>
-     {/jqm_header}
+{jqm_page id="campusmap" class="m-app"}
+	{jqm_header title="Campus Map" back_button="true"}{/jqm_header}
 
 	{jqm_content}
 		{* Campus Map *}
@@ -16,5 +13,5 @@
 	<script src="{$PHP.BASE_URL}/js/jquery.ui.map.full.min.js"></script>
 
 	{* End Page Specific JS *}
-</div>
+{/jqm_page}
 {* End jQuery Mobile Page *}
