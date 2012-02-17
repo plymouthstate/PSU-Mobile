@@ -77,7 +77,6 @@ class Feedback {
 		// Email settings
 		$email_settings = array(
 			'email_recip_address' => 'helpdesk@plymouth.edu',
-			'email_recip_address' => 'rican7@gmail.com',
 			'subject_prefix' => 'PSU Mobile Feedback'
 		);
 
