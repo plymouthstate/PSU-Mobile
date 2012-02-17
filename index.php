@@ -52,7 +52,7 @@ respond( '/', function( $request, $response, $app ) {
 	}
 
 	// Show the index on a generic request
-	$app->tpl->display( 'index.tpl' );
+	$app->tpl->display( '_wrapper.tpl' );
 });
 
 $app_routes = array(

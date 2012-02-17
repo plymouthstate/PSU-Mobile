@@ -5,7 +5,6 @@
 	{assign var='response_class' value='error'}
 {/if}
 
-{include file='_header.tpl'}
 {* Begin jQuery Mobile Page *}
 <div data-role="page" id="page-feedback-results" class="m-app">
 	{jqm_header position="fixed"}
@@ -28,4 +27,3 @@
 
 </div>
 {* End jQuery Mobile Page *}
-{include file='_footer.tpl'}
