@@ -11,8 +11,15 @@ $GLOBALS['TEMPLATES'] = $GLOBALS['BASE_DIR'] . '/templates/';
 
 $GLOBALS['APP_VERSION'] = '0.4.1';
 $GLOBALS['APP_BUILD_NAME'] = 'jqm-html5';
-$GLOBALS['APP_BUILD_TYPE'] = 'beta-prod';
+$GLOBALS['APP_BUILD_TYPE'] = 'beta';
 
+// Have the APP_BUILD_TYPE global reflect the current server/code status
+if (PSU::isdev()) {
+	$GLOBALS['APP_BUILD_TYPE'] .= '-dev';
+}
+else {
+	$GLOBALS['APP_BUILD_TYPE'] .= '-prod';
+}
 
 // Include my custom mobile smarty class
 require_once $GLOBALS['BASE_DIR'] . '/includes/MobileTemplate.class.php';
