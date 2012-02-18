@@ -136,13 +136,12 @@ footer.ui-footer {
 
 				a {
 					display: block;
-					width: 80px;
+					width: 100px;
 					margin: 0px auto;
 					margin-bottom: 16px;
 					padding-top: 80px;
 					background-repeat: no-repeat;
 					background-position: 50% 0%;
-					background-size: 72px;
 					font-size: 13px;
 					font-weight: normal;
 					text-decoration: none;
@@ -152,14 +151,18 @@ footer.ui-footer {
 			li.dash-middle-element {
 				width: 34%;
 			}
+			li a {
+				background-image: url(images/medium/dashboard-icons.png);
+				background-size: 400px; /* Half the width (if square) */
+			}
 			li#mapp-newsfeed a {
-				background-image: url(images/medium/news.png);
+				background-position: 0px -14px;
 			}
 			li#mapp-campusmap a {
-				background-image: url(images/medium/map.png);
+				background-position: -100px -14px;
 			}
 			li#mapp-feedback a {
-				background-image: url(images/medium/feedback.png);
+				background-position: -193px -14px;
 			}
 
 			/* Styles based on orientation change */
@@ -183,50 +186,26 @@ footer.ui-footer {
 			/* Images depending on screen density */
 			/* Extra high - 2 times */
 			@media screen and (-webkit-device-pixel-ratio: 2) {
-				li#mapp-newsfeed a {
-					background-image: url(images/xhigh/news.png);
-				}
-				li#mapp-campusmap a {
-					background-image: url(images/xhigh/map.png);
-				}
-				li#mapp-feedback a {
-					background-image: url(images/xhigh/feedback.png);
+				li a {
+					background-image: url(images/xhigh/dashboard-icons.png);
 				}
 			}
 			/* High - 1.5 times */
 			@media screen and (-webkit-device-pixel-ratio: 1.5) {
-				li#mapp-newsfeed a {
-					background-image: url(images/high/news.png);
-				}
-				li#mapp-campusmap a {
-					background-image: url(images/high/map.png);
-				}
-				li#mapp-feedback a {
-					background-image: url(images/high/feedback.png);
+				li a {
+					background-image: url(images/high/dashboard-icons.png);
 				}
 			}
 			/* Medium/Normal - 1.0 times */
 			@media screen and (-webkit-device-pixel-ratio: 1.0) {
-				li#mapp-newsfeed a {
-					background-image: url(images/medium/news.png);
-				}
-				li#mapp-campusmap a {
-					background-image: url(images/medium/map.png);
-				}
-				li#mapp-feedback a {
-					background-image: url(images/medium/feedback.png);
+				li a {
+					background-image: url(images/medium/dashboard-icons.png);
 				}
 			}
 			/* Low - 0.75 times */
 			@media screen and (-webkit-device-pixel-ratio: 0.75) {
-				li#mapp-newsfeed a {
-					background-image: url(images/low/news.png);
-				}
-				li#mapp-campusmap a {
-					background-image: url(images/low/map.png);
-				}
-				li#mapp-feedback a {
-					background-image: url(images/low/feedback.png);
+				li a {
+					background-image: url(images/low/dashboard-icons.png);
 				}
 			}
 		}
