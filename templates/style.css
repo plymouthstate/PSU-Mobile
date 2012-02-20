@@ -4,7 +4,7 @@
 .ui-body-c, .ui-dialog.ui-overlay-c {
   background-color: #eaeaea;
   background-image: url(images/medium/noise.png);
-  background-size: 37.5px; }
+  background-size: 75px; }
 
 /* Images depending on screen density */
 /* Extra high - 2 times */
