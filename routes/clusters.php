@@ -43,19 +43,3 @@ respond( '/?', function( $request, $response, $app ){
 	$app->tpl->assign( 'show_page', 'clusters' );
 	$app->tpl->display( '_wrapper.tpl' );
 });
-
-// Cluster detail view
-respond( '/[i:id]', function( $request, $response, $app ){
-	// Get the id from the request
-	$request_id = $request->param('id');
-
-	// Get the cluster details with the PSU REST API
-	$cluster = (array) \PSU::api('backend')->get('clusters/' . $request_id );
-
-	// Assign the clusters array to the template
-	$app->tpl->assign( 'cluster', $cluster );
-
-	// Display the template
-	$app->tpl->assign( 'show_page', 'clusters-details' );
-	$app->tpl->display( '_wrapper.tpl' );
-});

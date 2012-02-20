@@ -22,10 +22,10 @@
 
 				{if $cluster->public}
 				<li class="cluster {if $free}available{else}full{/if}">
-					<a href="{$cluster->id}">
-						{$cluster->name}
-						<span class="ui-li-count">{$free}</span>
-					</a>
+					<h1>{$cluster->name}</h1>
+					<h2>{$cluster->building} {if $cluster->room}{$cluster->room}{/if}</h2>
+					<p>Total Computers: {$cluster->num_computers}</p>
+					<span class="ui-li-count">{$free} free</span>
 				</li>
 				{/if}
 			{/foreach}

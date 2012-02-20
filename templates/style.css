@@ -371,6 +371,14 @@ footer.ui-footer {
 /* Clusters */
 #page-clusters .ui-listview-inset {
   margin: 0px; }
+#page-clusters li.cluster h1 {
+  margin: 0px; }
+#page-clusters li.cluster h2 {
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: normal; }
+#page-clusters li.cluster p {
+  margin-bottom: 0px; }
 
 /* Clusters Details */
 #page-clusters-details h1, #page-clusters-details h2 {

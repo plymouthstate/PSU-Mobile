@@ -527,6 +527,19 @@ footer.ui-footer {
 	.ui-listview-inset {
 		margin: 0px;
 	}
+	li.cluster {
+		h1 {
+			margin: 0px;
+		}
+		h2 {
+			margin-top: 2px;
+			font-size: 14px;
+			font-weight: normal;
+		}
+		p {
+			margin-bottom: 0px;
+		}
+	}
 }
 
 /* Clusters Details */
