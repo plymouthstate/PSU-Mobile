@@ -31,7 +31,7 @@
 					</a>
 				</li>
 				<li id="mapp-mail">
-					<a href="mail/">
+					<a href="https://go.plymouth.edu/mail" target="_blank" data-rel="external" data-ajax="false">
 						<i class="icon">E</i>
 						Email
 					</a>
