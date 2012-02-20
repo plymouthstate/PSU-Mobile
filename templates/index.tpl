@@ -18,12 +18,6 @@
 						Campus Map
 					</a>
 				</li>
-				<li id="mapp-directory">
-					<a href="directory/">
-						<i class="icon">A</i>
-						Directory
-					</a>
-				</li>
 				<li id="mapp-clusters">
 					<a href="clusters/">
 						<i class="icon">C</i>
