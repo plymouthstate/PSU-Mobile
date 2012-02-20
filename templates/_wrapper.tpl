@@ -31,6 +31,10 @@
 	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/psu-mobile-jqm-theme.min.css">
 	{* jQuery Mobile Styles *}
 
+	{* Picto Icons - Custom Font *}
+	<link rel="stylesheet" href="//get.pictos.cc/fonts/848/1">
+	{* Picto Icons - Custom Font *}
+
 	{* PSU Mobile/Custom (Must be in this order) *}
 	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/style.css">
 	{* PSU Mobile/Custom *}

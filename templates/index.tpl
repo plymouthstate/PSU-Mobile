@@ -6,9 +6,24 @@
 	{* Start dashboard *}
 		<nav id="dashboard">
 			<ul id="dashboard-mapps">
-				<li id="mapp-newsfeed"><a href="newsfeed/">News Feed</a></li>
-				<li id="mapp-campusmap"><a href="campusmap/">Campus Map</a></li>
-				<li id="mapp-feedback"><a href="feedback/">Feedback</a></li>
+				<li id="mapp-newsfeed">
+					<a href="newsfeed/">
+						<i class="icon">N</i>
+						News Feed
+					</a>
+				</li>
+				<li id="mapp-campusmap">
+					<a href="campusmap/">
+						<i class="icon">M</i>
+						Campus Map
+					</a>
+				</li>
+				<li id="mapp-feedback">
+					<a href="feedback/">
+						<i class="icon">F</i>
+						Feedback
+					</a>
+				</li>
 			</ul>
 		</nav>
 	{* End dashboard *}

@@ -1,29 +1,28 @@
 /* CSS Variables for SASS */
 /* jQuery Mobile style overrides */
-/*
-body {
-	background-color: #303030;
-}
-.ui-bar-a {
-	background: none;
-	background-color: $psu_color;
-	background-image: none;
-}
-.ui-body-c {
-	background: none;
-	background-color: #303030;
-	background-image: none;
-}
-.ui-btn {
-	-moz-box-shadow: none !important;
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
-}
-.ui-btn-inner {
-	border: none;
-}
-*/
 /* jQuery Mobile Global Styles */
+.ui-body-c, .ui-dialog.ui-overlay-c {
+  background-color: #eaeaea;
+  background-image: url(images/medium/noise.png);
+  background-size: 37.5px; }
+
+/* Images depending on screen density */
+/* Extra high - 2 times */
+@media screen and (-webkit-device-pixel-ratio: 2) {
+  .ui-body-c, .ui-dialog.ui-overlay-c {
+    background-image: url(images/xhigh/noise.png); } }
+/* High - 1.5 times */
+@media screen and (-webkit-device-pixel-ratio: 1.5) {
+  .ui-body-c, .ui-dialog.ui-overlay-c {
+    background-image: url(images/high/noise.png); } }
+/* Medium/Normal - 1.0 times */
+@media screen and (-webkit-device-pixel-ratio: 1.0) {
+  .ui-body-c, .ui-dialog.ui-overlay-c {
+    background-image: url(images/medium/noise.png); } }
+/* Low - 0.75 times */
+@media screen and (-webkit-device-pixel-ratio: 0.75) {
+  .ui-body-c, .ui-dialog.ui-overlay-c {
+    background-image: url(images/low/noise.png); } }
 header.ui-header, footer.ui-footer {
   border: 0px none; }
 
@@ -102,12 +101,7 @@ footer.ui-footer {
       padding: 0px 1px;
       overflow: hidden;
       text-align: center;
-      /* Styles based on orientation change */
-      /* Images depending on screen density */
-      /* Extra high - 2 times */
-      /* High - 1.5 times */
-      /* Medium/Normal - 1.0 times */
-      /* Low - 0.75 times */ }
+      /* Styles based on orientation change */ }
       #page-dashboard nav#dashboard ul#dashboard-mapps li {
         display: block;
         float: left;
@@ -118,7 +112,6 @@ footer.ui-footer {
           width: 100px;
           margin: 0px auto;
           margin-bottom: 16px;
-          padding-top: 80px;
           background-repeat: no-repeat;
           background-position: 50% 0%;
           font-size: 13px;
@@ -127,10 +120,15 @@ footer.ui-footer {
           color: #000; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li.dash-middle-element {
         width: 34%; }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li a {
-        background-image: url(images/medium/dashboard-icons.png);
-        background-size: 400px;
-        /* Half the width (if square) */ }
+      #page-dashboard nav#dashboard ul#dashboard-mapps li i.icon {
+        display: block;
+        font-family: 'Pictos Custom';
+        font-style: normal;
+        font-size: 72px;
+        font-smoothing: always;
+        color: #444; }
+      #page-dashboard nav#dashboard ul#dashboard-mapps li i.icon:hover {
+        color: #000; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
         background-position: 0px -14px; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
@@ -147,18 +145,6 @@ footer.ui-footer {
           width: 20%; }
         #page-dashboard nav#dashboard ul#dashboard-mapps li.dash-middle-element {
           width: 20%; } }
-      @media screen and (-webkit-device-pixel-ratio: 2) {
-        #page-dashboard nav#dashboard ul#dashboard-mapps li a {
-          background-image: url(images/xhigh/dashboard-icons.png); } }
-      @media screen and (-webkit-device-pixel-ratio: 1.5) {
-        #page-dashboard nav#dashboard ul#dashboard-mapps li a {
-          background-image: url(images/high/dashboard-icons.png); } }
-      @media screen and (-webkit-device-pixel-ratio: 1.0) {
-        #page-dashboard nav#dashboard ul#dashboard-mapps li a {
-          background-image: url(images/medium/dashboard-icons.png); } }
-      @media screen and (-webkit-device-pixel-ratio: 0.75) {
-        #page-dashboard nav#dashboard ul#dashboard-mapps li a {
-          background-image: url(images/low/dashboard-icons.png); } }
   #page-dashboard a.dashboard-ui-bar-button {
     width: 100%;
     height: 48px;
