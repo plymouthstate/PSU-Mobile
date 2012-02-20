@@ -106,7 +106,8 @@ footer.ui-footer {
         display: block;
         float: left;
         overflow: hidden;
-        width: 33%; }
+        width: 33%;
+        padding: 8px 0px; }
         #page-dashboard nav#dashboard ul#dashboard-mapps li a {
           display: block;
           width: 100px;
