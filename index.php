@@ -66,6 +66,7 @@ $app_routes = array(
 	'newsfeed',
 	'campusmap',
 	'feedback',
+	'clusters',
 );
 
 foreach( $app_routes as $base ) {

@@ -26,9 +26,6 @@
 header.ui-header, footer.ui-footer {
   border: 0px none; }
 
-.ui-content {
-  padding: 0px; }
-
 /* Global Styles */
 .vertically-centered {
   position: absolute;
@@ -62,7 +59,7 @@ header.ui-header {
     top: 12px;
     box-shadow: none; }
   header.ui-header .ui-btn[data-rel=back] span.ui-icon {
-    background-image: url(images/icons-18-white.png);
+    background-image: url(images/icons-18-white.png) !important;
     box-shadow: none; }
   @media screen and (-webkit-device-pixel-ratio: 2) {
     header.ui-header h1#header-logo {
@@ -91,6 +88,8 @@ footer.ui-footer {
   /* High - 1.5 times */
   /* Medium/Normal - 1.0 times */
   /* Low - 0.75 times */ }
+  #page-dashboard .ui-content {
+    padding: 0px; }
   #page-dashboard nav#dashboard {
     width: 100%;
     margin: auto;
@@ -253,6 +252,8 @@ footer.ui-footer {
       background-image: url(images/low/ic_menu_arrow_down.png); } }
 
 /* Newsfeed */
+#page-newsfeed .ui-content {
+  padding: 0px; }
 #page-newsfeed ul#newsfeed {
   padding: 0px;
   margin: 0px;
@@ -301,6 +302,8 @@ footer.ui-footer {
       background-image: url(images/medium/rss_icon.png); }
 
 /* Campus Map */
+#page-campusmap .ui-content {
+  padding: 0px; }
 #page-campusmap div#content-container {
   width: 100%;
   position: absolute;
@@ -311,6 +314,8 @@ footer.ui-footer {
     height: 100%; }
 
 /* Feedback Form */
+#page-feedback .ui-content {
+  padding: 5px; }
 #page-feedback fieldset {
   padding-top: 4px; }
   #page-feedback fieldset label, #page-feedback fieldset div.input-container {
@@ -344,6 +349,8 @@ footer.ui-footer {
   text-align: left; }
 
 /* Feedback form results */
+#page-feedback-results .ui-content {
+  padding: 0px; }
 #page-feedback-results div.form-response {
   margin: 15px;
   padding: 10px;
@@ -360,6 +367,25 @@ footer.ui-footer {
   background-color: #ffe6e6; }
 #page-feedback-results div.success {
   background-color: #e6ffe6; }
+
+/* Clusters */
+#page-clusters .ui-listview-inset {
+  margin: 0px; }
+
+/* Clusters Details */
+#page-clusters-details h1, #page-clusters-details h2 {
+  text-align: center; }
+#page-clusters-details h1 {
+  margin: 20px auto;
+  margin-top: 0px;
+  font-size: 24px; }
+#page-clusters-details h2 {
+  font-size: 18px; }
+#page-clusters-details p.disclaimer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 12px;
+  color: #666; }
 
 /* Styles based on the device's OS */
 html.android header .ui-btn[data-rel=back] {

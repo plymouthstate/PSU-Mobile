@@ -571,7 +571,7 @@ a.ui-link-inherit {
 .ui-icon-searchfield:after {
 	background: #FFFFFF /*{global-icon-color}*/;
 	background: transparent /*{global-icon-disc}*/;
-	background-image: url(http://code.jquery.com/mobile/latest/images/icons-18-black.png) /*{global-icon-set}*/;
+	background-image: url(images/icons-18-black.png) !important /*{global-icon-set}*/;
 	background-repeat: no-repeat;
 	-moz-border-radius: 				9px;
 	-webkit-border-radius: 				9px;
@@ -585,7 +585,7 @@ a.ui-link-inherit {
 .ui-icon-alt {
 	background: 						#fff;
 	background: 						rgba(255,255,255,.3);
-	background-image: url(images/icons-18-black.png);
+	background-image: url(images/icons-18-black.png) !important;
 	background-repeat: no-repeat;
 }
 
@@ -608,7 +608,7 @@ a.ui-link-inherit {
 		background-size: 776px 18px;
 	}
 	.ui-icon-alt {
-		background-image: url(images/icons-36-black.png);
+		background-image: url(images/icons-36-black.png) !important;
 	}
 }
 
