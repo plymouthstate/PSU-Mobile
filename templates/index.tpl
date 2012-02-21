@@ -24,12 +24,6 @@
 						Clusters
 					</a>
 				</li>
-				<li id="mapp-mail">
-					<a href="mail/">
-						<i class="icon">E</i>
-						Email
-					</a>
-				</li>
 				<li id="mapp-feedback">
 					<a href="feedback/">
 						<i class="icon">F</i>
