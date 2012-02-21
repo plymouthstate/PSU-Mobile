@@ -44,6 +44,9 @@ $ui_bar_height: 52px;
 header.ui-header, footer.ui-footer {
 	border: 0px none;
 }
+.ui-icon-loading {
+	background-image: url(images/ajax-loader-black.png) !important;
+}
 
 /* Global Styles */
 .vertically-centered {
