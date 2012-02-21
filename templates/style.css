@@ -103,7 +103,12 @@ footer.ui-footer {
       padding: 0px 1px;
       overflow: hidden;
       text-align: center;
-      /* Styles based on orientation change */ }
+      /* Styles based on orientation change */
+      /* Images depending on screen density */
+      /* Extra high - 2 times */
+      /* High - 1.5 times */
+      /* Medium/Normal - 1.0 times */
+      /* Low - 0.75 times */ }
       #page-dashboard nav#dashboard ul#dashboard-mapps li {
         display: block;
         float: left;
@@ -115,29 +120,35 @@ footer.ui-footer {
           width: 100px;
           margin: 0px auto;
           margin-bottom: 16px;
+          padding-top: 72px;
+          background-image: url(images/medium/dashboard-icons.png);
           background-repeat: no-repeat;
           background-position: 50% 0%;
+          background-size: 400px;
+          /* Half the width (if square) */
           font-size: 13px;
           font-weight: normal;
           text-decoration: none;
           color: #000; }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li i.icon {
+          display: none;
+          font-family: 'Pictos Custom';
+          font-style: normal;
+          font-size: 72px;
+          font-smoothing: always;
+          color: #444; }
+        #page-dashboard nav#dashboard ul#dashboard-mapps li i.icon:hover {
+          color: #000; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li.dash-middle-element {
         width: 34%; }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li i.icon {
-        display: block;
-        font-family: 'Pictos Custom';
-        font-style: normal;
-        font-size: 72px;
-        font-smoothing: always;
-        color: #444; }
-      #page-dashboard nav#dashboard ul#dashboard-mapps li i.icon:hover {
-        color: #000; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-newsfeed a {
-        background-position: 0px -14px; }
+        background-position: 0px -18px; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
-        background-position: -100px -14px; }
+        background-position: -100px -18px; }
+      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-clusters a {
+        background-position: -100px -118px; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
-        background-position: -193px -14px; }
+        background-position: -193px -18px; }
       @media screen and (orientation:portrait) {
         #page-dashboard nav#dashboard ul#dashboard-mapps li {
           width: 33%; }
@@ -148,6 +159,18 @@ footer.ui-footer {
           width: 20%; }
         #page-dashboard nav#dashboard ul#dashboard-mapps li.dash-middle-element {
           width: 20%; } }
+      @media screen and (-webkit-device-pixel-ratio: 2) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li a {
+          background-image: url(images/xhigh/dashboard-icons.png); } }
+      @media screen and (-webkit-device-pixel-ratio: 1.5) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li a {
+          background-image: url(images/high/dashboard-icons.png); } }
+      @media screen and (-webkit-device-pixel-ratio: 1.0) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li a {
+          background-image: url(images/medium/dashboard-icons.png); } }
+      @media screen and (-webkit-device-pixel-ratio: 0.75) {
+        #page-dashboard nav#dashboard ul#dashboard-mapps li a {
+          background-image: url(images/low/dashboard-icons.png); } }
   #page-dashboard a.dashboard-ui-bar-button {
     width: 100%;
     height: 48px;
