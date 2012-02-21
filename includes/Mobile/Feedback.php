@@ -40,7 +40,7 @@ class Feedback {
 			$trimmed_data = trim($data);
 			if (empty($trimmed_data)) {
 				$responseData['error'] = true;
-				$responseData['response']['title'] = 'Form Validation Error';
+				$responseData['response']['title'] = 'Whoops!';
 				$responseData['response']['message'] = 'Please fill in all fields';
 			}
 		}
@@ -48,7 +48,7 @@ class Feedback {
 		// Validate the email address
 		if (!filter_var($postData['email'], FILTER_VALIDATE_EMAIL)) {
 			$responseData['error'] = true;
-			$responseData['response']['title'] = 'Form Validation Error';
+			$responseData['response']['title'] = 'Whoops!';
 			$responseData['response']['message'] = 'Please enter a valid email address';
 		}
 
@@ -60,7 +60,7 @@ class Feedback {
 			$hash = md5($postData['email'].$postData['timestamp'].$salt);
 			if ($hash != $postData['hash']) {
 				$responseData['error'] = true;
-				$responseData['response']['title'] = 'Security Error';
+				$responseData['response']['title'] = 'Unauthorized';
 				$responseData['response']['message'] = 'Unauthorized request detected';
 			}
 		}
@@ -95,12 +95,12 @@ class Feedback {
 		if (\PSU::mail($mail_to, $mail_subject, $mail_message, $mail_headers)) {
 			$responseData['success'] = true;
 			$responseData['error'] = false;
-			$responseData['response']['title'] = 'Feedback Sent Successfully!';
+			$responseData['response']['title'] = 'Success!';
 			$responseData['response']['message'] = 'Your feedback was submitted! Thank you!';
 		}
 		else {
 			$responseData['error'] = true;
-			$responseData['response']['title'] = 'Feedback Processing Error';
+			$responseData['response']['title'] = 'Uh oh...';
 			$responseData['response']['message'] = 'There was a processing error. Please try again later.';
 		}
 
