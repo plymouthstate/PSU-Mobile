@@ -3,7 +3,7 @@
 	{jqm_header title="Clusters" back_button="true"}{/jqm_header}
 
 	{jqm_content}
-		<ul data-role="listview" data-theme="a">
+		<ul data-role="listview" data-theme="a" data-count-theme="d" data-filter="true" data-filter-theme="d">
 			{foreach from=$clusters item=cluster}
 				{* Clean up the returned data. Make sure it makes sense to display *}
 				{* Don't let there ever show more computers being used than available *}
@@ -21,7 +21,7 @@
 				{/if}
 
 				{if $cluster->public}
-				<li class="cluster {if $free}available{else}full{/if}">
+				<li data-filtertext="{$cluster->name} {$cluster->building} {if $cluster->room}{$cluster->room}{/if}" class="cluster {if $free}available{else}full{/if}">
 					<h1>{$cluster->name}</h1>
 					<h2>{$cluster->building} {if $cluster->room}{$cluster->room}{/if}</h2>
 					<p>Total Computers: {$cluster->num_computers}</p>
