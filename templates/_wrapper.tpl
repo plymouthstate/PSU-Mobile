@@ -32,7 +32,11 @@
 	{* jQuery Mobile Styles *}
 
 	{* Picto Icons - Custom Font *}
-	<link rel="stylesheet" href="//get.pictos.cc/fonts/848/1">
+	{if $PHP.IS_DEV}
+		<link rel="stylesheet" href="/webapp/style/templates/pictos.css">
+	{else}
+		<link rel="stylesheet" href="//get.pictos.cc/fonts/848/1">
+	{/if}
 	{* Picto Icons - Custom Font *}
 
 	{* PSU Mobile/Custom (Must be in this order) *}
