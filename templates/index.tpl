@@ -18,22 +18,10 @@
 						Campus Map
 					</a>
 				</li>
-				<li id="mapp-directory">
-					<a href="directory/">
-						<i class="icon">A</i>
-						Directory
-					</a>
-				</li>
 				<li id="mapp-clusters">
 					<a href="clusters/">
 						<i class="icon">C</i>
 						Clusters
-					</a>
-				</li>
-				<li id="mapp-mail">
-					<a href="https://go.plymouth.edu/mail" target="_blank" data-rel="external" data-ajax="false">
-						<i class="icon">E</i>
-						Email
 					</a>
 				</li>
 				<li id="mapp-feedback">

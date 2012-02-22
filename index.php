@@ -13,12 +13,20 @@ $GLOBALS['APP_VERSION'] = '0.4.1';
 $GLOBALS['APP_BUILD_NAME'] = 'jqm-html5';
 $GLOBALS['APP_BUILD_TYPE'] = 'beta';
 
-// Have the APP_BUILD_TYPE global reflect the current server/code status
+// If the app is currently running on the development server
 if (PSU::isdev()) {
+	// Have the APP_BUILD_TYPE global reflect the current server/code status
 	$GLOBALS['APP_BUILD_TYPE'] .= '-dev';
+
+	// Set a global for easier access from templates
+	$GLOBALS['IS_DEV'] = true;
 }
 else {
+	// Have the APP_BUILD_TYPE global reflect the current server/code status
 	$GLOBALS['APP_BUILD_TYPE'] .= '-prod';
+
+	// Set a global for easier access from templates
+	$GLOBALS['IS_DEV'] = false;
 }
 
 // Include my custom mobile smarty class
