@@ -8,31 +8,31 @@
 			<ul id="dashboard-mapps">
 				<li id="mapp-newsfeed">
 					<a href="newsfeed/">
-						<i class="icon">N</i>
+						{icon id="news"}
 						News Feed
 					</a>
 				</li>
 				<li id="mapp-campusmap">
 					<a href="campusmap/">
-						<i class="icon">M</i>
+						{icon id="map"}
 						Campus Map
 					</a>
 				</li>
 				<li id="mapp-directory">
 					<a href="directory/">
-						<i class="icon">D</i>
+						{icon id="directory"}
 						Directory
 					</a>
 				</li>
 				<li id="mapp-clusters">
 					<a href="clusters/">
-						<i class="icon">C</i>
+						{icon id="clusters"}
 						Clusters
 					</a>
 				</li>
 				<li id="mapp-feedback">
 					<a href="feedback/">
-						<i class="icon">F</i>
+						{icon id="feedback"}
 						Feedback
 					</a>
 				</li>

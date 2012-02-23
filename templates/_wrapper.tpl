@@ -31,13 +31,9 @@
 	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/psu-mobile-jqm-theme.min.css">
 	{* jQuery Mobile Styles *}
 
-	{* Picto Icons - Custom Font *}
-	{if $PHP.IS_DEV}
-		<link rel="stylesheet" href="/webapp/style/templates/pictos.css">
-	{else}
-		<link rel="stylesheet" href="//get.pictos.cc/fonts/848/1">
-	{/if}
-	{* Picto Icons - Custom Font *}
+	{* PSU Icons - Custom Font *}
+	<link rel="stylesheet" href="/webapp/style/templates/psu-icons.css">
+	{* PSU Icons - Custom Font *}
 
 	{* PSU Mobile/Custom (Must be in this order) *}
 	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/style.css">
