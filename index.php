@@ -75,6 +75,7 @@ $app_routes = array(
 	'campusmap',
 	'feedback',
 	'clusters',
+	'directory',
 );
 
 foreach( $app_routes as $base ) {

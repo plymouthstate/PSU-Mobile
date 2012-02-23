@@ -53,6 +53,12 @@ header.ui-header, footer.ui-footer {
 	position: absolute;
 	width: 100%;
 }
+h1 {
+	font-size: 24px;
+}
+h2 {
+	font-size: 20px;
+}
 
 /* Header */
 header.ui-header {
@@ -179,6 +185,9 @@ footer.ui-footer {
 			}
 			li#mapp-campusmap a {
 				background-position: -100px -18px;
+			}
+			li#mapp-directory a {
+				background-position: -298px -18px;
 			}
 			li#mapp-clusters a {
 				background-position: -100px -118px;
@@ -597,6 +606,21 @@ footer.ui-footer {
 		color: #666;
 	}
 }
+
+/* Directory */
+#page-directory {
+	h1 {
+		margin-top: 0px;
+	}
+}
+
+/* Directory Results */
+#page-directory-results {
+	h1 {
+		margin-top: 0px;
+	}
+}
+
 
 /* Styles based on the device's OS */
 html.android header {

@@ -34,6 +34,12 @@ header.ui-header, footer.ui-footer {
   position: absolute;
   width: 100%; }
 
+h1 {
+  font-size: 24px; }
+
+h2 {
+  font-size: 20px; }
+
 /* Header */
 header.ui-header {
   overflow: hidden;
@@ -145,6 +151,8 @@ footer.ui-footer {
         background-position: 0px -18px; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-campusmap a {
         background-position: -100px -18px; }
+      #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-directory a {
+        background-position: -298px -18px; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-clusters a {
         background-position: -100px -118px; }
       #page-dashboard nav#dashboard ul#dashboard-mapps li#mapp-feedback a {
@@ -420,6 +428,14 @@ footer.ui-footer {
   text-align: center;
   font-size: 12px;
   color: #666; }
+
+/* Directory */
+#page-directory h1 {
+  margin-top: 0px; }
+
+/* Directory Results */
+#page-directory-results h1 {
+  margin-top: 0px; }
 
 /* Styles based on the device's OS */
 html.android header .ui-btn[data-rel=back] {
