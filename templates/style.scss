@@ -149,42 +149,27 @@ footer.ui-footer {
 					width: 100px;
 					margin: 0px auto;
 					margin-bottom: 16px;
-					padding-top: 72px;
-					background-image: url(images/medium/dashboard-icons.png);
-					background-repeat: no-repeat;
-					background-position: 50% 0%;
-					background-size: 400px; /* Half the width (if square) */
 					font-size: 13px;
 					font-weight: normal;
 					text-decoration: none;
 					color: #000;
 				}
-				i.icon {
-					display: none;
-					font-family: 'Pictos Custom';
+				i.psu-icon {
+					display: block;
+					height: 72px;
+					line-height: 62px;
 					font-style: normal;
+					font-weight: normal;
 					font-size: 72px;
 					font-smoothing: always;
 					color: #444;
 				}
-				i.icon:hover {
+				i.psu-icon:hover {
 					color: #000;
 				}
 			}
 			li.dash-middle-element {
 				width: 34%;
-			}
-			li#mapp-newsfeed a {
-				background-position: 0px -18px;
-			}
-			li#mapp-campusmap a {
-				background-position: -100px -18px;
-			}
-			li#mapp-clusters a {
-				background-position: -100px -118px;
-			}
-			li#mapp-feedback a {
-				background-position: -193px -18px;
 			}
 
 			/* Styles based on orientation change */
@@ -202,32 +187,6 @@ footer.ui-footer {
 				}
 				li.dash-middle-element {
 					width: 20%;
-				}
-			}
-
-			/* Images depending on screen density */
-			/* Extra high - 2 times */
-			@media screen and (-webkit-device-pixel-ratio: 2) {
-				li a {
-					background-image: url(images/xhigh/dashboard-icons.png);
-				}
-			}
-			/* High - 1.5 times */
-			@media screen and (-webkit-device-pixel-ratio: 1.5) {
-				li a {
-					background-image: url(images/high/dashboard-icons.png);
-				}
-			}
-			/* Medium/Normal - 1.0 times */
-			@media screen and (-webkit-device-pixel-ratio: 1.0) {
-				li a {
-					background-image: url(images/medium/dashboard-icons.png);
-				}
-			}
-			/* Low - 0.75 times */
-			@media screen and (-webkit-device-pixel-ratio: 0.75) {
-				li a {
-					background-image: url(images/low/dashboard-icons.png);
 				}
 			}
 		}
