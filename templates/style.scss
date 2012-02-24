@@ -152,8 +152,6 @@ footer.ui-footer {
 
 				a {
 					display: block;
-					width: 100px;
-					margin: 0px auto;
 					margin-bottom: 16px;
 					font-size: 13px;
 					font-weight: normal;
@@ -162,11 +160,10 @@ footer.ui-footer {
 				}
 				i.psu-icon {
 					display: block;
-					height: 72px;
-					line-height: 62px;
+					margin: 0px auto;
+					margin-bottom: 10px;
 					font-style: normal;
 					font-weight: normal;
-					font-size: 72px;
 					font-smoothing: always;
 					color: #444;
 				}
