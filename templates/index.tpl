@@ -20,7 +20,7 @@
 				</li>
 				<li id="mapp-directory">
 					<a href="directory/">
-						{icon id="directory"}
+						{iconbox id="directory" size="large"}
 						Directory
 					</a>
 				</li>
