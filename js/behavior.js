@@ -168,7 +168,13 @@ $(document).on('pageinit', '#page-dashboard', function() {
 	detectMiddleElements();
 });
 
-// NOTE: For some reason or another, I HAVE to use LIVE on these events. I can't use the new, steezy 'on' function
+
+/*
+ *
+ * Campus Map m-app
+ *
+ */
+
 // Bind events to be triggered on the CAMPUS MAP page initialization
 $(document).on('pageinit', '#page-campusmap', function() {
 	// We might not have the Google Maps API loaded yet, so let's try
@@ -198,4 +204,23 @@ $(document).on('pageshow', '#page-campusmap', function() {
 	catch (e) {
 		console.log('Couldn\'t load the Google Map. Died with: ' + e);
 	}
+});
+
+
+/*
+ *
+ * Directory m-app
+ *
+ */
+
+// On form submit
+$(document).on('submit', '#page-directory form', function(event) {
+	// Prevent the form from submitting normally
+	event.preventDefault();
+
+	// Get the data from the searh box and URL encode it
+	var query = encodeURI($('#directory-search').val());
+
+	// Make the request pretty
+	$.mobile.changePage('search/' + query);
 });

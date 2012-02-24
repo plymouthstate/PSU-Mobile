@@ -7,13 +7,30 @@ respond( '/?', function( $request, $response, $app ){
 	$app->tpl->display( '_wrapper.tpl' );
 });
 
-// Generic response (don't force the trailing slash: this should catch any accidental laziness)
-respond( '/search/?', function( $request, $response, $app ){
+// When someone searches
+respond( '/search/[:what]/?', function( $request, $response, $app ){
 	// Get the search parameter from the request
-	$search_query = $request->param( 'query' );
+	$search_query = $request->param( 'what' );
 
-	// Get the search results with the PSU REST API
-	$search_results = (array) \PSU::api('backend')->get('directory/search/' . $search_query );
+	// Initialize the search results array, in case the API fails
+	$search_results = array();
+
+	// PSU::api uses Guzzle for its HTTP responses. We need to catch an exception, in case the call fails
+	try {
+		// Get the search results with the PSU REST API
+		$search_results = (array) \PSU::api('backend')->get('directory/search/' . $search_query );
+	}
+	catch (Guzzle\Http\Message\BadResponseException $e) {
+		// Lets grab the exception and put it into the session
+		$_SESSION['errors'][] = $e->getMessage();
+
+		// Let's get the response data so we can see the problem
+		$response = $e->getResponse();
+
+		// Let's grab the HTTP status and status code
+		$response_data['status'] = $response->getReasonPhrase();
+		$response_data['status_code'] = $response->getStatusCode();
+	}
 
 	// Do a little cleaning up
 	foreach ( $search_results as &$result ) {

@@ -4,7 +4,7 @@
 
 	{jqm_content}
 		<h1>Search</h1>
-		<form action="search" method="get">
+		<form action="search" method="get" data-ajax="false">
 			<input type="search" name="query" id="directory-search" data-theme="g">
 		</form>
 
