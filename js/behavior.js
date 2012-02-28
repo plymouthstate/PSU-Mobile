@@ -224,3 +224,21 @@ $(document).on('submit', '#page-directory form', function(event) {
 	// Make the request pretty
 	$.mobile.changePage('search/' + query);
 });
+
+// When a result is clicked
+$(document).on('vclick', '#page-directory-results #directory-results a', function(event) {
+	// Prevent the form from submitting normally
+	event.preventDefault();
+
+	// Get the URL from the link
+	var URL = $(this).attr('href');
+
+	// Get the data from the hidden input
+	var userData = $(this).find('input[name=user-details]').serialize();
+
+	// Make the request pretty
+	$.mobile.changePage( URL, {
+		type: "post",
+		data: userData
+	});
+});

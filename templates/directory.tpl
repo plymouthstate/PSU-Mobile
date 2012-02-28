@@ -5,11 +5,11 @@
 	{jqm_content}
 		<h1>Search</h1>
 		<form action="search" method="get" data-ajax="false">
-			<input type="search" name="query" id="directory-search" data-theme="g">
+			<input type="search" name="query" id="directory-search" data-theme="d">
 		</form>
 
 		<h2>Important Phone Numbers</h2>
-		<ul data-role="listview" data-inset="true" data-theme="a">
+		<ul data-role="listview" data-inset="true" data-theme="d">
 			<li>
 				ITS Helpdesk
 				<p class="ui-li-aside">

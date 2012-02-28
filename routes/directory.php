@@ -9,8 +9,8 @@ respond( '/?', function( $request, $response, $app ){
 
 // When someone searches
 respond( '/search/[:what]/?', function( $request, $response, $app ){
-	// Get the search parameter from the request
-	$search_query = $request->param( 'what' );
+	// Get the search parameter from the request (url encode it... it may contain spaces, etc)
+	$search_query = urlencode( $request->param( 'what' ) );
 
 	// Initialize the search results array, in case the API fails
 	$search_results = array();
@@ -32,12 +32,16 @@ respond( '/search/[:what]/?', function( $request, $response, $app ){
 		$response_data['status_code'] = $response->getStatusCode();
 	}
 
-	// Do a little cleaning up
+	/*
+	 * Do a little cleaning up
+	 */
+	// Remove Title's labeled as "unknown"
+	// Remove Department's labeled as "Student Distribution"
 	foreach ( $search_results as &$result ) {
 		// Iterate over each object property in the result
 		foreach ( $result as $property_name => $property ) {
 			// If the property's value is null, or it contains the word "unknown"
-			if ( $property == null || stristr( $property, 'unknown' ) !== false ) {
+			if ( $property == null || stristr( $property, 'unknown' ) !== false || stristr( $property, 'Student Distribution' ) !== false ) {
 				// Remove the property
 				unset( $result->$property_name );
 			}
@@ -49,5 +53,18 @@ respond( '/search/[:what]/?', function( $request, $response, $app ){
 
 	// Display the template
 	$app->tpl->assign( 'show_page', 'directory-results' );
+	$app->tpl->display( '_wrapper.tpl' );
+});
+
+// Let's get the details of the person
+respond( 'POST', '/user/[:username]/?', function( $request, $response, $app ){
+	// Get the user detail data from the request. That way we can save an API call.
+	$user_details = json_decode( stripslashes( $request->param( 'user-details' ) ) );
+
+	// Assign the user_details object to the template
+	$app->tpl->assign( 'user_data', $user_details );
+
+	// Display the template
+	$app->tpl->assign( 'show_page', 'directory-details' );
 	$app->tpl->display( '_wrapper.tpl' );
 });

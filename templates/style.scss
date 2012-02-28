@@ -59,6 +59,9 @@ h1 {
 h2 {
 	font-size: 20px;
 }
+a, a:link {
+	text-decoration: none;
+}
 
 /* Header */
 header.ui-header {
@@ -570,7 +573,23 @@ footer.ui-footer {
 /* Directory Results */
 #page-directory-results {
 	h1 {
-		margin-top: 0px;
+		margin: 0px;
+	}
+	p {
+		margin-top: 6px;
+		margin-bottom: 0px;
+	}
+}
+
+/* Directory Details */
+#page-directory-details {
+	h1 {
+		margin: 0px;
+	}
+	h2 {
+		margin-top: 8px;
+		font-size: 16px;
+		font-weight: normal;
 	}
 }
 

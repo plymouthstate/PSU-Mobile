@@ -4,13 +4,18 @@
 
 	{jqm_content}
 		<h1>Results</h1>
-		<ul data-role="listview" data-inset="true" data-theme="a">
+		<ul id="directory-results" data-role="listview" data-inset="true" data-theme="d">
 			{foreach from=$results item=result}
 				<li class="result">
-					<h1>{$result->name}</h1>
-					{if $result->title}
-						<h2>{$result->title}</h2>
-					{/if}
+					<a href="{$PHP.BASE_URL}/directory/user/{$result->email}" data-ajax="false">
+						<h1>{$result->name}</h1>
+						{if $result->title}
+							<p>{$result->title}</p>
+						{elseif $result->major}
+							<p>{$result->major}</p>
+						{/if}
+						<input type="hidden" name="user-details" value="{$result|@json_encode|@htmlspecialchars}">
+					</a>
 				</li>
 			{/foreach}
 		</ul>
