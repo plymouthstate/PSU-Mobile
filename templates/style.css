@@ -416,6 +416,9 @@ footer.ui-footer {
   margin-top: 8px;
   font-size: 16px;
   font-weight: normal; }
+#page-directory-details .ui-btn {
+  margin-left: 0px;
+  margin-right: 0px; }
 
 /* Styles based on the device's OS */
 html.android header .ui-btn[data-rel=back] {

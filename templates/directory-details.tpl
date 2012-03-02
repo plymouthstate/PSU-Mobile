@@ -50,6 +50,9 @@
 			</li>
 			{/if}
 		</ul>
+		<button class="phonegap-required" id="add-to-contacts" data-theme="a">
+			Add to Contacts
+		</button>
 	{/jqm_content}
 
 {/jqm_page}
