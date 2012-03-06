@@ -61,16 +61,30 @@
 	<script src="//maps.google.com/maps/api/js?sensor=true"></script>
 	{* Google Maps API *}
 
-	{* If the phonegap session variable is set, include the PhoneGap javascript *}
-	{if isset($smarty.session.phonegap)}
-		{* Load the PhoneGap JavaScript files *}
+	{* If the phonegap/cordova session variable is set, include the PhoneGap/Cordova javascript *}
+	{if isset($smarty.session.phonegap) || isset($smarty.session.cordova)}
+
+		{* Load the PhoneGap/Cordova JavaScript files *}
+		{if isset($smarty.session.phonegap)}
+			{assign var='clientFrameworkVersion' value=$smarty.session.phonegap}
+
+			<script>
+				var scriptName = 'phonegap';
+			</script>
+		{elseif isset($smarty.session.cordova)}
+			{assign var='clientFrameworkVersion' value=$smarty.session.cordova}
+
+			<script>
+				var scriptName = 'cordova';
+			</script>
+		{/if}
+
 		<script>
-			var scriptName = 'phonegap.js';
 
 			// Use a try, in case the GlobalTools didn't load correctly
 			try {
 				if (GlobalTools.deviceOS() != 'other') {
-					scriptName = '{$PHP.BASE_URL}/js/phonegap-' + '{$smarty.session.phonegap}' + '_' + GlobalTools.deviceOS() + '.js';
+					scriptName = '{$PHP.BASE_URL}/js/' + scriptName + '-' + '{$clientFrameworkVersion}' + '_' + GlobalTools.deviceOS();
 				}
 			}
 			catch (e) {
@@ -78,7 +92,7 @@
 			}
 
 			// Actually write the script tag and load the JS
-			document.write('<script src="' + scriptName + '"><\/script>');
+			document.write('<script src="' + scriptName + '.js"><\/script>');
 		</script>
 	{/if}
 
@@ -99,7 +113,7 @@
 	<script src="{$PHP.BASE_URL}/js/jquery.easing.1.3.js"></script>
 	<script src="{$PHP.BASE_URL}/js/jquery.animate-enhanced.min.js"></script>
 	<script src="{$PHP.BASE_URL}/js/behavior.js"></script>
-	<script src="{$PHP.BASE_URL}/js/phonegap-logic.js"></script>
+	<script src="{$PHP.BASE_URL}/js/phonegap-cordova-logic.js"></script>
 	{* PSU Mobile/Custom *}
 </body>
 </html>

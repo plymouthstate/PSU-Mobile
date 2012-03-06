@@ -58,6 +58,7 @@
 			<ul class="app-frameworks">
 				<li id="jquery-mobile">Proudly built with jQuery Mobile <span></span></li>
 				<li class="phonegap-required" id="phonegap">Native API provided by PhoneGap <span></span></li>
+				<li class="cordova-required" id="cordova">Native API provided by Cordova <span></span></li>
 			</ul>
 		</div>
 	</div>

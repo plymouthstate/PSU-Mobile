@@ -56,11 +56,15 @@ respond( function( $request, $response, $app ) {
 respond( '/', function( $request, $response, $app ) {
 	// Grab a couple of the request parameters
 	$response->session('phonegap', $request->param('phonegap'));
+	$response->session('cordova', $request->param('cordova'));
 	$response->session('client-app', $request->param('client-app'));
 
 	// Remove the variables if they're null
 	if (is_null($_SESSION['phonegap'])) {
 		unset($_SESSION['phonegap']);
+	}
+	if (is_null($_SESSION['cordova'])) {
+		unset($_SESSION['cordova']);
 	}
 	if (is_null($_SESSION['client-app-version'])) {
 		unset($_SESSION['client-app-version']);
