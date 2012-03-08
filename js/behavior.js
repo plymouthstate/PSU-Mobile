@@ -149,7 +149,7 @@ $(document).on('pageinit', '#page-dashboard', function() {
 
 	// Make the info button footer clickable
 	$(document).on('vclick', '.info-button', function(event) {
-		$('#hidden-info-div').stop().animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
+		$('#hidden-info-div').toggleClass('open').stop().animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
 			// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
 			$(window).trigger('resize');
 			$(this).trigger('updatelayout');
