@@ -4828,7 +4828,7 @@ window.cordova = require('cordova');
             }
         };
     // boot up once native side is ready
-    channel.onNativeReady.subscribe(_self.boot);
+    channel.onNativeReady.subscribeOnce(_self.boot);
 
     // _nativeReady is global variable that the native side can set
     // to signify that the native code is ready. It is a global since 
