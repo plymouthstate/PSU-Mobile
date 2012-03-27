@@ -3,7 +3,7 @@
 	{jqm_header title="Directory" back_button="true"}{/jqm_header}
 
 	{jqm_content}
-		<h1 class="directory-details" id="directory-details-name">{$user_data->name}</h1>
+		<h1 class="directory-details" id="directory-details-name" data-firstname="{$user_data->name_first}" data-lastname="{$user_data->name_last}">{$user_data->name_full}</h1>
 		{if $user_data->title}
 			<h2 class="directory-details" id="directory-details-title">{$user_data->title}</h2>
 		{elseif $user_data->major}
@@ -50,7 +50,7 @@
 			</li>
 			{/if}
 		</ul>
-		<button class="phonegap-required" id="add-to-contacts" data-theme="a">
+		<button class="cordova-required" id="add-to-contacts" data-theme="a">
 			Add to Contacts
 		</button>
 	{/jqm_content}

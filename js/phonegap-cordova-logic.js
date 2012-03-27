@@ -59,7 +59,6 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 			}
 		});
 
-		// TODO: Change the alerts to a better looking, more native PhoneGap alert/confirm
 		// When the user clicks the button to add the directory user to their contacts
 		$(document).on('vclick', '#add-to-contacts', function(event) {
 			// Let's cache their name. We're going to be using it plenty
@@ -68,18 +67,37 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 			// Let's define some success and error functions
 			function saveSuccess(contact) {
 				console.log('Contact "' + contactsName + '" saved');
-				alert('Contact "' + contactsName + '" saved');
+				//alert('Contact "' + contactsName + '" saved');
+				navigator.notification.alert(
+					'Contact "' + contactsName + '" saved',	// Message
+					null,							// Callback
+					'Success!',						// Title
+					'OK'								// Button
+				);
 			}
 			function saveError(contactError) {
 				console.log('Contact save failed with error ' + contactError.code);
-				alert('Uh oh! There was a problem saving the contact'); 
+				//alert('Uh oh! There was a problem saving the contact'); 
+				navigator.notification.alert(
+					'Contact save failed with error ' + contactError.code,	// Message
+					null,										// Callback
+					'Success!',									// Title
+					'OK'											// Button
+				);
 			}
 
-			// Let's make sure that the user really wants to do this
-			if (confirm('Add "' + contactsName + '" as a contact?')) {
-
+			// The function that create's the new contact
+			function createContact() {
 				// Create a new contact object
 				var newContact = navigator.contacts.create();
+
+				// Create a new name object to correctly store the contact's name
+				var nameObj = new ContactName();
+				nameObj.givenName = $('#directory-details-name').data('firstname'); // First name
+				nameObj.familyName = $('#directory-details-name').data('lastname'); // Last name
+
+				// Add the new name object to the contact
+				newContact.name = nameObj;
 
 				// Set the new contacts details
 				// Set both the displayName and nickname for maximum device compatibility
@@ -91,15 +109,32 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 				);
 
 				newContact.phoneNumbers = new Array(
-					new ContactField('work', $.trim($('#directory-phone-office').text()), false),
-					new ContactField('other', $.trim($('#directory-phone-voicemail').text()), false)
+					new ContactField('work', $.trim($('#directory-details-phone-office').text()), false),
+					new ContactField('other', $.trim($('#directory-details-phone-voicemail').text()), false)
 				);
 
 				// Ok, we have the contact object and its properties. Now let's try and save it to the device
 				console.log('Attempting to save contact "' + contactsName + '" to the device');
 				newContact.save( saveSuccess, saveError );
 
-			} // End confirmation
+			} // End createContact
+
+			// Confirm choice
+			function confirmChoice(choice) {
+				// Yes is button 2
+				if (choice == 2) {
+					// Let's create and save the contact
+					createContact();
+				}
+			}
+
+			// Let's make sure that the user really wants to do this
+			navigator.notification.confirm(
+				'Add "' + contactsName + '" as a contact?',	// Message
+				confirmChoice,							// Function to parse choice
+				'Add Contact?',						// Title
+				'No,Yes'								// Choices
+			);
 
 		});
 

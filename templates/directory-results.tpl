@@ -8,7 +8,7 @@
 			{foreach from=$results item=result}
 				<li class="result">
 					<a href="{$PHP.BASE_URL}/directory/user/{$result->email}" data-ajax="false">
-						<h1>{$result->name}</h1>
+						<h1>{$result->name_full}</h1>
 						{if $result->title}
 							<p>{$result->title}</p>
 						{elseif $result->major}
