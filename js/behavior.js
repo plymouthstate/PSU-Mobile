@@ -1,3 +1,8 @@
+// Things to happen RIGHT AWAY (as soon as this loads)
+
+// Detect the device's OS
+GlobalTools.deviceOS();
+
 // Bind events to be triggered BEFORE EVERY page creation
 $(document).on('pagebeforecreate', function() {
 	// Function to find all jQuery Mobile back buttons and add an attribute to it
@@ -40,7 +45,6 @@ $(document).on('pagecreate', function() {
 
 	// Functions to run immediately
 	$(window).trigger('orientationchange');
-	GlobalTools.deviceOS();
 	modifyBackButtons();
 });
 
@@ -52,8 +56,23 @@ $(document).on('pagebeforeshow', function() {
 		$('.vertically-centered').hide();
 	}
 
+	// Function to hide all of the phonegap/cordova required elements
+	// We have to use JavaScript because of the way jQuery Mobile stylizes some of the elements
+	function togglePhoneGapRequired() {
+		// The device object may not be ready yet, so let's test to see if it exists
+		if (typeof device == 'undefined') {
+			$('.cordova-required').hide();
+			$('.cordova-required').parents('.ui-btn').hide();
+		}
+		else if (typeof device.cordova == 'undefined' && typeof device.phonegap == 'undefined') {
+			$('.cordova-required').hide();
+			$('.cordova-required').parents('.ui-btn').hide();
+		}
+	}
+
 	// Functions to run immediately
 	hidePreModifiedDivs();
+	togglePhoneGapRequired();
 });
 
 // Bind generic events to be triggered on EVERY page show

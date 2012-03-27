@@ -211,7 +211,7 @@ footer.ui-footer {
         font-size: 10px; }
         #page-dashboard div#hidden-info-div div.info-panel ul.app-frameworks li {
           display: block; }
-        #page-dashboard div#hidden-info-div div.info-panel ul.app-frameworks li#phonegap, #page-dashboard div#hidden-info-div div.info-panel ul.app-frameworks li#cordova {
+        #page-dashboard div#hidden-info-div div.info-panel ul.app-frameworks li#phonegap {
           display: none; }
       @media screen and (-webkit-device-pixel-ratio: 2) {
         #page-dashboard div#hidden-info-div div.info-panel .big-color-logo {
