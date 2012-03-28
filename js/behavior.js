@@ -32,6 +32,10 @@ $(document).on('pagecreate', function() {
 	// Functions to run on orientation change
 	$(window).on('orientationchange', function(event){
 		changeOrientationClass(event.orientation);
+
+		// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
+		$(window).trigger('resize');
+		$(this).trigger('updatelayout');
 	});
 
 	// Function to find all jQuery Mobile back buttons and add an attribute to it
