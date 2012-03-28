@@ -3,6 +3,30 @@
 // Detect the device's OS
 GlobalTools.deviceOS();
 
+// Function to change the class of the HTML tag based on the orientation of the device
+function changeOrientationClass(orientation) {
+	// Remove the old orientation classes
+	$('html').removeClass('landscape').removeClass('portrait');
+
+	// Add the orientation as a CSS class to the HTML tag
+	$('html').addClass(orientation);
+}
+
+// Functions to run on orientation change
+$(window).on('orientationchange', function(event){
+	console.log('Orientation has been changed. Orientation is: ' + event.orientation);
+
+	changeOrientationClass(event.orientation);
+
+	// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
+	$(window).trigger('resize');
+	$(this).trigger('updatelayout');
+});
+
+// Trigger an immediate orientation change so we have the orientation class in the html tag
+$(window).trigger('orientationchange');
+
+
 // Bind events to be triggered BEFORE EVERY page creation
 $(document).on('pagebeforecreate', function() {
 	// Function to find all jQuery Mobile back buttons and add an attribute to it
@@ -20,24 +44,6 @@ $(document).on('pagebeforecreate', function() {
 
 // Bind generic events to be triggered on EVERY page creation
 $(document).on('pagecreate', function() {
-	// Function to change the class of the HTML tag based on the orientation of the device
-	function changeOrientationClass(orientation) {
-		// Remove the old orientation classes
-		$('html').removeClass('landscape').removeClass('portrait');
-
-		// Add the orientation as a CSS class to the HTML tag
-		$('html').addClass(orientation);
-	}
-
-	// Functions to run on orientation change
-	$(window).on('orientationchange', function(event){
-		changeOrientationClass(event.orientation);
-
-		// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
-		$(window).trigger('resize');
-		$(this).trigger('updatelayout');
-	});
-
 	// Function to find all jQuery Mobile back buttons and add an attribute to it
 	function modifyBackButtons() {
 		// Back buttons jQuery object
@@ -48,7 +54,6 @@ $(document).on('pagecreate', function() {
 	}
 
 	// Functions to run immediately
-	$(window).trigger('orientationchange');
 	modifyBackButtons();
 });
 
