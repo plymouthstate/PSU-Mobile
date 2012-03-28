@@ -67,7 +67,8 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 			// Let's define some success and error functions
 			function saveSuccess(contact) {
 				console.log('Contact "' + contactsName + '" saved');
-				//alert('Contact "' + contactsName + '" saved');
+
+				// Alert the user
 				navigator.notification.alert(
 					'Contact "' + contactsName + '" saved',	// Message
 					null,							// Callback
@@ -77,9 +78,10 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 			}
 			function saveError(contactError) {
 				console.log('Contact save failed with error ' + contactError.code);
-				//alert('Uh oh! There was a problem saving the contact'); 
+
+				// Alert the user
 				navigator.notification.alert(
-					'Contact save failed with error ' + contactError.code,	// Message
+					'Uh oh! There was a problem saving the contact',	// Message
 					null,										// Callback
 					'Success!',									// Title
 					'OK'											// Button
