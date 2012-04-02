@@ -30,3 +30,23 @@ GlobalTools.deviceOS = function () {
 
 	return deviceOS;
 };
+
+// Create a wrapper function for console.log
+GlobalTools.log = function () {
+	// Disable this function if we're in production
+	if (!isDev) {
+		return false;
+	}
+
+	// Disable console.log on non-supporting browsers
+     if (typeof console == "undefined") {
+		return false;
+     }
+
+	// If all is well, let's use the browser's native console.log function
+	console.log( Array.prototype.slice.call(arguments).toString() );
+};
+
+// Alias the GlobalTools.log function for quicker access
+var psu = {};
+psu.log = GlobalTools.log;

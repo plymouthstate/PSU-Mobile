@@ -14,7 +14,7 @@ function changeOrientationClass(orientation) {
 
 // Functions to run on orientation change
 $(window).on('orientationchange', function(event){
-	console.log('Orientation has been changed. Orientation is: ' + event.orientation);
+	psu.log('Orientation has been changed. Orientation is: ' + event.orientation);
 
 	changeOrientationClass(event.orientation);
 
@@ -168,10 +168,10 @@ $(document).on('pageinit', '#page-dashboard', function() {
 
 		// Create the nth-child expression
 		var everyNthChild = elemPerRow + String('n+') + middleCount;
-		console.log(elemPerRow);
-		console.log(middleCount);
-		console.log(everyNthChild);
-		console.log(elemPerRow + 'n+' + middleCount);
+		psu.log(elemPerRow);
+		psu.log(middleCount);
+		psu.log(everyNthChild);
+		psu.log(elemPerRow + 'n+' + middleCount);
 
 		// Finally, set every middle-th element to have a class
 		$dashboardNav.find('ul#dashboard-mapps li').removeClass('dash-middle-element');
@@ -219,7 +219,7 @@ $(document).on('pageinit', '#page-campusmap', function() {
 		$('div#campus-google-map').gmap( gmapObject );
 	}
 	catch (e) {
-		console.log('Couldn\'t load the Google Map. Died with: ' + e);
+		psu.log('Couldn\'t load the Google Map. Died with: ' + e);
 	}
 });
 // Bind events to be triggered on the CAMPUS MAP page showing
@@ -233,7 +233,7 @@ $(document).on('pageshow', '#page-campusmap', function() {
 		$('div#campus-google-map').gmap('refresh');
 	}
 	catch (e) {
-		console.log('Couldn\'t load the Google Map. Died with: ' + e);
+		psu.log('Couldn\'t load the Google Map. Died with: ' + e);
 	}
 });
 

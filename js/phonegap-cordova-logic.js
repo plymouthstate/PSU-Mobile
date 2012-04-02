@@ -15,7 +15,7 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 	}
 
 	// Let the log know that the framework is working! :)
-	console.log('DEVICEREADY event fired. ' + nativeFramework.name + ' has been initialized');
+	psu.log('DEVICEREADY event fired. ' + nativeFramework.name + ' has been initialized');
 
 	// Now that the framework has loaded, let's wait for jQuery to be ready so we can do some more elegant things. :)
 	$(document).ready( function() {
@@ -28,25 +28,25 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 		// When the Android back button is pressed
 		// !NOTE!: This PERMANENTLY OVERRIDES the native back button functionality.
 		$(document).on('backbutton', function () {
-			console.log('Back button pressed.');
+			psu.log('Back button pressed.');
 
 			// Grab the current page as a jQuery object
 			var $currentPage = $.mobile.activePage;
 
 			// If the current page is the dashboard
 			if ($currentPage.attr('id') == 'page-dashboard') {
-				console.log('Back button pressed on the dashboard');
+				psu.log('Back button pressed on the dashboard');
 
 				// If the hidden info div is visible, the dashboard info slider is open
 				if ($('#hidden-info-div.open').is(':visible')) {
-					console.log('Closing the hidden info slider');
+					psu.log('Closing the hidden info slider');
 
 					// Let the other event handlers do the work
 					$('#footer-info-button').trigger('vclick');
 				}
 				// Its closed
 				else {
-					console.log('Closing the app');
+					psu.log('Closing the app');
 
 					// Close the app
 					navigator.app.exitApp();
@@ -66,7 +66,7 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 
 			// Let's define some success and error functions
 			function saveSuccess(contact) {
-				console.log('Contact "' + contactsName + '" saved');
+				psu.log('Contact "' + contactsName + '" saved');
 
 				// Alert the user
 				navigator.notification.alert(
@@ -77,7 +77,7 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 				);
 			}
 			function saveError(contactError) {
-				console.log('Contact save failed with error ' + contactError.code);
+				psu.log('Contact save failed with error ' + contactError.code);
 
 				// Alert the user
 				navigator.notification.alert(
@@ -116,7 +116,7 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 				);
 
 				// Ok, we have the contact object and its properties. Now let's try and save it to the device
-				console.log('Attempting to save contact "' + contactsName + '" to the device');
+				psu.log('Attempting to save contact "' + contactsName + '" to the device');
 				newContact.save( saveSuccess, saveError );
 
 			} // End createContact

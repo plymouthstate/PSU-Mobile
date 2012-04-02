@@ -39,6 +39,16 @@
 	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/style.css">
 	{* PSU Mobile/Custom *}
 
+	{if $PHP.IS_DEV}
+		<script>
+			var isDev = true;
+		</script>
+	{else}
+		<script>
+			var isDev = false;
+		</script>
+	{/if}
+
 	{* Necessary Global Tools *}
 	{* Load these first. We need to use them for device detection and for other script loads *}
 	<script src="{$PHP.BASE_URL}/js/global-tools.js"></script>
