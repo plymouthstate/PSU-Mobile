@@ -403,7 +403,7 @@ footer.ui-footer {
   margin-top: 0px; }
 
 /* Directory Results */
-#page-directory-results h1 {
+#page-directory-results h1, #page-directory-results h2 {
   margin: 0px; }
 #page-directory-results p {
   margin-top: 6px;
