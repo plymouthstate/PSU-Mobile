@@ -1,3 +1,32 @@
+// Things to happen RIGHT AWAY (as soon as this loads)
+
+// Detect the device's OS
+GlobalTools.deviceOS();
+
+// Function to change the class of the HTML tag based on the orientation of the device
+function changeOrientationClass(orientation) {
+	// Remove the old orientation classes
+	$('html').removeClass('landscape').removeClass('portrait');
+
+	// Add the orientation as a CSS class to the HTML tag
+	$('html').addClass(orientation);
+}
+
+// Functions to run on orientation change
+$(window).on('orientationchange', function(event){
+	psu.log('Orientation has been changed. Orientation is: ' + event.orientation);
+
+	changeOrientationClass(event.orientation);
+
+	// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
+	$(window).trigger('resize');
+	$(this).trigger('updatelayout');
+});
+
+// Trigger an immediate orientation change so we have the orientation class in the html tag
+$(window).trigger('orientationchange');
+
+
 // Bind events to be triggered BEFORE EVERY page creation
 $(document).on('pagebeforecreate', function() {
 	// Function to find all jQuery Mobile back buttons and add an attribute to it
@@ -15,20 +44,6 @@ $(document).on('pagebeforecreate', function() {
 
 // Bind generic events to be triggered on EVERY page creation
 $(document).on('pagecreate', function() {
-	// Function to change the class of the HTML tag based on the orientation of the device
-	function changeOrientationClass(orientation) {
-		// Remove the old orientation classes
-		$('html').removeClass('landscape').removeClass('portrait');
-
-		// Add the orientation as a CSS class to the HTML tag
-		$('html').addClass(orientation);
-	}
-
-	// Functions to run on orientation change
-	$(window).on('orientationchange', function(event){
-		changeOrientationClass(event.orientation);
-	});
-
 	// Function to find all jQuery Mobile back buttons and add an attribute to it
 	function modifyBackButtons() {
 		// Back buttons jQuery object
@@ -39,8 +54,6 @@ $(document).on('pagecreate', function() {
 	}
 
 	// Functions to run immediately
-	$(window).trigger('orientationchange');
-	GlobalTools.deviceOS();
 	modifyBackButtons();
 });
 
@@ -52,8 +65,26 @@ $(document).on('pagebeforeshow', function() {
 		$('.vertically-centered').hide();
 	}
 
+	// Function to hide all of the phonegap/cordova required elements
+	// We have to use JavaScript because of the way jQuery Mobile stylizes some of the elements
+	function togglePhoneGapRequired() {
+		// Cache the selector
+		var $el = $('.cordova-required');
+
+		// The device object may not be ready yet, so let's test to see if it exists
+		if (typeof device == 'undefined') {
+			$el.hide();
+			$el.closest('.ui-btn').hide();
+		}
+		else if (typeof device.cordova == 'undefined' && typeof device.phonegap == 'undefined') {
+			$el.hide();
+			$el.closest('.ui-btn').hide();
+		}
+	}
+
 	// Functions to run immediately
 	hidePreModifiedDivs();
+	togglePhoneGapRequired();
 });
 
 // Bind generic events to be triggered on EVERY page show
@@ -137,10 +168,10 @@ $(document).on('pageinit', '#page-dashboard', function() {
 
 		// Create the nth-child expression
 		var everyNthChild = elemPerRow + String('n+') + middleCount;
-		console.log(elemPerRow);
-		console.log(middleCount);
-		console.log(everyNthChild);
-		console.log(elemPerRow + 'n+' + middleCount);
+		psu.log(elemPerRow);
+		psu.log(middleCount);
+		psu.log(everyNthChild);
+		psu.log(elemPerRow + 'n+' + middleCount);
 
 		// Finally, set every middle-th element to have a class
 		$dashboardNav.find('ul#dashboard-mapps li').removeClass('dash-middle-element');
@@ -149,7 +180,7 @@ $(document).on('pageinit', '#page-dashboard', function() {
 
 	// Make the info button footer clickable
 	$(document).on('vclick', '.info-button', function(event) {
-		$('#hidden-info-div').stop().animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
+		$('#hidden-info-div').toggleClass('open').stop().animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
 			// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
 			$(window).trigger('resize');
 			$(this).trigger('updatelayout');
@@ -168,7 +199,13 @@ $(document).on('pageinit', '#page-dashboard', function() {
 	detectMiddleElements();
 });
 
-// NOTE: For some reason or another, I HAVE to use LIVE on these events. I can't use the new, steezy 'on' function
+
+/*
+ *
+ * Campus Map m-app
+ *
+ */
+
 // Bind events to be triggered on the CAMPUS MAP page initialization
 $(document).on('pageinit', '#page-campusmap', function() {
 	// We might not have the Google Maps API loaded yet, so let's try
@@ -182,7 +219,7 @@ $(document).on('pageinit', '#page-campusmap', function() {
 		$('div#campus-google-map').gmap( gmapObject );
 	}
 	catch (e) {
-		console.log('Couldn\'t load the Google Map. Died with: ' + e);
+		psu.log('Couldn\'t load the Google Map. Died with: ' + e);
 	}
 });
 // Bind events to be triggered on the CAMPUS MAP page showing
@@ -196,6 +233,43 @@ $(document).on('pageshow', '#page-campusmap', function() {
 		$('div#campus-google-map').gmap('refresh');
 	}
 	catch (e) {
-		console.log('Couldn\'t load the Google Map. Died with: ' + e);
+		psu.log('Couldn\'t load the Google Map. Died with: ' + e);
 	}
+});
+
+
+/*
+ *
+ * Directory m-app
+ *
+ */
+
+// On form submit
+$(document).on('submit', '#page-directory form', function(event) {
+	// Prevent the form from submitting normally
+	event.preventDefault();
+
+	// Get the data from the searh box and URL encode it
+	var query = encodeURI($('#directory-search').val());
+
+	// Make the request pretty
+	$.mobile.changePage('search/' + query);
+});
+
+// When a result is clicked
+$(document).on('vclick', '#page-directory-results #directory-results a', function(event) {
+	// Prevent the form from submitting normally
+	event.preventDefault();
+
+	// Get the url from the link
+	var url = $(this).attr('href');
+
+	// Get the data from the hidden input
+	var userData = $(this).find('input[name=user-details]').serialize();
+
+	// Make the request pretty
+	$.mobile.changePage( url, {
+		type: "post",
+		data: userData
+	});
 });

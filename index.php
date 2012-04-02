@@ -9,7 +9,7 @@ $GLOBALS['BASE_DIR'] = __DIR__;
 $GLOBALS['TITLE'] = 'PSU Mobile';
 $GLOBALS['TEMPLATES'] = $GLOBALS['BASE_DIR'] . '/templates/';
 
-$GLOBALS['APP_VERSION'] = '0.4.1';
+$GLOBALS['APP_VERSION'] = '0.6.0';
 $GLOBALS['APP_BUILD_NAME'] = 'jqm-html5';
 $GLOBALS['APP_BUILD_TYPE'] = 'beta';
 
@@ -56,11 +56,15 @@ respond( function( $request, $response, $app ) {
 respond( '/', function( $request, $response, $app ) {
 	// Grab a couple of the request parameters
 	$response->session('phonegap', $request->param('phonegap'));
+	$response->session('cordova', $request->param('cordova'));
 	$response->session('client-app', $request->param('client-app'));
 
 	// Remove the variables if they're null
 	if (is_null($_SESSION['phonegap'])) {
 		unset($_SESSION['phonegap']);
+	}
+	if (is_null($_SESSION['cordova'])) {
+		unset($_SESSION['cordova']);
 	}
 	if (is_null($_SESSION['client-app-version'])) {
 		unset($_SESSION['client-app-version']);
@@ -75,6 +79,7 @@ $app_routes = array(
 	'campusmap',
 	'feedback',
 	'clusters',
+	'directory',
 );
 
 foreach( $app_routes as $base ) {

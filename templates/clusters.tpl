@@ -3,7 +3,7 @@
 	{jqm_header title="Clusters" back_button="true"}{/jqm_header}
 
 	{jqm_content}
-		<ul data-role="listview" data-theme="a" data-count-theme="d" data-filter="true" data-filter-theme="d">
+		<ul data-role="listview" data-theme="d" data-count-theme="d" data-filter="true" data-filter-theme="d">
 			{foreach from=$clusters item=cluster}
 				{* Clean up the returned data. Make sure it makes sense to display *}
 				{* Don't let there ever show more computers being used than available *}

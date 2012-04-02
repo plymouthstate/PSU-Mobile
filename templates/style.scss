@@ -53,6 +53,15 @@ header.ui-header, footer.ui-footer {
 	position: absolute;
 	width: 100%;
 }
+h1 {
+	font-size: 24px;
+}
+h2 {
+	font-size: 20px;
+}
+a, a:link {
+	text-decoration: none;
+}
 
 /* Header */
 header.ui-header {
@@ -553,6 +562,41 @@ footer.ui-footer {
 		color: #666;
 	}
 }
+
+/* Directory */
+#page-directory {
+	h1 {
+		margin-top: 0px;
+	}
+}
+
+/* Directory Results */
+#page-directory-results {
+	h1, h2 {
+		margin: 0px;
+	}
+	p {
+		margin-top: 6px;
+		margin-bottom: 0px;
+	}
+}
+
+/* Directory Details */
+#page-directory-details {
+	h1 {
+		margin: 0px;
+	}
+	h2 {
+		margin-top: 8px;
+		font-size: 16px;
+		font-weight: normal;
+	}
+	.ui-btn {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+
 
 /* Styles based on the device's OS */
 html.android header {
