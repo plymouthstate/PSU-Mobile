@@ -68,14 +68,17 @@ $(document).on('pagebeforeshow', function() {
 	// Function to hide all of the phonegap/cordova required elements
 	// We have to use JavaScript because of the way jQuery Mobile stylizes some of the elements
 	function togglePhoneGapRequired() {
+		// Cache the selector
+		var $el = $('.cordova-required');
+
 		// The device object may not be ready yet, so let's test to see if it exists
 		if (typeof device == 'undefined') {
-			$('.cordova-required').hide();
-			$('.cordova-required').parents('.ui-btn').hide();
+			$el.hide();
+			$el.closest('.ui-btn').hide();
 		}
 		else if (typeof device.cordova == 'undefined' && typeof device.phonegap == 'undefined') {
-			$('.cordova-required').hide();
-			$('.cordova-required').parents('.ui-btn').hide();
+			$el.hide();
+			$el.closest('.ui-btn').hide();
 		}
 	}
 
@@ -258,14 +261,14 @@ $(document).on('vclick', '#page-directory-results #directory-results a', functio
 	// Prevent the form from submitting normally
 	event.preventDefault();
 
-	// Get the URL from the link
-	var URL = $(this).attr('href');
+	// Get the url from the link
+	var url = $(this).attr('href');
 
 	// Get the data from the hidden input
 	var userData = $(this).find('input[name=user-details]').serialize();
 
 	// Make the request pretty
-	$.mobile.changePage( URL, {
+	$.mobile.changePage( url, {
 		type: "post",
 		data: userData
 	});
