@@ -125,5 +125,14 @@
 	<script src="{$PHP.BASE_URL}/js/behavior.js"></script>
 	<script src="{$PHP.BASE_URL}/js/phonegap-cordova-logic.js"></script>
 	{* PSU Mobile/Custom *}
+
+	{* Google Analytics *}
+	<script>
+		var _gaq=[['_setAccount','UA-125829-17'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+	{* Google Analytics *}
 </body>
 </html>
