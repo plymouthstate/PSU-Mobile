@@ -255,54 +255,33 @@ footer.ui-footer {
       background-image: url(images/low/ic_menu_arrow_down.png); } }
 
 /* Newsfeed */
-#page-newsfeed .ui-content {
-  padding: 0px; }
-#page-newsfeed ul#newsfeed {
-  padding: 0px;
-  margin: 0px;
-  list-style: none;
-  color: #000; }
-  #page-newsfeed ul#newsfeed li.newsfeed-item {
-    padding: 5px;
-    overflow: hidden;
-    list-style: none;
-    border-bottom: 1px solid #ccc; }
-    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon {
-      display: block;
-      float: left;
-      width: 50px;
-      height: 50px;
-      margin-right: 5px;
-      background-size: 50px; }
-    #page-newsfeed ul#newsfeed li.newsfeed-item header {
-      overflow: hidden;
-      line-height: 16px; }
-      #page-newsfeed ul#newsfeed li.newsfeed-item header h1.feed-title {
-        display: inline;
-        float: left;
-        margin: 0px;
-        font-size: 12px;
-        font-weight: bold; }
-      #page-newsfeed ul#newsfeed li.newsfeed-item header time {
-        float: right;
-        font-size: 10px;
-        color: #666; }
-    #page-newsfeed ul#newsfeed li.newsfeed-item p {
-      margin: 0px;
-      margin-top: 2px;
-      font-size: 12px; }
-  #page-newsfeed ul#newsfeed li.facebook {
-    background-color: #eaeaff; }
-    #page-newsfeed ul#newsfeed li.facebook div.feed-icon {
-      background-image: url(images/medium/facebook_icon.png); }
-  #page-newsfeed ul#newsfeed li.twitter {
-    background-color: #eaffff; }
-    #page-newsfeed ul#newsfeed li.twitter div.feed-icon {
-      background-image: url(images/medium/twitter_icon.png); }
-  #page-newsfeed ul#newsfeed li.rss {
-    background-color: #eaeaea; }
-    #page-newsfeed ul#newsfeed li.rss div.feed-icon {
-      background-image: url(images/medium/rss_icon.png); }
+#page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon {
+  display: block;
+  float: left;
+  width: 46px;
+  height: 46px;
+  margin-left: -5px;
+  margin-right: 5px; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .psu-icon.large {
+    width: 46px;
+    height: 46px;
+    margin-top: 0px;
+    text-shadow: none; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-facebook-item {
+    color: #385c99; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-twitter-item {
+    color: #6bb8fe; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-news-item {
+    color: #ff9111; }
+#page-newsfeed ul#newsfeed li.newsfeed-item h1 {
+  margin-top: 0px;
+  font-size: 14px; }
+#page-newsfeed ul#newsfeed li.newsfeed-item .ui-li-aside {
+  width: 90px;
+  margin-top: 0px; }
+#page-newsfeed ul#newsfeed li.newsfeed-item p {
+  margin-top: 3px;
+  margin-bottom: 0px; }
 
 /* Campus Map */
 #page-campusmap .ui-content {
@@ -372,8 +351,6 @@ footer.ui-footer {
   background-color: #e6ffe6; }
 
 /* Clusters */
-#page-clusters .ui-listview-inset {
-  margin: 0px; }
 #page-clusters li.cluster h1 {
   margin: 0px; }
 #page-clusters li.cluster h2 {
@@ -382,21 +359,6 @@ footer.ui-footer {
   font-weight: normal; }
 #page-clusters li.cluster p {
   margin-bottom: 0px; }
-
-/* Clusters Details */
-#page-clusters-details h1, #page-clusters-details h2 {
-  text-align: center; }
-#page-clusters-details h1 {
-  margin: 20px auto;
-  margin-top: 0px;
-  font-size: 24px; }
-#page-clusters-details h2 {
-  font-size: 18px; }
-#page-clusters-details p.disclaimer {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 12px;
-  color: #666; }
 
 /* Directory */
 #page-directory h1 {
