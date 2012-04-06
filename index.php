@@ -20,6 +20,9 @@ if (PSU::isdev()) {
 
 	// Set a global for easier access from templates
 	$GLOBALS['IS_DEV'] = true;
+
+	// Turn off the CDN
+	define('PSU_CDN', false);
 }
 else {
 	// Have the APP_BUILD_TYPE global reflect the current server/code status
