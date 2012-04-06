@@ -19,16 +19,16 @@
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{$PHP.BASE_URL}/templates/images/xhigh/appicon.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{$PHP.BASE_URL}/templates/images/high/appicon.png">
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{$PHP.BASE_URL}/templates/images/medium/appicon.png">
-	<link rel="apple-touch-icon-precomposed" href="{$PHP.BASE_URL}/templates/images/xhigh/appicon.png">
-	<link rel="shortcut icon" href="{$PHP.BASE_URL}/templates/images/low/appicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{"`$PHP.BASE_URL`/templates/images/xhigh/appicon.png"|cdn}">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{"`$PHP.BASE_URL`/templates/images/high/appicon.png"|cdn}">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{"`$PHP.BASE_URL`/templates/images/medium/appicon.png"|cdn}">
+	<link rel="apple-touch-icon-precomposed" href="{"`$PHP.BASE_URL`/templates/images/xhigh/appicon.png"|cdn}">
+	<link rel="shortcut icon" href="{"`$PHP.BASE_URL`/templates/images/low/appicon.png"|cdn}">
 	{* Mobile Meta and Graphic Tags *}
 
 	{* jQuery Mobile Styles *}
 	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.0.1/jquery.mobile-1.0.1.min.css">
-	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/psu-mobile-jqm-theme.min.css">
+	<link rel="stylesheet" href="{"`$PHP.BASE_URL`/templates/psu-mobile-jqm-theme.min.css"|cdn}">
 	{* jQuery Mobile Styles *}
 
 	{* PSU Icons - Custom Font *}
@@ -36,7 +36,7 @@
 	{* PSU Icons - Custom Font *}
 
 	{* PSU Mobile/Custom (Must be in this order) *}
-	<link rel="stylesheet" href="{$PHP.BASE_URL}/templates/style.css">
+	<link rel="stylesheet" href="{"`$PHP.BASE_URL`/templates/style.css"|cdn}">
 	{* PSU Mobile/Custom *}
 
 	{if $PHP.IS_DEV}
@@ -51,7 +51,7 @@
 
 	{* Necessary Global Tools *}
 	{* Load these first. We need to use them for device detection and for other script loads *}
-	<script src="{$PHP.BASE_URL}/js/global-tools.js"></script>
+	<script src="{"`$PHP.BASE_URL`/js/global-tools.js"|cdn}"></script>
 	{* Necessary Global Tools *}
 
 	{* jQuery *}
@@ -59,7 +59,7 @@
 	{* jQuery *}
 
 	{* jQuery Mobile Configuration *}
-	<script src="{$PHP.BASE_URL}/js/jquery.mobile.config.js"></script>
+	<script src="{"`$PHP.BASE_URL`/js/jquery.mobile.config.js"|cdn}"></script>
 	{* jQuery Mobile Configuration *}
 
 	{* jQuery Mobile *}
@@ -119,11 +119,11 @@
 	{/if}
 
 	{* PSU Mobile/Custom *}
-	<script src="{$PHP.BASE_URL}/js/modernizr.custom.12420.js"></script>
-	<script src="{$PHP.BASE_URL}/js/jquery.easing.1.3.js"></script>
-	<script src="{$PHP.BASE_URL}/js/jquery.animate-enhanced.min.js"></script>
-	<script src="{$PHP.BASE_URL}/js/behavior.js"></script>
-	<script src="{$PHP.BASE_URL}/js/phonegap-cordova-logic.js"></script>
+	<script src="{"`$PHP.BASE_URL`/js/modernizr.custom.12420.js"|cdn}"></script>
+	<script src="{"`$PHP.BASE_URL`/js/jquery.easing.1.3.js"|cdn}"></script>
+	<script src="{"`$PHP.BASE_URL`/js/jquery.animate-enhanced.min.js"|cdn}"></script>
+	<script src="{"`$PHP.BASE_URL`/js/behavior.js"|cdn}"></script>
+	<script src="{"`$PHP.BASE_URL`/js/phonegap-cordova-logic.js"|cdn}"></script>
 	{* PSU Mobile/Custom *}
 
 	{* Google Analytics *}
