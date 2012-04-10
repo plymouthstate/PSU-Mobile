@@ -9,7 +9,7 @@ $GLOBALS['BASE_DIR'] = __DIR__;
 $GLOBALS['TITLE'] = 'PSU Mobile';
 $GLOBALS['TEMPLATES'] = $GLOBALS['BASE_DIR'] . '/templates/';
 
-$GLOBALS['APP_VERSION'] = '0.6.0';
+$GLOBALS['APP_VERSION'] = '0.6.1';
 $GLOBALS['APP_BUILD_NAME'] = 'jqm-html5';
 $GLOBALS['APP_BUILD_TYPE'] = 'beta';
 
@@ -20,6 +20,9 @@ if (PSU::isdev()) {
 
 	// Set a global for easier access from templates
 	$GLOBALS['IS_DEV'] = true;
+
+	// Turn off the CDN
+	define('PSU_CDN', false);
 }
 else {
 	// Have the APP_BUILD_TYPE global reflect the current server/code status
