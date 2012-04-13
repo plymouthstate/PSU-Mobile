@@ -141,4 +141,4 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 		});
 
 	}); // End jQuery dependence
-});
+}, false);
