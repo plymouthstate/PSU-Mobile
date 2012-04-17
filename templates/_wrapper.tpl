@@ -54,23 +54,6 @@
 	<script src="{"`$PHP.BASE_URL`/js/global-tools.js"|cdn}"></script>
 	{* Necessary Global Tools *}
 
-	{* jQuery *}
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	{* jQuery *}
-
-	{* jQuery Mobile Configuration *}
-	<script src="{"`$PHP.BASE_URL`/js/jquery.mobile.config.js"|cdn}"></script>
-	{* jQuery Mobile Configuration *}
-
-	{* jQuery Mobile *}
-	<script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
-	{* jQuery Mobile *}
-
-	{* Google Maps API *}
-	{* Must be loaded in the HEAD, as it uses a document.write to load an external script *}
-	<script src="//maps.google.com/maps/api/js?sensor=true"></script>
-	{* Google Maps API *}
-
 	{* If the phonegap/cordova session variable is set, include the PhoneGap/Cordova javascript *}
 	{if isset($smarty.session.phonegap) || isset($smarty.session.cordova)}
 
@@ -106,6 +89,24 @@
 		</script>
 	{/if}
 
+
+	{* jQuery *}
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	{* jQuery *}
+
+	{* jQuery Mobile Configuration *}
+	<script src="{"`$PHP.BASE_URL`/js/jquery.mobile.config.js"|cdn}"></script>
+	{* jQuery Mobile Configuration *}
+
+	{* jQuery Mobile *}
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	{* jQuery Mobile *}
+
+	{* Google Maps API *}
+	{* Must be loaded in the HEAD, as it uses a document.write to load an external script *}
+	<script src="//maps.google.com/maps/api/js?sensor=true"></script>
+	{* Google Maps API *}
+
 	<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
 
 </head> 
@@ -123,7 +124,14 @@
 	<script src="{"`$PHP.BASE_URL`/js/jquery.easing.1.3.js"|cdn}"></script>
 	<script src="{"`$PHP.BASE_URL`/js/jquery.animate-enhanced.min.js"|cdn}"></script>
 	<script src="{"`$PHP.BASE_URL`/js/behavior.js"|cdn}"></script>
-	<script src="{"`$PHP.BASE_URL`/js/phonegap-cordova-logic.js"|cdn}"></script>
+
+		{* If the phonegap/cordova session variable is set, include the PhoneGap/Cordova javascript *}
+		{if isset($smarty.session.phonegap) || isset($smarty.session.cordova)}
+
+			<script src="{"`$PHP.BASE_URL`/js/phonegap-cordova-logic.js"|cdn}"></script>
+
+		{/if}
+
 	{* PSU Mobile/Custom *}
 
 	{* Google Analytics *}
