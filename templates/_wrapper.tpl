@@ -27,7 +27,7 @@
 	{* Mobile Meta and Graphic Tags *}
 
 	{* jQuery Mobile Styles *}
-	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.0.1/jquery.mobile-1.0.1.min.css">
+	<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile-1.1.0.min.css">
 	<link rel="stylesheet" href="{"`$PHP.BASE_URL`/templates/psu-mobile-jqm-theme.min.css"|cdn}">
 	{* jQuery Mobile Styles *}
 
@@ -99,7 +99,7 @@
 	{* jQuery Mobile Configuration *}
 
 	{* jQuery Mobile *}
-	<script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 	{* jQuery Mobile *}
 
 	{* Google Maps API *}
