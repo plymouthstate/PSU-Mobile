@@ -12,7 +12,7 @@
 
 <header data-role="header" data-position="{$position}">
 	{if $jqm_header.back_button}
-		<a href="{$PHP.BASE_URL}/" class="ui-btn-icon-left" data-rel="back" data-theme="c">back</a>
+		<a href="{$PHP.BASE_URL}/" data-icon="arrow-l" class="ui-btn-left" data-rel="back" data-theme="c">back</a>
 	{/if}
 
 	<h1 id="header-logo"><span>{$title}</span></h1>
