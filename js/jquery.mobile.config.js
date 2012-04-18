@@ -9,5 +9,5 @@ $(document).bind('mobileinit', function() {
 	$.mobile.page.prototype.options.backBtnTheme = 'c';
 
 	// Set the default page transition to "slide"
-	$.mobile.defaultPageTransition = 'slide';
+	$.mobile.defaultPageTransition = 'slidefade';
 });
