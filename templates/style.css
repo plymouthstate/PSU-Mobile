@@ -330,8 +330,7 @@ footer.ui-footer {
   -webkit-box-sizing: border-box;
   /* safari3 */
   -khtml-box-sizing: border-box;
-  /* konqueror */
-  border: 1px solid #013d2e; }
+  /* konqueror */ }
 #page-feedback label {
   font-size: 16px;
   font-weight: normal;
