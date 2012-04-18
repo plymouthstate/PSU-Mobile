@@ -8,25 +8,25 @@
 			<fieldset>
 				<label for="feedback-email">Your Email Address</label>
 				<div class="input-container">
-					<input type="email" name="email" id="feedback-email" />
+					<input type="email" name="email" id="feedback-email" data-theme="d" />
 				</div>
 			</fieldset>
 			<fieldset>
 				<label for="feedback-title">Subject/Title</label>
 				<div class="input-container">
-					<input type="text" name="title" id="feedback-title" />
+					<input type="text" name="title" id="feedback-title" data-theme="d" />
 				</div>
 			</fieldset>
 			<fieldset>
 				<label for="feedback-message">Feedback</label>
 				<div class="input-container">
-					<textarea name="message" id="feedback-message"></textarea>
+					<textarea name="message" id="feedback-message" data-theme="d"></textarea>
 				</div>
 			</fieldset>
 			<fieldset>
 				<label for="feedback-feeling">How does it make you feel?</label>
 				<div class="input-container">
-					<select name="feeling" id="feedback-feeling" data-theme="a">
+					<select name="feeling" id="feedback-feeling" data-theme="d">
 						<option>Happy</option>
 						<option>Silly</option>
 						<option>Indifferent</option>

@@ -55,6 +55,7 @@ $(document).on('pagecreate', function() {
 
 	// Functions to run immediately
 	modifyBackButtons();
+	$('[data-role=header]').fixedtoolbar({ tapToggle: false }); // Disable the tap to toggle header/footers
 });
 
 // Bind generic events to be triggered BEFORE EVERY page show
