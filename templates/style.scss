@@ -100,7 +100,7 @@ header.ui-header {
 		box-shadow: none;
 	}
 	.ui-btn[data-rel=back] span.ui-icon {
-		background-image: url(images/icons-18-white.png) !important;
+		background-size: 776px 18px;
 		box-shadow: none;
 	}
 
@@ -110,17 +110,26 @@ header.ui-header {
 		h1#header-logo {
 			background-image: url(images/xhigh/psu_logo.png);
 		}
+		.ui-btn[data-rel=back] span.ui-icon {
+			background-image: url(images/icons-36-white.png) !important;
+		}
 	}
 	/* High - 1.5 times */
 	@media screen and (-webkit-device-pixel-ratio: 1.5) {
 		h1#header-logo {
 			background-image: url(images/high/psu_logo.png);
 		}
+		.ui-btn[data-rel=back] span.ui-icon {
+			background-image: url(images/icons-36-white.png) !important;
+		}
 	}
 	/* Medium/Normal - 1.0 times */
 	@media screen and (-webkit-device-pixel-ratio: 1.0) {
 		h1#header-logo {
 			background-image: url(images/medium/psu_logo.png);
+		}
+		.ui-btn[data-rel=back] span.ui-icon {
+			background-image: url(images/icons-18-white.png) !important;
 		}
 	}
 	/* Low - 0.75 times */

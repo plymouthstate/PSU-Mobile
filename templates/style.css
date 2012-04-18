@@ -80,17 +80,23 @@ header.ui-header {
     top: 12px;
     box-shadow: none; }
   header.ui-header .ui-btn[data-rel=back] span.ui-icon {
-    background-image: url(images/icons-18-white.png) !important;
+    background-size: 776px 18px;
     box-shadow: none; }
   @media screen and (-webkit-device-pixel-ratio: 2) {
     header.ui-header h1#header-logo {
-      background-image: url(images/xhigh/psu_logo.png); } }
+      background-image: url(images/xhigh/psu_logo.png); }
+    header.ui-header .ui-btn[data-rel=back] span.ui-icon {
+      background-image: url(images/icons-36-white.png) !important; } }
   @media screen and (-webkit-device-pixel-ratio: 1.5) {
     header.ui-header h1#header-logo {
-      background-image: url(images/high/psu_logo.png); } }
+      background-image: url(images/high/psu_logo.png); }
+    header.ui-header .ui-btn[data-rel=back] span.ui-icon {
+      background-image: url(images/icons-36-white.png) !important; } }
   @media screen and (-webkit-device-pixel-ratio: 1.0) {
     header.ui-header h1#header-logo {
-      background-image: url(images/medium/psu_logo.png); } }
+      background-image: url(images/medium/psu_logo.png); }
+    header.ui-header .ui-btn[data-rel=back] span.ui-icon {
+      background-image: url(images/icons-18-white.png) !important; } }
   @media screen and (-webkit-device-pixel-ratio: 0.75) {
     header.ui-header h1#header-logo {
       background-image: url(images/low/psu_logo.png); } }
