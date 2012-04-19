@@ -26,8 +26,17 @@
 header.ui-header, footer.ui-footer {
   border: 0px none; }
 
-.ui-icon-loading {
-  background-image: url(images/ajax-loader-black.png) !important; }
+.ui-header .ui-btn-icon-left .ui-btn-inner, .ui-footer .ui-btn-icon-left .ui-btn-inner, .ui-mini .ui-btn-icon-left .ui-btn-inner {
+  padding-left: 27px; }
+
+.ui-btn-icon-left .ui-btn-inner {
+  padding-left: 33px; }
+
+.ui-header .ui-btn-inner, .ui-footer .ui-btn-inner, .ui-mini .ui-btn-inner {
+  padding: .4em 8px .4em; }
+
+.ui-header .ui-btn-left, .ui-footer .ui-btn-left {
+  left: 10px; }
 
 /* Global Styles */
 .vertically-centered {
@@ -71,17 +80,23 @@ header.ui-header {
     top: 12px;
     box-shadow: none; }
   header.ui-header .ui-btn[data-rel=back] span.ui-icon {
-    background-image: url(images/icons-18-white.png) !important;
+    background-size: 776px 18px;
     box-shadow: none; }
   @media screen and (-webkit-device-pixel-ratio: 2) {
     header.ui-header h1#header-logo {
-      background-image: url(images/xhigh/psu_logo.png); } }
+      background-image: url(images/xhigh/psu_logo.png); }
+    header.ui-header .ui-btn[data-rel=back] span.ui-icon {
+      background-image: url(images/icons-36-white.png) !important; } }
   @media screen and (-webkit-device-pixel-ratio: 1.5) {
     header.ui-header h1#header-logo {
-      background-image: url(images/high/psu_logo.png); } }
+      background-image: url(images/high/psu_logo.png); }
+    header.ui-header .ui-btn[data-rel=back] span.ui-icon {
+      background-image: url(images/icons-36-white.png) !important; } }
   @media screen and (-webkit-device-pixel-ratio: 1.0) {
     header.ui-header h1#header-logo {
-      background-image: url(images/medium/psu_logo.png); } }
+      background-image: url(images/medium/psu_logo.png); }
+    header.ui-header .ui-btn[data-rel=back] span.ui-icon {
+      background-image: url(images/icons-18-white.png) !important; } }
   @media screen and (-webkit-device-pixel-ratio: 0.75) {
     header.ui-header h1#header-logo {
       background-image: url(images/low/psu_logo.png); } }
@@ -228,6 +243,7 @@ footer.ui-footer {
   #page-dashboard a#footer-info-button, #page-dashboard a#hidden-info-button {
     display: block;
     margin: 2px auto;
+    top: 0px;
     box-shadow: none; }
   #page-dashboard a.dashboard-ui-bar-button.info-button-open {
     background-image: url(images/medium/ic_menu_arrow_up.png); }
@@ -314,8 +330,7 @@ footer.ui-footer {
   -webkit-box-sizing: border-box;
   /* safari3 */
   -khtml-box-sizing: border-box;
-  /* konqueror */
-  border: 1px solid #013d2e; }
+  /* konqueror */ }
 #page-feedback label {
   font-size: 16px;
   font-weight: normal;
