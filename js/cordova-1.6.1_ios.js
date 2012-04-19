@@ -71,6 +71,17 @@ if (typeof module === "object" && typeof require === "function") {
 // file: lib/cordova.js
 define("cordova", function(require, exports, module) {
 var channel = require('cordova/channel');
+
+/**
+ * Listen for DOMContentLoaded and notify our channel subscribers.
+ */
+document.addEventListener('DOMContentLoaded', function() {
+	channel.onDOMContentLoaded.fire();
+}, false);
+if (document.readyState == 'complete') {
+	channel.onDOMContentLoaded.fire();
+}
+
 /**
  * Intercept calls to addEventListener + removeEventListener and handle deviceready,
  * resume, and pause events.
