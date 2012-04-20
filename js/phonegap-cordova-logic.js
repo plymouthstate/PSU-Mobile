@@ -81,9 +81,9 @@ document.addEventListener('deviceready', function () { // Don't use a jQuery eve
 
 				// Alert the user
 				navigator.notification.alert(
-					'Uh oh! There was a problem saving the contact',	// Message
+					'Sorry, there was a problem saving the contact',	// Message
 					null,										// Callback
-					'Success!',									// Title
+					'Whoops',									// Title
 					'OK'											// Button
 				);
 			}

@@ -1,5 +1,5 @@
 {* Begin jQuery Mobile Page *}
-{jqm_page id="dashboard"}
+{jqm_page id="dashboard" cache="true"}
 	{jqm_header}{/jqm_header}
 
 	{jqm_content}
