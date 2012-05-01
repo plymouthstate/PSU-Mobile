@@ -83,6 +83,7 @@ $app_routes = array(
 	'feedback',
 	'clusters',
 	'directory',
+	'events',
 );
 
 foreach( $app_routes as $base ) {

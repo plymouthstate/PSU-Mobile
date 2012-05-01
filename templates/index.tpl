@@ -36,6 +36,12 @@
 						Feedback
 					</a>
 				</li>
+				<li id="mapp-events">
+					<a href="events/">
+						{iconbox id="movies" size="large"}
+						Events
+					</a>
+				</li>
 			</ul>
 		</nav>
 	{* End dashboard *}
