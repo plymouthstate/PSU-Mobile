@@ -32,10 +32,8 @@ class Events {
 			// Get the data
 			$feed_data = $rss->get_normalized_data();
 
-			// Let's loop through the feeds items
-			foreach ($feed_data as $item) {
-				$agg_feed_data[] = $item;
-			}
+			// Get the data and merge the returned array into our aggregate array
+			$agg_feed_data = array_merge($agg_feed_data, $feed_data);
 		}
 
 		// Sort the array so the newest items show on top

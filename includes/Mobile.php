@@ -14,20 +14,15 @@ class Mobile {
 	 * @param $ajax_format (boolean)	Whether the function should treat its data and response as an Ajax request and format it accordingly. 
 	 */
 	public static function newsfeed($ajax_format = false) {
-		// Get the data from each source
-		$feed_data['twitter'] = Newsfeeds::twitter();
-		$feed_data['facebook'] = Newsfeeds::facebook();
-		$feed_data['rss'] = Newsfeeds::rss();
-
-		// Aggregate the feeds into one feed for JSON response
-		$agg_feed_data = Newsfeeds::aggregate($feed_data);
+		// Get the data
+		$feed_data = Newsfeeds::aggregate();
 
 		// If called with Ajax, make sure to respond in JSON format
 		if ($ajax_format) {
-			return json_encode($agg_feed_data);
+			return json_encode($feed_data);
 		}
 
-		return $agg_feed_data;
+		return $feed_data;
 
 	} // End newsfeed
 
