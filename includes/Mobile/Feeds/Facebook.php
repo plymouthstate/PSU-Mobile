@@ -71,11 +71,12 @@ class Facebook extends Feeds {
 				'datetime' => \PSU::html5_datetime($timestamp),
 				'time_ago' => \PSU::date_diff($timestamp, time(), 'simple'),
 				'url' => $post['actions'][0]['link'],
-				'image' => '',
 				'text' => $post['message'],
 			);
 		}
 
 		return $parsed_data;
+
 	} // End parse_data
+
 } // End class Facebook

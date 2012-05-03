@@ -88,8 +88,8 @@ class Rss extends Feeds {
 				'datetime' => \PSU::html5_datetime($post_timestamp),
 				'time_ago' => \PSU::date_diff($post_timestamp, time(), 'simple'),
 				'url' => $item->link(),
-				'image' => '',
 				'text' => $post_text,
+				'description' => $item->description(),
 			);
 
 			$item_count++;
@@ -98,4 +98,5 @@ class Rss extends Feeds {
 		return $parsed_data;
 
 	} // End parse_data
+
 } // End class Rss

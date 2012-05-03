@@ -64,11 +64,12 @@ class Twitter extends Feeds {
 				'datetime' => \PSU::html5_datetime($timestamp),
 				'time_ago' => \PSU::date_diff($timestamp, time(), 'simple'),
 				'url' => 'https://twitter.com/'.$tweet['user']['screen_name'].'/status/'.$tweet['id_str'],
-				'image' => '',
 				'text' => $tweet['text'],
 			);
 		}
 
 		return $parsed_data;
+
 	} // End parse_data
+
 } // End class Twitter
