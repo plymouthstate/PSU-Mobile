@@ -22,7 +22,7 @@ class Newsfeeds {
 		),
 		'rss_feeds' => array(
 			'feed_urls' => array(
-				'http://www.plymouth.edu/includes/rss.php?v=2x&s=hn',
+				'http://www.plymouth.edu/news/feed/',
 				'http://athletics.plymouth.edu/landing/headlines-featured?feed=rss_2.0',
 			),
 		),
