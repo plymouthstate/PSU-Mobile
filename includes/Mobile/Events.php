@@ -36,9 +36,6 @@ class Events {
 			$agg_feed_data = array_merge($agg_feed_data, $feed_data);
 		}
 
-		// Sort the array so the newest items show on top
-		usort($agg_feed_data, array(__NAMESPACE__ . '\Feeds', 'compare_array_timestamp'));
-
 		// Limit the posts to a set amount
 		$agg_feed_data = array_slice($agg_feed_data, 0, self::$limit_posts_total);
 
