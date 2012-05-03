@@ -6,15 +6,15 @@ use Mobile\Feeds;
 
 class Rss extends Feeds {
 	// Settings
-	private $limit_posts_per_source = 8;
+	private $post_limit = 8;
 	private $old_post_days = 365;
 
 	/*
-	 * Method to set the limit of posts per source
+	 * Method to set the limit of posts returned from the feed
 	 * @param int $limit An integer amount of posts to return for each individual source
 	 */
-	public function set_source_limit($limit) {
-		return $this->limit_posts_per_source = $limit;
+	public function set_post_limit($limit) {
+		return $this->post_limit = $limit;
 	}
 
 	/*
@@ -53,7 +53,7 @@ class Rss extends Feeds {
 		$item_count = 0;
 		foreach($feed as $item) {
 			// If we've gone over the post limit setting, then break out of this loop
-			if ($item_count > $this->limit_posts_per_source) {
+			if ($item_count > $this->post_limit) {
 				// Stop adding posts from this feed
 				break;
 			}

@@ -11,14 +11,20 @@ abstract class Feeds {
 	abstract protected function get_source_data();
 	abstract protected function parse_data();
 
-	// Constructor
-	final public function __construct($url) {
+	/**
+	 * Constructor
+	 * @param string $url A string containing the url of the feed source
+	 */
+	public function __construct($url) {
 		// Set the initial properties
 		$this->url = $url;
 		$this->data = array();
 
 	} // End __construct
 
+	/**
+	 * Method to get the feeds data and parse it into a normalized/standardized format
+	 */
 	final public function get_normalized_data() {
 		// Let's get the source data, parse it, and return it as a normalized source
 		$this->get_source_data();
@@ -37,6 +43,7 @@ abstract class Feeds {
 
 	/**
 	 * Method to grab JSON data from a feed source URL and return it as an array
+	 * @param string $url A string containing the url of the feed source
 	 */
 	public function get_json_source($url) {
 		// Set up the feed_data array
@@ -60,6 +67,7 @@ abstract class Feeds {
 
 	/**
 	 * Method to grab RSS data as an array of PSU Zend Feed objects
+	 * @param string $url A string containing the url of the feed source
 	 */
 	public function get_rss_source($url) {
 		// \PSU\Feed::import can throw many exceptions due to the Zend underpinnings. We don't need to handle them individually, so let's just catch them all

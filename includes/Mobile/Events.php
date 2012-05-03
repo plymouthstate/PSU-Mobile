@@ -26,7 +26,7 @@ class Events {
 			$rss = new Feeds\Rss($url);
 
 			// Set some options
-			$rss->set_source_limit(self::$limit_posts_per_source);
+			$rss->set_post_limit(self::$limit_posts_per_source);
 			$rss->set_old_limit(self::$old_post_days);
 
 			// Get the data
