@@ -1,7 +1,8 @@
 <?php
 
 use Mobile\Newsfeeds,
-	Mobile\Feedback;
+	Mobile\Feedback,
+	Mobile\Events;
 
 class Mobile {
 
@@ -67,5 +68,25 @@ class Mobile {
 		return $response_data;
 
 	} // End feedback
+
+	/**
+	 * Event News aggregator.
+	 * Grabs different feeds, combines them, and converts them to JSON
+	 * format for easy AJAX parsing
+	 *
+	 * @param $ajax_format (boolean)	Whether the function should treat its data and response as an Ajax request and format it accordingly. 
+	 */
+	public static function events($ajax_format = false) {
+		// Get the data
+		$feed_data = Events::aggregate();
+
+		// If called with Ajax, make sure to respond in JSON format
+		if ($ajax_format) {
+			return json_encode($feed_data);
+		}
+
+		return $feed_data;
+
+	} // End events
 
 } // End class Mobile
