@@ -38,7 +38,7 @@
 				</li>
 				<li id="mapp-events">
 					<a href="events/">
-						{iconbox id="movies" size="large"}
+						{iconbox id="events" size="large"}
 						Events
 					</a>
 				</li>
