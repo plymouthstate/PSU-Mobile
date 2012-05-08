@@ -1,27 +1,23 @@
 {* Begin jQuery Mobile Page *}
-{jqm_page id="newsfeed" class="m-app"}
+{jqm_page id="events" class="m-app"}
 	{jqm_header title="Events" back_button="true"}{/jqm_header}
 
 	{jqm_content}
-		<ul id="events" data-role="listview" data-theme="d">
+		<ul id="events" data-role="listview" data-theme="d" data-filter="true" data-filter-theme="d">
 		{foreach from="$feed_data" item="item"}
-			{* Set a lower cased variable of the source name for html attribute usage *}
-			{if $item.source|lower != "rss"}
-				{assign var='source' value=$item.source|lower}
-			{else}
-				{assign var='source' value="news"}
-			{/if}
+			<li class="event">
+				<a href="{$PHP.BASE_URL}/events/details/{$item.timestamp}" data-ajax="false">
+					<h1 class="event-title">{$item.text}</h1>
+					<h2>{$item.date_start}</h2>
 
-			<li class="newsfeed-item {$item.source|lower}">
-				<div class="feed-icon">
-					{icon id="$source-item" size="large"}
-				</div>
+					{if !$item.time_start && !$item.time_end}
+						<p>All Day</p>
+					{else}
+						<p>{$item.time_start} to {$item.time_end}</p>
+					{/if}
 
-				<h1 class="feed-title">{$item.title}</h1>
-				<p>{$item.text}</p>
-				<p class="ui-li-aside">
-					<time datetime="{$item.datetime}">{$item.time_ago} ago</time>
-				</p>
+					<input type="hidden" name="event-details" value="{$item|@json_encode|@htmlspecialchars}">
+				</a>
 			</li>
 		{/foreach}
 		</ul>

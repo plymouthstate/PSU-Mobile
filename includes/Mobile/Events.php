@@ -4,7 +4,7 @@ namespace Mobile;
 
 class Events {
 	// Settings
-	private static	$limit_posts_per_source = 8;
+	private static	$limit_posts_per_source = 20;
 	private static	$limit_posts_total = 20;
 	private static	$old_post_days = 365;
 
