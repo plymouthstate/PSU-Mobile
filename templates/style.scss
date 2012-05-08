@@ -564,6 +564,40 @@ footer.ui-footer {
 	}
 }
 
+/* Events */
+#page-events {
+	li.event {
+		h1 {
+			margin: 0px;
+		}
+		h2 {
+			margin-top: 2px;
+			font-size: 14px;
+			font-weight: normal;
+		}
+		p {
+			margin-bottom: 0px;
+		}
+	}
+}
+
+/* Events Details */
+#page-events-details {
+	h1 {
+		margin: 0px;
+	}
+	h2 {
+		margin-top: 8px;
+		font-size: 16px;
+		font-weight: normal;
+	}
+	h3 {
+		margin-top: 6px;
+		font-size: 14px;
+		font-weight: normal;
+	}
+}
+
 
 /* Styles based on the device's OS */
 html.android header {

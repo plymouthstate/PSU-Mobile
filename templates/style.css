@@ -397,6 +397,28 @@ footer.ui-footer {
   margin-left: 0px;
   margin-right: 0px; }
 
+/* Events */
+#page-events li.event h1 {
+  margin: 0px; }
+#page-events li.event h2 {
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: normal; }
+#page-events li.event p {
+  margin-bottom: 0px; }
+
+/* Events Details */
+#page-events-details h1 {
+  margin: 0px; }
+#page-events-details h2 {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: normal; }
+#page-events-details h3 {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: normal; }
+
 /* Styles based on the device's OS */
 html.android header .ui-btn[data-rel=back] {
   display: none; }
