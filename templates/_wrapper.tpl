@@ -32,7 +32,7 @@
 	{* jQuery Mobile Styles *}
 
 	{* PSU Icons - Custom Font *}
-	<link rel="stylesheet" href="/webapp/style/templates/psu-icons.css">
+	<link rel="stylesheet" href="/app/core/css/psu-icons.css">
 	{* PSU Icons - Custom Font *}
 
 	{* PSU Mobile/Custom (Must be in this order) *}
