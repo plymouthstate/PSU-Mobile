@@ -43,4 +43,72 @@ class Events {
 
 	} // End aggregate
 
+	/**
+	 * Method to parse the dates from each event and add it as a special value in the feed_array
+	 */
+	public static function parse_event_dates($feed_data) {
+		// Let's define some regular expressions
+		// This gets the date string from the feed description
+		$date_from_description = "/(?:^\[ (.*?) \])/";
+
+		// This gets a simple no-time date range (From to To). Example: [ May 8, 2012 to May 9, 2012. ]
+		$simple_date_range = "/(?:^([\w]+ [\d]+, [\d]+)(?: to ([\w]+ [\d]+, [\d]+))\.)/";
+
+		// Get only the first and last dates from an interval range. Example: [ April 12, 2012; 5:30 pm to 7:00 pm. April 19, 2012; 5:30 pm to 7:00 pm. April 26, 2012; 5:30 pm to 7:00 pm. ]
+		$interval_dates = "/(?:^(.*?\.) (?:(?:.*?)\.)+ (.*?\.))/"; 
+
+		// This gets a single date and a time range. Example: [ May 8, 2012; 11:30 am to 1:00 pm. ]
+		$single_date_time_range = "/(?:^([\w]+ [\d]+, [\d]+); ([\w]+:[\w]+ (?:am|pm)) to ([\w]+:[\w]+ (?:am|pm))\.)/";
+
+		// Loop through each feed
+		foreach ($feed_data as &$event) {
+			// Let's first add the new keys to the array (we want all the events to have the same keys)
+			$event['date_start'] = "";
+			$event['date_end'] = "";
+			$event['time_start'] = "";
+			$event['time_end'] = "";
+
+			// Let's grab the date data out of the description
+			preg_match($date_from_description, $event['description'], $matches, PREG_OFFSET_CAPTURE);
+
+			// Let's get the date string from the matches
+			$date_string = $matches[0][0]; // Example: [ April 17, 2012 to May 19, 2012. ]
+			$cleaned_date_string = $matches[1][0]; // Example: April 17, 2012 to May 19, 2012.
+
+			// Let's remove the found date string from the description
+			// Let's first get the location of where the string starts AFTER the found date data
+			$substr_start = $matches[0][1] + strlen($date_string);
+			$event['description'] = substr($event['description'], $substr_start);
+
+			// Ok, now that we have the date string, let's get the from and to dates and times
+			// Let's first see if the date string is a simple date range
+			if (preg_match($simple_date_range, $cleaned_date_string, $dates)) {
+				// If it is, then we have easy mode. Let's just set the feeds properties
+				$event['date_start'] = $dates[1];
+				$event['date_end'] = $dates[2];
+			}
+			// Otherwise, let's see if the date string is an interval range (we only care about the first and last dates)
+			elseif (preg_match($interval_dates, $cleaned_date_string, $date_range)) {
+				// If it is, let's get the dates and times from this interval range
+				preg_match($single_date_time_range, $date_range[1], $date_from);
+				preg_match($single_date_time_range, $date_range[2], $date_to);
+
+				// Now, let's set the feeds properties
+				$event['date_start'] = $date_from[1];
+				$event['date_end'] = $date_to[1];
+				$event['time_start'] = $date_from[2];
+				$event['time_end'] = $date_from[3];
+			}
+			// Otherwise, let's see if the date string is a date with a time range
+			elseif (preg_match($single_date_time_range, $cleaned_date_string, $dates)) {
+				// If it is, let's set the feeds properties
+				$event['date_start'] = $dates[1];
+				$event['time_start'] = $dates[2];
+				$event['time_end'] = $dates[3];
+			}
+		}
+
+		return $feed_data;
+	}
+
 } // End class Events 

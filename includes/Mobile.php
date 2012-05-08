@@ -75,6 +75,9 @@ class Mobile {
 		// Get the data
 		$feed_data = Events::aggregate();
 
+		// Let's parse the dates from the feed
+		$feed_data = Events::parse_event_dates($feed_data);
+
 		// If called with Ajax, make sure to respond in JSON format
 		if ($ajax_format) {
 			return json_encode($feed_data);
