@@ -218,15 +218,24 @@ footer.ui-footer {
 	a.dashboard-ui-bar-button {
 		width: 100%;
 		height: 48px;
+		margin: 0px;
 		padding: 0px;
 		background-color: transparent;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-size: 48px;
+		background-image: none;
 		border: 0px;
+		line-height: 52px;
 
-		span {
+		span.ui-btn-inner {
+			height: 52px;
+			padding: 0px;
 			border: 0px none;
+
+			i {
+				height: 52px;
+				line-height: 52px;
+				color: #8a8;
+				text-shadow: none;
+			}
 		}
 	}
 	/* Slide Up Info */
@@ -239,6 +248,10 @@ footer.ui-footer {
 		z-index: 10000;
 		background: #fff;
 
+		div.ui-bar {
+			padding: 0px;
+			border: 0px;
+		}
 		div.info-panel {
 			margin: 10px auto;
 			text-align: center;
@@ -324,53 +337,9 @@ footer.ui-footer {
 
 	a#footer-info-button, a#hidden-info-button {
 		display: block;
-		margin: 2px auto;
+		height: 100%;
 		top: 0px;
 		box-shadow: none;
-	}
-	a.dashboard-ui-bar-button.info-button-open {
-		background-image: url(images/medium/ic_menu_arrow_up.png);
-	}
-	a.dashboard-ui-bar-button.info-button-close {
-		background-image: url(images/medium/ic_menu_arrow_down.png);
-	}
-
-	/* Images depending on screen density */
-	/* Extra high - 2 times */
-	@media screen and (-webkit-device-pixel-ratio: 2) {
-		a.dashboard-ui-bar-button.info-button-open {
-			background-image: url(images/xhigh/ic_menu_arrow_up.png);
-		}
-		a.dashboard-ui-bar-button.info-button-close {
-			background-image: url(images/xhigh/ic_menu_arrow_down.png);
-		}
-	}
-	/* High - 1.5 times */
-	@media screen and (-webkit-device-pixel-ratio: 1.5) {
-		a.dashboard-ui-bar-button.info-button-open {
-			background-image: url(images/high/ic_menu_arrow_up.png);
-		}
-		a.dashboard-ui-bar-button.info-button-close {
-			background-image: url(images/high/ic_menu_arrow_down.png);
-		}
-	}
-	/* Medium/Normal - 1.0 times */
-	@media screen and (-webkit-device-pixel-ratio: 1.0) {
-		a.dashboard-ui-bar-button.info-button-open {
-			background-image: url(images/medium/ic_menu_arrow_up.png);
-		}
-		a.dashboard-ui-bar-button.info-button-close {
-			background-image: url(images/medium/ic_menu_arrow_down.png);
-		}
-	}
-	/* Low - 0.75 times */
-	@media screen and (-webkit-device-pixel-ratio: 0.75) {
-		a.dashboard-ui-bar-button.info-button-open {
-			background-image: url(images/low/ic_menu_arrow_up.png);
-		}
-		a.dashboard-ui-bar-button.info-button-close {
-			background-image: url(images/low/ic_menu_arrow_down.png);
-		}
 	}
 }
 
@@ -610,6 +579,10 @@ html.android header {
 		margin-left: 4px;
 		text-align: left;
 	}
+}
+html.android a.dashboard-ui-bar-button i {
+	position: relative;
+	top: 3px;
 }
 html.android .m-app header h1#header-logo {
 	width: auto;
