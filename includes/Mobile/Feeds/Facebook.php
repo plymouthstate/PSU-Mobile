@@ -7,6 +7,7 @@ use Mobile\Feeds;
 class Facebook extends Feeds {
 	// Settings
 	private $post_limit = 8;
+	private $remove_empty_message_posts = true;
 
 	/**
 	 * Constructor
@@ -37,6 +38,18 @@ class Facebook extends Feeds {
 		return $this->post_limit = $limit;
 	}
 
+	/*
+	 * Method to set the feed to remove any posts with an empty description
+	 * @param boolean $boolean A boolean value representing whether the feed should remove posts with empty descriptions
+	 */
+	public function set_remove_empty_message_posts($boolean) {
+		// Set the option to true
+		$this->remove_empty_message_posts = $boolean;
+
+		// Set the limit and return
+		return $this->remove_empty_message_posts;
+	}
+
 	/**
 	 * Method to grab the Facebook feed data and return it as an array
 	 */
@@ -60,6 +73,12 @@ class Facebook extends Feeds {
 			// If the message data is empty, but the name/title isn't, just set the message to have the value of the name
 			if (empty($post['message']) && !empty($post['name'])) {
 				$post['message'] = $post['name'];
+			}
+
+			// If the post's message is empty $this->remove_empty_message_posts is set to true
+			if (empty($post['message']) && $this->remove_empty_message_posts) {
+				// Just skip adding the post
+				continue;
 			}
 
 			$parsed_data[] = array(
