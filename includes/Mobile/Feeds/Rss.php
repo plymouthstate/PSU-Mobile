@@ -90,6 +90,7 @@ class Rss extends Feeds {
 				'url' => $item->link(),
 				'text' => $post_text,
 				'description' => $item->description(),
+				'content' => $item->content(),
 			);
 
 			$item_count++;

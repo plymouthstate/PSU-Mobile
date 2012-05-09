@@ -75,6 +75,9 @@ class Mobile {
 		// Get the data
 		$feed_data = Events::aggregate();
 
+		// Let's remove any weird HTML from the blog posts content
+		$feed_data = Events::clean_post_content($feed_data);
+
 		// Let's parse the dates from the feed
 		$feed_data = Events::parse_event_dates($feed_data);
 

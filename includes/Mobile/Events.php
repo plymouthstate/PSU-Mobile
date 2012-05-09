@@ -10,7 +10,7 @@ class Events {
 
 	// Feed urls (leaving this as an array, since more event feeds are being added
 	private static $feed_urls = array(
-		'http://thisweek.blogs.plymouth.edu/category/upcoming-events/feed/',
+		'http://thisweek.blogs.plymouth.edu/category/upcoming-events/feed/rss2',
 	);
 
 	/**
@@ -44,6 +44,66 @@ class Events {
 	} // End aggregate
 
 	/**
+	 * Private method to remove the date iconlet's from the posts content that are added by the WordPress event-plugin
+	 */
+	private static function remove_date_iconlet(&$feed_data) {
+		// Our icon removal regular expression
+		$remove_iconlet = "/(<div class=(?:'|\")?ec3_iconlet(?:.*?)(?:'|\")?>(?:.*?)<\/div>)/";
+
+		// Loop through each feed
+		foreach ($feed_data as &$event) {
+			// Let's replace all occurrences of this tag (that match the regex) in the content area
+			$event['content'] = preg_replace($remove_iconlet, '', $event['content']);
+		}
+	}
+
+	/**
+	 * Private method to remove the share widget from the posts content
+	 */
+	private static function remove_share_widget(&$feed_data) {
+		// Our icon removal regular expression
+		$remove_iconlet = "/(<p class=(?:'|\")?akst_link(?:'|\")?>(?:.*?)<\/p>)/s";
+
+		// Loop through each feed
+		foreach ($feed_data as &$event) {
+			// Let's replace all occurrences of this tag (that match the regex) in the content area
+			$event['content'] = preg_replace($remove_iconlet, '', $event['content']);
+		}
+	}
+
+	/**
+	 * Private method to remove links from the posts content
+	 */
+	private static function remove_links(&$feed_data) {
+		// Our icon removal regular expression
+		$remove_iconlet = "/(<a (?:.*?)>(?:.*?)<\/a>)/s";
+
+		// Loop through each feed
+		foreach ($feed_data as &$event) {
+			// Let's replace all occurrences of this tag (that match the regex) in the content area
+			$event['content'] = preg_replace($remove_iconlet, '', $event['content']);
+		}
+	}
+
+	/**
+	 * Private method to clean the post's content by removing uneccessary tags/links/etc
+	 */
+	public static function clean_post_content($feed_data) {
+		// Let's pass all cleanup operations by reference
+
+		// Let's remove the date iconlet
+		self::remove_date_iconlet($feed_data);
+
+		// Let's remove the share widget
+		self::remove_share_widget($feed_data);
+
+		// Let's remove any links
+		self::remove_links($feed_data);
+
+		return $feed_data;
+	}
+
+	/**
 	 * Method to parse the dates from each event and add it as a special value in the feed_array
 	 */
 	public static function parse_event_dates($feed_data) {
@@ -72,13 +132,10 @@ class Events {
 			preg_match($date_from_description, $event['description'], $matches, PREG_OFFSET_CAPTURE);
 
 			// Let's get the date string from the matches
-			$date_string = $matches[0][0]; // Example: [ April 17, 2012 to May 19, 2012. ]
 			$cleaned_date_string = $matches[1][0]; // Example: April 17, 2012 to May 19, 2012.
 
 			// Let's remove the found date string from the description
-			// Let's first get the location of where the string starts AFTER the found date data
-			$substr_start = $matches[0][1] + strlen($date_string);
-			$event['description'] = substr($event['description'], $substr_start);
+			$event['description'] = preg_replace($date_from_description, '', $event['description']);
 
 			// Ok, now that we have the date string, let's get the from and to dates and times
 			// Let's first see if the date string is a simple date range

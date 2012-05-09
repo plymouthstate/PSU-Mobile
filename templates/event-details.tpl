@@ -17,7 +17,7 @@
 			<h3>{$event_data->time_start} to {$event_data->time_end}</h3>
 		{/if}
 
-		<p>{$event_data->description}<p>
+		<p>{$event_data->content}<p>
 
 	{/jqm_content}
 
