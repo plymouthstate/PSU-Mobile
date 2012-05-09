@@ -12,7 +12,7 @@ $GLOBALS['BASE_DIR'] = __DIR__;
 $GLOBALS['TITLE'] = 'PSU Mobile';
 $GLOBALS['TEMPLATES'] = $GLOBALS['BASE_DIR'] . '/templates/';
 
-$GLOBALS['APP_VERSION'] = '0.6.2';
+$GLOBALS['APP_VERSION'] = '0.7.1';
 $GLOBALS['APP_BUILD_NAME'] = 'jqm-html5';
 $GLOBALS['APP_BUILD_TYPE'] = 'beta';
 
