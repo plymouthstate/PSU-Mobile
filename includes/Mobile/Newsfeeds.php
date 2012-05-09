@@ -3,16 +3,13 @@
 namespace Mobile;
 
 class Newsfeeds {
-	// Plymouth.edu Feed List
-	// http://www.plymouth.edu/main/rss.html
-
 	// Settings
-	private static $sort_settings = array(
-		'limit_posts_per_source' => 8,
-		'limit_posts_total' => 20,
-		'old_post_days' => 365,
-	);
-	private static $news_settings = array(
+	private static	$limit_posts_per_source = 8;
+	private static	$limit_posts_total = 20;
+	private static	$old_post_days = 365;
+
+	// Feed sources
+	private static $news_sources = array(
 		'twitter' => array(
 			'feed_url' => 'https://api.twitter.com/1/statuses/user_timeline.json?screen_name=',
 			'username' => 'plymouthstate',
@@ -25,248 +22,91 @@ class Newsfeeds {
 		),
 		'rss_feeds' => array(
 			'feed_urls' => array(
-				'http://www.plymouth.edu/includes/rss.php?v=2x&s=hn',
+				'http://www.plymouth.edu/news/feed/',
 				'http://athletics.plymouth.edu/landing/headlines-featured?feed=rss_2.0',
 			),
 		),
 	);
 
 	/**
-	 * Compare timestamps for sorting
-	 * @param array $a An array with a 'timestamp' key
-	 * @param array $b An array with a 'timestamp' key
+	 * Private method to get the twitter feed
 	 */
-	public static function compare_array_timestamp($a, $b) {
-		return $a['timestamp'] < $b['timestamp'];
-	} // End compare_array_timestamp
+	private static function get_twitter_feed() {
+		// Create a new Twitter feed
+		$twitter = new Feeds\Twitter(
+			self::$news_sources['twitter']['feed_url'], 
+			self::$news_sources['twitter']['username'] 
+		);
+
+		// Set some options
+		$twitter->set_post_limit(self::$limit_posts_per_source);
+
+		// Get and return the data
+		return $twitter->get_normalized_data();
+	}
 
 	/**
-	 * Method to grab JSON data from a Twitter feed and return it as an array
+	 * Private method to get the facebook feed
 	 */
-	public static function twitter() {
-		// Set up the feed_data array
-		$feed_data = array();
+	private static function get_facebook_feed() {
+		// Create a new Facebook feed
+		$facebook = new Feeds\Facebook(
+			self::$news_sources['facebook']['feed_url'], 
+			self::$news_sources['facebook']['username'], 
+			self::$news_sources['facebook']['request'], 
+			self::$news_sources['facebook']['access_token']
+		);
 
-		// Setup the parameters for limiting the returned data
-		$url_params = '&count='.self::$sort_settings['limit_posts_per_source'];
+		// Set some options
+		$facebook->set_post_limit(self::$limit_posts_per_source);
 
-		// Grab and parse the Twitter Feed
-		// Set the url
-		$twitter_url = self::$news_settings['twitter']['feed_url'].self::$news_settings['twitter']['username'].$url_params;
-
-		// PSU::curl throws an exception if the document doesn't return a perfect 200 error
-		try {
-			// Get the JSON data with a CURL request to the url
-			$feed_data = \PSU::curl($twitter_url, \PSU::FILE_GET_CONTENTS);
-
-			// Return the JSON decoded as an array
-			return json_decode($feed_data, true);
-		}
-		catch (\PSUToolsException $e) {
-			// For now, lets just grab the exception and put it into the session
-			$_SESSION['errors'][] = $e->getMessage();
-		}
-
-		return $feed_data;
-	} // End twitter
+		// Get and return the data
+		return $facebook->get_normalized_data();
+	}
 
 	/**
-	 * Method to grab JSON data from a Facebook feed and return it as an array
+	 * Private method to get the rss feed
+	 * @param string $url A string containg the url of the rss feed being requested
 	 */
-	public static function facebook() {
-		// Set up the feed_data array
-		$feed_data = array();
+	private static function get_rss_feed($url) {
+		// Create a new RSS feed
+		$rss = new Feeds\Rss($url);
 
-		// Setup the parameters for limiting the returned data
-		$url_params = '&limit='.self::$sort_settings['limit_posts_per_source'];
+		// Set some options
+		$rss->set_post_limit(self::$limit_posts_per_source);
+		$rss->set_old_limit(self::$old_post_days);
 
-		// Grab and parse the Facebook Feed
-		// Set the url
-		$facebook_url = self::$news_settings['facebook']['feed_url'].self::$news_settings['facebook']['username'].'/'.self::$news_settings['facebook']['request'].'?access_token='.self::$news_settings['facebook']['access_token'].$url_params;
-
-		// PSU::curl throws an exception if the document doesn't return a perfect 200 error
-		try {
-			// Get the JSON data with a CURL request to the url
-			$feed_data = \PSU::curl($facebook_url, \PSU::FILE_GET_CONTENTS);
-
-			// Return the JSON decoded as an array
-			return json_decode($feed_data, true);
-		}
-		catch (\PSUToolsException $e) {
-			// For now, lets just grab the exception and put it into the session
-			$_SESSION['errors'][] = $e->getMessage();
-		}
-
-		return $feed_data;
-	} // End facebook
-
-	/**
-	 * Method to grab RSS data as an array of PSU Zend Feed objects
-	 */
-	public static function rss() {
-		// Go through each RSS feed and parse it
-		$feed_data = array();
-		$feedCount = 0;
-		foreach (self::$news_settings['rss_feeds']['feed_urls'] as $feed) {
-			// \PSU\Feed::import can throw many exceptions due to the Zend underpinnings. We don't need to handle them individually, so let's just catch them all
-			// Possible exceptions seen so far:
-			// Zend_Feed_Exception
-			// Zend_Http_Client_Exception
-			// Zend_Http_Client_Adapter_Exception
-			try {
-				// Get the feed data
-				$feed_data[$feedCount] = \PSU\Feed::import($feed);
-			}
-			catch (\Exception $e) {
-				//echo "Exception caught importing feed: {$e->getMessage()}\n";
-
-				// For now, lets just grab the exception and put it into the session
-				$_SESSION['errors'][] = $e->getMessage();
-
-				// Skip this iteration in the loop
-				continue;
-			}
-
-			// Up the counter
-			$feedCount++;
-		}
-
-		// Return the RSS feeds object
-		return $feed_data;
-	} // End rss
+		// Get the data
+		return $rss->get_normalized_data();
+	}
 
 	/**
 	 * Method to take in all of the feed data and aggregate it as one feed
-	 * @param array $feed_data An array holding the feed data gathered by the twitter, facebook, and RSS methods
 	 */
-	public static function aggregate($feed_data) {
-		// Create a normalized feed array (to be served later)
+	public static function aggregate() {
+		// Create an array for all of the feed data aggregated together
 		$agg_feed_data = array();
 
-		// Now, let's normalize each feed format into something that we care about/can use
-		// Twitter
-		foreach($feed_data['twitter'] as $tweet) {
-			// Set reusable timestamp variable
-			$timestamp = strtotime($tweet['created_at']);
+		// Get the twitter feed and merge the returned array into our aggregate array
+		$agg_feed_data = array_merge($agg_feed_data, self::get_twitter_feed());
 
-			$agg_feed_data[] = array(
-				'source' => 'Twitter',
-				'title' => $tweet['user']['name'],
-				'userid' => $tweet['user']['id'],
-				'rawtime' => $tweet['created_at'],
-				'timestamp' => $timestamp,
-				'datetime' => \PSU::html5_datetime($timestamp),
-				'time_ago' => \PSU::date_diff($timestamp, time(), 'simple'),
-				'url' => 'https://twitter.com/'.$tweet['user']['screen_name'].'/status/'.$tweet['id_str'],
-				'image' => '',
-				'text' => $tweet['text'],
-			);
+		// Get the facebook feed and merge the returned array into our aggregate array
+		$agg_feed_data = array_merge($agg_feed_data, self::get_facebook_feed());
+
+		// Loop through each feed
+		foreach (self::$news_sources['rss_feeds']['feed_urls'] as $url) {
+			// Get the data and merge the returned array into our aggregate array
+			$agg_feed_data = array_merge($agg_feed_data, self::get_rss_feed($url));
 		}
-
-		// Facebook
-		foreach($feed_data['facebook']['data'] as $post) {
-			// Set reusable timestamp variable
-			$timestamp = strtotime($post['created_time']);
-
-			// If the RSS message data is empty, but the name/title isn't, just set the message to have the value of the name
-			if (empty($post['message']) && !empty($post['name'])) {
-				$post['message'] = $post['name'];
-			}
-
-			$agg_feed_data[] = array(
-				'source' => 'Facebook',
-				'title' => $post['from']['name'],
-				'userid' => $post['from']['id'],
-				'rawtime' => $post['created_time'],
-				'timestamp' => $timestamp,
-				'datetime' => \PSU::html5_datetime($timestamp),
-				'time_ago' => \PSU::date_diff($timestamp, time(), 'simple'),
-				'url' => $post['actions'][0]['link'],
-				'image' => '',
-				'text' => $post['message'],
-			);
-		}
-
-		// RSS Feeds
-		foreach($feed_data['rss'] as $psu_feed) {
-			// Reference just the feed
-			$feed = $psu_feed->feed;
-
-			// If the feed doesn't have a title, give it a generic name
-			$feed_title = $feed->title();
-			if (strlen($feed_title) <= 0) {
-				$feed_title = 'Plymouth State News';
-			}
-
-			// Go through each post
-			$item_count = 0;
-			foreach($feed as $item) {
-				// If we've gone over the post limit setting, then break out of this loop
-				if ($item_count > self::$sort_settings['limit_posts_per_source']) {
-					// Stop adding posts from this feed
-					break;
-				}
-
-				// Cut posts if they're too old
-				$post_timestamp = strtotime($item->pubDate());
-				if ((time() - $post_timestamp) > (self::$sort_settings['old_post_days'] * 86400)) {
-					// Skip adding this one... its too old
-					continue;
-				}
-
-				// Quick function to clean the posts text
-				$clean_the_post = function($post) {
-					// Run some cleaners on the string
-					$post = htmlspecialchars_decode($post);
-					$post = html_entity_decode($post);
-					$post = strip_tags($post);
-					$post = \PSU::html_all_entities($post);
-					$post = str_replace('&#12287;', '\'', $post);
-
-					return $post;
-				};
-				$post_text = $clean_the_post($item->title());
-
-				// Add the posts data to the normalized array
-				$agg_feed_data[] = array(
-					'source' => 'RSS',
-					'title' => $feed_title,
-					'userid' => '',
-					'rawtime' => $item->pubDate(),
-					'timestamp' => $post_timestamp,
-					'datetime' => \PSU::html5_datetime($post_timestamp),
-					'time_ago' => \PSU::date_diff($post_timestamp, time(), 'simple'),
-					'url' => $item->link(),
-					'image' => '',
-					'text' => $post_text,
-				);
-
-				$item_count++;
-			}
-		}
-
-		// Debug: Test the updating by adding a dummy row
-		/*
-		$agg_feed_data[] = array(
-			'source' => 'RSS',
-			'title' => 'Donkey Kong',
-			'userid' => '',
-			'time' => date('Y-m-d H:i:s'),
-			'timestamp' => time(),
-			'url' => 'http://old.blennd.com/',
-			'image' => '',
-			'text' => 'Pancakes! Bork! Donkey! St**z!'
-		);
-		//*/
 
 		// Sort the array so the newest items show on top
-		usort($agg_feed_data, array(__NAMESPACE__ . '\Newsfeeds', 'compare_array_timestamp'));
-		
-		// Limit the posts to a set amount
-		$agg_feed_data = array_slice($agg_feed_data, 0, self::$sort_settings['limit_posts_total']);
+		usort($agg_feed_data, array(__NAMESPACE__ . '\Feeds', 'compare_array_timestamp'));
 
-		// Return the aggregated data
+		// Limit the posts to a set amount
+		$agg_feed_data = array_slice($agg_feed_data, 0, self::$limit_posts_total);
+
 		return $agg_feed_data;
+
 	} // End aggregate
 
 } // End class Newsfeeds 

@@ -1,7 +1,8 @@
 <?php
 
 use Mobile\Newsfeeds,
-	Mobile\Feedback;
+	Mobile\Feedback,
+	Mobile\Events;
 
 class Mobile {
 
@@ -13,20 +14,15 @@ class Mobile {
 	 * @param $ajax_format (boolean)	Whether the function should treat its data and response as an Ajax request and format it accordingly. 
 	 */
 	public static function newsfeed($ajax_format = false) {
-		// Get the data from each source
-		$feed_data['twitter'] = Newsfeeds::twitter();
-		$feed_data['facebook'] = Newsfeeds::facebook();
-		$feed_data['rss'] = Newsfeeds::rss();
-
-		// Aggregate the feeds into one feed for JSON response
-		$agg_feed_data = Newsfeeds::aggregate($feed_data);
+		// Get the data
+		$feed_data = Newsfeeds::aggregate();
 
 		// If called with Ajax, make sure to respond in JSON format
 		if ($ajax_format) {
-			return json_encode($agg_feed_data);
+			return json_encode($feed_data);
 		}
 
-		return $agg_feed_data;
+		return $feed_data;
 
 	} // End newsfeed
 
@@ -67,5 +63,31 @@ class Mobile {
 		return $response_data;
 
 	} // End feedback
+
+	/**
+	 * Event News aggregator.
+	 * Grabs different feeds, combines them, and converts them to JSON
+	 * format for easy AJAX parsing
+	 *
+	 * @param $ajax_format (boolean)	Whether the function should treat its data and response as an Ajax request and format it accordingly. 
+	 */
+	public static function events($ajax_format = false) {
+		// Get the data
+		$feed_data = Events::aggregate();
+
+		// Let's remove any weird HTML from the blog posts content
+		$feed_data = Events::clean_post_content($feed_data);
+
+		// Let's parse the dates from the feed
+		$feed_data = Events::parse_event_dates($feed_data);
+
+		// If called with Ajax, make sure to respond in JSON format
+		if ($ajax_format) {
+			return json_encode($feed_data);
+		}
+
+		return $feed_data;
+
+	} // End events
 
 } // End class Mobile

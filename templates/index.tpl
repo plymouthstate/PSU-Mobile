@@ -36,18 +36,28 @@
 						Feedback
 					</a>
 				</li>
+				<li id="mapp-events">
+					<a href="events/">
+						{iconbox id="events" size="large"}
+						Events
+					</a>
+				</li>
 			</ul>
 		</nav>
 	{* End dashboard *}
 	{/jqm_content}
 
 	{jqm_footer}
-		<a id="footer-info-button" class="dashboard-ui-bar-button info-button info-button-open" data-role="button" data-iconpos="notext"></a>
+		<a id="footer-info-button" class="dashboard-ui-bar-button info-button info-button-open" data-role="button">
+			{icon id="dots" size="large"}
+		</a>
 	{/jqm_footer}
 
 	<div id="hidden-info-div">
-		<div class="ui-bar-a">
-			<a id="hidden-info-button" class="dashboard-ui-bar-button info-button info-button-close" data-role="button" data-iconpos="notext"></a>
+		<div class="ui-bar ui-bar-a">
+			<a id="hidden-info-button" class="dashboard-ui-bar-button info-button info-button-close" data-role="button">
+				{icon id="dots" size="large"}
+			</a>
 		</div>
 		<div class="info-panel">
 			<div class="big-color-logo"></div>

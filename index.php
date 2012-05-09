@@ -3,13 +3,16 @@
 require_once 'autoload.php';
 PSU::session_start(); // force ssl + start a session
 
+// Let's send UTF-8 (thanks abackstrom)
+header( 'Content-Type: text/html; charset=UTF-8' );
+
 $GLOBALS['BASE_URL'] = '/webapp/psu-mobile';
 $GLOBALS['BASE_DIR'] = __DIR__;
 
 $GLOBALS['TITLE'] = 'PSU Mobile';
 $GLOBALS['TEMPLATES'] = $GLOBALS['BASE_DIR'] . '/templates/';
 
-$GLOBALS['APP_VERSION'] = '0.6.1';
+$GLOBALS['APP_VERSION'] = '0.7.1';
 $GLOBALS['APP_BUILD_NAME'] = 'jqm-html5';
 $GLOBALS['APP_BUILD_TYPE'] = 'beta';
 
@@ -83,6 +86,7 @@ $app_routes = array(
 	'feedback',
 	'clusters',
 	'directory',
+	'events',
 );
 
 foreach( $app_routes as $base ) {
