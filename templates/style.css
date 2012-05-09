@@ -271,33 +271,35 @@ footer.ui-footer {
       background-image: url(images/low/ic_menu_arrow_down.png); } }
 
 /* Newsfeed */
-#page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon {
-  display: block;
-  float: left;
-  width: 46px;
-  height: 46px;
-  margin-left: -5px;
-  margin-right: 5px; }
-  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .psu-icon.large {
+#page-newsfeed ul#newsfeed li.newsfeed-item {
+  overflow: hidden; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon {
+    display: block;
+    float: left;
     width: 46px;
     height: 46px;
+    margin-left: -5px;
+    margin-right: 5px; }
+    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .psu-icon.large {
+      width: 46px;
+      height: 46px;
+      margin-top: 0px;
+      text-shadow: none; }
+    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-facebook-item {
+      color: #385c99; }
+    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-twitter-item {
+      color: #6bb8fe; }
+    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-news-item {
+      color: #ff9111; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item h1 {
     margin-top: 0px;
-    text-shadow: none; }
-  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-facebook-item {
-    color: #385c99; }
-  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-twitter-item {
-    color: #6bb8fe; }
-  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-news-item {
-    color: #ff9111; }
-#page-newsfeed ul#newsfeed li.newsfeed-item h1 {
-  margin-top: 0px;
-  font-size: 14px; }
-#page-newsfeed ul#newsfeed li.newsfeed-item .ui-li-aside {
-  width: 90px;
-  margin-top: 0px; }
-#page-newsfeed ul#newsfeed li.newsfeed-item p {
-  margin-top: 3px;
-  margin-bottom: 0px; }
+    font-size: 14px; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item .ui-li-aside {
+    width: 90px;
+    margin-top: 0px; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item p {
+    margin-top: 3px;
+    margin-bottom: 0px; }
 
 /* Campus Map */
 #page-campusmap .ui-content {
