@@ -3,6 +3,9 @@
 require_once 'autoload.php';
 PSU::session_start(); // force ssl + start a session
 
+// Let's send UTF-8 (thanks abackstrom)
+header( 'Content-Type: text/html; charset=UTF-8' );
+
 $GLOBALS['BASE_URL'] = '/webapp/psu-mobile';
 $GLOBALS['BASE_DIR'] = __DIR__;
 
