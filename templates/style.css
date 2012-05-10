@@ -109,12 +109,7 @@ footer.ui-footer {
 /* Inner content styles */
 /* Dashboard */
 #page-dashboard {
-  /* Slide Up Info */
-  /* Images depending on screen density */
-  /* Extra high - 2 times */
-  /* High - 1.5 times */
-  /* Medium/Normal - 1.0 times */
-  /* Low - 0.75 times */ }
+  /* Slide Up Info */ }
   #page-dashboard .ui-content {
     padding: 0px; }
   #page-dashboard nav#dashboard {
@@ -166,14 +161,21 @@ footer.ui-footer {
   #page-dashboard a.dashboard-ui-bar-button {
     width: 100%;
     height: 48px;
+    margin: 0px;
     padding: 0px;
     background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 48px;
-    border: 0px; }
-    #page-dashboard a.dashboard-ui-bar-button span {
+    background-image: none;
+    border: 0px;
+    line-height: 52px; }
+    #page-dashboard a.dashboard-ui-bar-button span.ui-btn-inner {
+      height: 52px;
+      padding: 0px;
       border: 0px none; }
+      #page-dashboard a.dashboard-ui-bar-button span.ui-btn-inner i {
+        height: 52px;
+        line-height: 52px;
+        color: #8a8;
+        text-shadow: none; }
   #page-dashboard div#hidden-info-div {
     display: none;
     width: 100%;
@@ -182,6 +184,9 @@ footer.ui-footer {
     bottom: 0px;
     z-index: 10000;
     background: #fff; }
+    #page-dashboard div#hidden-info-div div.ui-bar {
+      padding: 0px;
+      border: 0px; }
     #page-dashboard div#hidden-info-div div.info-panel {
       margin: 10px auto;
       text-align: center;
@@ -242,62 +247,40 @@ footer.ui-footer {
           background-image: url(images/low/psu_logo_large_color.png); } }
   #page-dashboard a#footer-info-button, #page-dashboard a#hidden-info-button {
     display: block;
-    margin: 2px auto;
+    height: 100%;
     top: 0px;
     box-shadow: none; }
-  #page-dashboard a.dashboard-ui-bar-button.info-button-open {
-    background-image: url(images/medium/ic_menu_arrow_up.png); }
-  #page-dashboard a.dashboard-ui-bar-button.info-button-close {
-    background-image: url(images/medium/ic_menu_arrow_down.png); }
-  @media screen and (-webkit-device-pixel-ratio: 2) {
-    #page-dashboard a.dashboard-ui-bar-button.info-button-open {
-      background-image: url(images/xhigh/ic_menu_arrow_up.png); }
-    #page-dashboard a.dashboard-ui-bar-button.info-button-close {
-      background-image: url(images/xhigh/ic_menu_arrow_down.png); } }
-  @media screen and (-webkit-device-pixel-ratio: 1.5) {
-    #page-dashboard a.dashboard-ui-bar-button.info-button-open {
-      background-image: url(images/high/ic_menu_arrow_up.png); }
-    #page-dashboard a.dashboard-ui-bar-button.info-button-close {
-      background-image: url(images/high/ic_menu_arrow_down.png); } }
-  @media screen and (-webkit-device-pixel-ratio: 1.0) {
-    #page-dashboard a.dashboard-ui-bar-button.info-button-open {
-      background-image: url(images/medium/ic_menu_arrow_up.png); }
-    #page-dashboard a.dashboard-ui-bar-button.info-button-close {
-      background-image: url(images/medium/ic_menu_arrow_down.png); } }
-  @media screen and (-webkit-device-pixel-ratio: 0.75) {
-    #page-dashboard a.dashboard-ui-bar-button.info-button-open {
-      background-image: url(images/low/ic_menu_arrow_up.png); }
-    #page-dashboard a.dashboard-ui-bar-button.info-button-close {
-      background-image: url(images/low/ic_menu_arrow_down.png); } }
 
 /* Newsfeed */
-#page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon {
-  display: block;
-  float: left;
-  width: 46px;
-  height: 46px;
-  margin-left: -5px;
-  margin-right: 5px; }
-  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .psu-icon.large {
+#page-newsfeed ul#newsfeed li.newsfeed-item {
+  overflow: hidden; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon {
+    display: block;
+    float: left;
     width: 46px;
     height: 46px;
+    margin-left: -5px;
+    margin-right: 5px; }
+    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .psu-icon.large {
+      width: 46px;
+      height: 46px;
+      margin-top: 0px;
+      text-shadow: none; }
+    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-facebook-item {
+      color: #385c99; }
+    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-twitter-item {
+      color: #6bb8fe; }
+    #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-news-item {
+      color: #ff9111; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item h1 {
     margin-top: 0px;
-    text-shadow: none; }
-  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-facebook-item {
-    color: #385c99; }
-  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-twitter-item {
-    color: #6bb8fe; }
-  #page-newsfeed ul#newsfeed li.newsfeed-item div.feed-icon .icon-news-item {
-    color: #ff9111; }
-#page-newsfeed ul#newsfeed li.newsfeed-item h1 {
-  margin-top: 0px;
-  font-size: 14px; }
-#page-newsfeed ul#newsfeed li.newsfeed-item .ui-li-aside {
-  width: 90px;
-  margin-top: 0px; }
-#page-newsfeed ul#newsfeed li.newsfeed-item p {
-  margin-top: 3px;
-  margin-bottom: 0px; }
+    font-size: 14px; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item .ui-li-aside {
+    width: 90px;
+    margin-top: 0px; }
+  #page-newsfeed ul#newsfeed li.newsfeed-item p {
+    margin-top: 3px;
+    margin-bottom: 0px; }
 
 /* Campus Map */
 #page-campusmap .ui-content {
@@ -397,6 +380,28 @@ footer.ui-footer {
   margin-left: 0px;
   margin-right: 0px; }
 
+/* Events */
+#page-events li.event h1 {
+  margin: 0px; }
+#page-events li.event h2 {
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: normal; }
+#page-events li.event p {
+  margin-bottom: 0px; }
+
+/* Events Details */
+#page-events-details h1 {
+  margin: 0px; }
+#page-events-details h2 {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: normal; }
+#page-events-details h3 {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: normal; }
+
 /* Styles based on the device's OS */
 html.android header .ui-btn[data-rel=back] {
   display: none; }
@@ -404,6 +409,10 @@ html.android header h1#header-logo {
   float: left;
   margin-left: 4px;
   text-align: left; }
+
+html.android a.dashboard-ui-bar-button i {
+  position: relative;
+  top: 3px; }
 
 html.android .m-app header h1#header-logo {
   width: auto;

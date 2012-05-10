@@ -117,26 +117,36 @@ $(document).on('pageshow', function() {
 $(document).on('pageinit', '.m-app', function() {
 	// Function to add both an html element and a click listener to all android headers
 	function convertAndroidHeaders() {
-		// Header jQuery object
-		var $header = $("html.android h1#header-logo");
-
-		// Grab the url of the hard-coded back button
-		var backUrl = $('a[data-rel=back]').attr('href');
+		// Header jQuery object (Let's not grab the already converted headers)
+		var $header = $("html.android h1#header-logo:not(.android-converted)");
 
 		// Add a class and an html span element
 		$header.addClass('back-button');
 		$header.prepend('<span class="back-image"></span>');
 
-		// Make the header clickable
-		$(document).on('vclick', $header.selector, function() {
-			// Use jQuery Mobile's page change function to animate with transitions and load with Ajax, even if they weren't already there (that's why we're not using history.back)
-			$.mobile.changePage(backUrl, {reverse: true});
-		});
+		// Let's "mark" that header as already being converted, so we don't do it over and over again
+		$header.addClass("android-converted");
 	}
 
 	// Functions to run immediately
 	convertAndroidHeaders();
 });
+
+// Make Android header's clickable
+$(document).on('vclick', 'html.android h1#header-logo', function() {
+	// Grab the url of the hard-coded back button
+	var backUrl = $('a[data-rel=back]').attr('href');
+
+	// Use jQuery Mobile's page change function to animate with transitions and load with Ajax, even if they weren't already there (that's why we're not using history.back)
+	$.mobile.changePage(backUrl, {reverse: true});
+});
+
+
+/*
+ *
+ * Page Dashboard
+ *
+ */
 
 // Bind generic events to be triggered on the DASHBOARD page initialization
 $(document).on('pageinit', '#page-dashboard', function() {
@@ -179,18 +189,6 @@ $(document).on('pageinit', '#page-dashboard', function() {
 		$dashboardNav.find('ul#dashboard-mapps li:nth-child(' + everyNthChild +')').addClass('dash-middle-element');
 	}
 
-	// Make the info button footer clickable
-	$(document).on('vclick', '.info-button', function(event) {
-		$('#hidden-info-div').toggleClass('open').stop().animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
-			// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
-			$(window).trigger('resize');
-			$(this).trigger('updatelayout');
-		});
-		$('footer').animate({ opacity: 'toggle'}, 1200, 'easeInExpo', function() {
-			// Do something on callback
-		});
-	});
-
 	// Functions to run on orientation change
 	$(window).on('orientationchange', function(event){
 		detectMiddleElements();
@@ -198,6 +196,18 @@ $(document).on('pageinit', '#page-dashboard', function() {
 
 	// Functions to run immediately
 	detectMiddleElements();
+});
+
+// Make the info button footer clickable
+$(document).on('vclick', '#page-dashboard .info-button', function(event) {
+	$('#hidden-info-div').toggleClass('open').stop().animate({ height: 'toggle', leaveTransforms: true, useTranslate3d: true}, 800, 'easeOutExpo', function() {
+		// Fix window height bugs by triggering an updatelayout and resize (repaint, please)
+		$(window).trigger('resize');
+		$(this).trigger('updatelayout');
+	});
+	$('footer').animate({ opacity: 'toggle'}, 1200, 'easeInExpo', function() {
+		// Do something on callback
+	});
 });
 
 
@@ -272,5 +282,30 @@ $(document).on('vclick', '#page-directory-results #directory-results a', functio
 	$.mobile.changePage( url, {
 		type: "post",
 		data: userData
+	});
+});
+
+
+/*
+ *
+ * Events m-app
+ *
+ */
+
+// When a result is clicked
+$(document).on('vclick', '#page-events #events a', function(event) {
+	// Prevent the form from submitting normally
+	event.preventDefault();
+
+	// Get the url from the link
+	var url = $(this).attr('href');
+
+	// Get the data from the hidden input
+	var eventData = $(this).find('input[name=event-details]').serialize();
+
+	// Make the request pretty
+	$.mobile.changePage( url, {
+		type: "post",
+		data: eventData
 	});
 });
