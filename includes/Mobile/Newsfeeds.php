@@ -33,7 +33,7 @@ class Newsfeeds {
 	 */
 	private static function get_twitter_feed() {
 		// Create a new Twitter feed
-		$twitter = new Feeds\Twitter(
+		$twitter = new Feed\Twitter(
 			self::$news_sources['twitter']['feed_url'], 
 			self::$news_sources['twitter']['username'] 
 		);
@@ -50,7 +50,7 @@ class Newsfeeds {
 	 */
 	private static function get_facebook_feed() {
 		// Create a new Facebook feed
-		$facebook = new Feeds\Facebook(
+		$facebook = new Feed\Facebook(
 			self::$news_sources['facebook']['feed_url'], 
 			self::$news_sources['facebook']['username'], 
 			self::$news_sources['facebook']['request'], 
@@ -70,7 +70,7 @@ class Newsfeeds {
 	 */
 	private static function get_rss_feed($url) {
 		// Create a new RSS feed
-		$rss = new Feeds\Rss($url);
+		$rss = new Feed\Rss($url);
 
 		// Set some options
 		$rss->set_post_limit(self::$limit_posts_per_source);
@@ -100,7 +100,7 @@ class Newsfeeds {
 		}
 
 		// Sort the array so the newest items show on top
-		usort($agg_feed_data, array(__NAMESPACE__ . '\Feeds', 'compare_array_timestamp'));
+		usort($agg_feed_data, array(__NAMESPACE__ . '\Feed', 'compare_array_timestamp'));
 
 		// Limit the posts to a set amount
 		$agg_feed_data = array_slice($agg_feed_data, 0, self::$limit_posts_total);

@@ -205,9 +205,7 @@ $(document).on('vclick', '#page-dashboard .info-button', function(event) {
 		$(window).trigger('resize');
 		$(this).trigger('updatelayout');
 	});
-	$('footer').animate({ opacity: 'toggle'}, 1200, 'easeInExpo', function() {
-		// Do something on callback
-	});
+	$('footer').animate({ opacity: 'toggle'}, 1200, 'easeInExpo');
 });
 
 

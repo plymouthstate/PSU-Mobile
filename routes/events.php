@@ -4,7 +4,6 @@
 respond( '/?', function( $request, $response, $app ){
 	// Grab the news
 	$feed_data = Mobile::events();
-	//\PSU::dbug($feed_data);
 
 	// Assign the feed_data array to the template
 	$app->tpl->assign( 'feed_data', $feed_data );

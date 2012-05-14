@@ -7,8 +7,8 @@
 		{foreach from="$feed_data" item="item"}
 			<li class="event">
 				<a href="{$PHP.BASE_URL}/events/details/{$item.timestamp}" data-ajax="false">
-					<h1 class="event-title">{$item.text}</h1>
-					<h2>{$item.date_start}</h2>
+					<h2 class="event-title">{$item.text}</h2>
+					<h3>{$item.date_start}</h3>
 
 					{if !$item.time_start && !$item.time_end}
 						<p>All Day</p>

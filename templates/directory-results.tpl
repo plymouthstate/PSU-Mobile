@@ -3,12 +3,12 @@
 	{jqm_header title="Directory" back_button="true"}{/jqm_header}
 
 	{jqm_content}
-		<h1>Results</h1>
+		<h2>Results</h2>
 		<ul id="directory-results" data-role="listview" data-inset="true" data-theme="d">
 			{foreach from=$results item=result}
 				<li class="result">
 					<a href="{$PHP.BASE_URL}/directory/user/{$result->email}" data-ajax="false">
-						<h2>{$result->name_full}</h2>
+						<h3>{$result->name_full}</h3>
 						{if $result->title}
 							<p>{$result->title}</p>
 						{elseif $result->major}
