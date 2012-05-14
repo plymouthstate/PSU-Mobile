@@ -3,11 +3,11 @@
 	{jqm_header title="Directory" back_button="true"}{/jqm_header}
 
 	{jqm_content}
-		<h1 class="directory-details" id="directory-details-name" data-firstname="{$user_data->name_first}" data-lastname="{$user_data->name_last}">{$user_data->name_full}</h1>
+		<h2 class="directory-details" id="directory-details-name" data-firstname="{$user_data->name_first}" data-lastname="{$user_data->name_last}">{$user_data->name_full}</h2>
 		{if $user_data->title}
-			<h2 class="directory-details" id="directory-details-title">{$user_data->title}</h2>
+			<h3 class="directory-details" id="directory-details-title">{$user_data->title}</h3>
 		{elseif $user_data->major}
-			<h2 class="directory-details" id="directory-details-major">{$user_data->major}</h2>
+			<h3 class="directory-details" id="directory-details-major">{$user_data->major}</h3>
 		{/if}
 		<ul id="directory-details" data-role="listview" data-inset="true" data-theme="d">
 			{if $user_data->dept}

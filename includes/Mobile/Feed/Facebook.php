@@ -1,10 +1,10 @@
 <?php
 
-namespace Mobile\Feeds;
+namespace Mobile\Feed;
 
-use Mobile\Feeds;
+use Mobile\Feed;
 
-class Facebook extends Feeds {
+class Facebook extends Feed {
 	// Settings
 	private $post_limit = 8;
 	private $remove_empty_message_posts = true;

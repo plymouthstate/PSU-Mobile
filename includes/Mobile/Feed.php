@@ -2,7 +2,7 @@
 
 namespace Mobile;
 
-abstract class Feeds {
+abstract class Feed {
 	// Properties
 	protected $url;
 	protected $data;
@@ -86,4 +86,4 @@ abstract class Feeds {
 
 		return $feed_data;
 	} // Ebd get_rss_source
-} // End class Feeds
+} // End class Feed

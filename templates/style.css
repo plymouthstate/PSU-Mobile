@@ -47,6 +47,9 @@ h1 {
   font-size: 24px; }
 
 h2 {
+  font-size: 22px; }
+
+h3 {
   font-size: 20px; }
 
 a, a:link {
@@ -359,20 +362,20 @@ footer.ui-footer {
   margin-bottom: 0px; }
 
 /* Directory */
-#page-directory h1 {
+#page-directory h2 {
   margin-top: 0px; }
 
 /* Directory Results */
-#page-directory-results h1, #page-directory-results h2 {
+#page-directory-results h2, #page-directory-results h3 {
   margin: 0px; }
 #page-directory-results p {
   margin-top: 6px;
   margin-bottom: 0px; }
 
 /* Directory Details */
-#page-directory-details h1 {
-  margin: 0px; }
 #page-directory-details h2 {
+  margin: 0px; }
+#page-directory-details h3 {
   margin-top: 8px;
   font-size: 16px;
   font-weight: normal; }
@@ -381,9 +384,9 @@ footer.ui-footer {
   margin-right: 0px; }
 
 /* Events */
-#page-events li.event h1 {
-  margin: 0px; }
 #page-events li.event h2 {
+  margin: 0px; }
+#page-events li.event h3 {
   margin-top: 2px;
   font-size: 14px;
   font-weight: normal; }
@@ -391,15 +394,22 @@ footer.ui-footer {
   margin-bottom: 0px; }
 
 /* Events Details */
-#page-events-details h1 {
-  margin: 0px; }
 #page-events-details h2 {
+  margin: 0px; }
+#page-events-details h3 {
   margin-top: 8px;
+  margin-bottom: 8px;
   font-size: 16px;
   font-weight: normal; }
-#page-events-details h3 {
+#page-events-details h4 {
   margin-top: 6px;
   font-size: 14px;
+  font-weight: normal; }
+#page-events-details div.event-content h1 {
+  font-size: 16px;
+  font-weight: normal; }
+#page-events-details div.event-content h2 {
+  font-size: 16px;
   font-weight: normal; }
 
 /* Styles based on the device's OS */

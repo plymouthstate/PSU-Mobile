@@ -23,7 +23,7 @@ class Events {
 		// Loop through each feed
 		foreach (self::$feed_urls as $url) {
 			// Create a new RSS feed
-			$rss = new Feeds\Rss($url);
+			$rss = new Feed\Rss($url);
 
 			// Set some options
 			$rss->set_post_limit(self::$limit_posts_per_source);
