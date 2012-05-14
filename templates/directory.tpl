@@ -3,12 +3,12 @@
 	{jqm_header title="Directory" back_button="true"}{/jqm_header}
 
 	{jqm_content}
-		<h1>Search</h1>
+		<h2>Search</h2>
 		<form action="search" method="get" data-ajax="false">
 			<input type="search" name="query" id="directory-search" data-theme="d">
 		</form>
 
-		<h2>Important Phone Numbers</h2>
+		<h3>Important Phone Numbers</h3>
 		<ul data-role="listview" data-inset="true" data-theme="d">
 			<li>
 				ITS Helpdesk

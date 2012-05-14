@@ -66,6 +66,9 @@ h1 {
 	font-size: 24px;
 }
 h2 {
+	font-size: 22px;
+}
+h3 {
 	font-size: 20px;
 }
 a, a:link {
@@ -502,14 +505,14 @@ footer.ui-footer {
 
 /* Directory */
 #page-directory {
-	h1 {
+	h2 {
 		margin-top: 0px;
 	}
 }
 
 /* Directory Results */
 #page-directory-results {
-	h1, h2 {
+	h2, h3 {
 		margin: 0px;
 	}
 	p {
@@ -520,10 +523,10 @@ footer.ui-footer {
 
 /* Directory Details */
 #page-directory-details {
-	h1 {
+	h2 {
 		margin: 0px;
 	}
-	h2 {
+	h3 {
 		margin-top: 8px;
 		font-size: 16px;
 		font-weight: normal;
@@ -537,10 +540,10 @@ footer.ui-footer {
 /* Events */
 #page-events {
 	li.event {
-		h1 {
+		h2 {
 			margin: 0px;
 		}
-		h2 {
+		h3 {
 			margin-top: 2px;
 			font-size: 14px;
 			font-weight: normal;
@@ -553,18 +556,29 @@ footer.ui-footer {
 
 /* Events Details */
 #page-events-details {
-	h1 {
+	h2 {
 		margin: 0px;
 	}
-	h2 {
+	h3 {
 		margin-top: 8px;
+		margin-bottom: 8px;
 		font-size: 16px;
 		font-weight: normal;
 	}
-	h3 {
+	h4 {
 		margin-top: 6px;
 		font-size: 14px;
 		font-weight: normal;
+	}
+	div.event-content {
+		h1 {
+			font-size: 16px;
+			font-weight: normal;
+		}
+		h2 {
+			font-size: 16px;
+			font-weight: normal;
+		}
 	}
 }
 

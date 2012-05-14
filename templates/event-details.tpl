@@ -3,21 +3,21 @@
 	{jqm_header title="Events" back_button="true"}{/jqm_header}
 
 	{jqm_content}
-		<h1>{$event_data->text}</h1>
+		<h2>{$event_data->text}</h2>
 
 		{if !$event_data->date_end}
-			<h2>{$event_data->date_start}</h2>
+			<h3>{$event_data->date_start}</h3>
 		{else}
-			<h2>{$event_data->date_start} to {$event_data->date_end}</h2>
+			<h3>{$event_data->date_start} to {$event_data->date_end}</h3>
 		{/if}
 
 		{if !$event_data->time_start && !$event_data->time_end}
-			<h3>All Day</h3>
+			<h4>All Day</h4>
 		{else}
-			<h3>{$event_data->time_start} to {$event_data->time_end}</h3>
+			<h4>{$event_data->time_start} to {$event_data->time_end}</h4>
 		{/if}
 
-		<p>{$event_data->content}<p>
+		<div class="event-content">{$event_data->content}</div>
 
 	{/jqm_content}
 
