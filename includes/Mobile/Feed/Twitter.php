@@ -1,10 +1,10 @@
 <?php
 
-namespace Mobile\Feeds;
+namespace Mobile\Feed;
 
-use Mobile\Feeds;
+use Mobile\Feed;
 
-class Twitter extends Feeds {
+class Twitter extends Feed {
 	// Settings
 	private $post_limit = 8;
 
